@@ -4,9 +4,19 @@ public class Grid : MonoBehaviour
 {
     [SerializeField] private int height;
     [SerializeField] private int width;
+    
+    private BuildingGridCell[,] cells;
 
     void Start()
     {
+        cells = new BuildingGridCell[width, height];
+        for (int x = 0; x < cells.GetLength(0); x++)
+        {
+            for (int y = 0; y < cells.GetLength(1); y++)
+            {
+                cells[x, y] = new BuildingGridCell();
+            }
+        }
     }
 
     void OnDrawGizmos()
@@ -28,4 +38,9 @@ public class Grid : MonoBehaviour
             Gizmos.DrawLine(start, end);
         }
     }
+}
+
+public class BuildingGridCell
+{
+    
 }
