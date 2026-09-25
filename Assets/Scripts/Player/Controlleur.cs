@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class Controlleur : MonoBehaviour
@@ -10,12 +11,12 @@ public class Controlleur : MonoBehaviour
     public float speed;
     private Vector2 moveInput;
     
-    public int CurrentXp = 0;
+    public int currentXp = 0;
     [SerializeField] private int maxXp = 10;
     public Slider xpSlider;
 
-    public int MaxHealth;
-    public int CurrentHealth;
+    public int maxHealth;
+    public int currentHealth;
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     
