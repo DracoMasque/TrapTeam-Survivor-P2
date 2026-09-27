@@ -27,15 +27,17 @@ public class BuildingSystem : MonoBehaviour
     private Vector2 FollowMouse()
     {
         /*
-        Ray ray = _camera.ScreenPointToRay(mousePos.ReadValue<Vector3>());
+        Vector3 mousePos3 = Mouse.current.position.ReadValue();
+        mousePos3.z = _camera.nearClipPlane;
+        Ray ray = _camera.ScreenPointToRay(mousePos3);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1, placementLayerMask))
         {
             lastPos = hit.point;
-            print(lastPos);
+            //print(lastPos);
         }
         */
-
-        return _camera.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
+        
+        return _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
 }
