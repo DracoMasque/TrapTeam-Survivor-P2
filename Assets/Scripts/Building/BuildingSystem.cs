@@ -8,7 +8,7 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private LayerMask placementLayerMask;
     private InputAction mousePos;
     private Vector2 lastPos;
-    [SerializeField] private GameObject mouseIndicator, cellIndicator;
+    [SerializeField] private GameObject /*mouseIndicator,*/ cellIndicator;
     [SerializeField] private Grid grid;
 
     void Start()
@@ -19,9 +19,11 @@ public class BuildingSystem : MonoBehaviour
 
     void Update()
     {
-        mouseIndicator.transform.position = FollowMouse();
+        //mouseIndicator.transform.position = FollowMouse();
         Vector3Int gridPos = grid.WorldToCell(FollowMouse());
         cellIndicator.transform.position = grid.CellToWorld(gridPos);
+        print("gridPos: " + gridPos);
+        print("indicateur: " + cellIndicator.transform.position);
     }
 
     private Vector2 FollowMouse()
@@ -38,6 +40,6 @@ public class BuildingSystem : MonoBehaviour
         }
         */
         
-        return _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        return _camera.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
     }
 }
