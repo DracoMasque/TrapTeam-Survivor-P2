@@ -1024,6 +1024,16 @@
                     "interactions": "",
                     "initialStateCheck": true,
                     "priority": 0
+                },
+                {
+                    "name": "Construction",
+                    "type": "Button",
+                    "id": "3ef1ff66-8ff4-4c8c-b8cd-92071df4cc30",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -1035,6 +1045,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "158d9a71-6683-4e10-85e2-bf93cf12ccc6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Construction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
