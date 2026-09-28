@@ -8,7 +8,7 @@ public class Cooldown : MonoBehaviour
     public bool finished = false;
     float _currentTime = 0f;
 
-    public void Start()
+    private void Start()
     {
         _currentTime = maxCooldownTime;
     }
@@ -19,7 +19,7 @@ public class Cooldown : MonoBehaviour
         _currentTime = maxCooldownTime;
     }
 
-    void Update()
+    private void Update()
     {
         //Fait baisser le timer
         //Si il est a 0 on peut a nouveau attaquer

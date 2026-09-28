@@ -34,7 +34,7 @@ public class EnemyPrefab : MonoBehaviour
         Walk(player.transform.position);
         Attack();
     }
-    void Walk(Vector2 player_pos)
+    private void Walk(Vector2 player_pos)
     {
         transform.position = Vector2.MoveTowards(transform.position, player_pos, speed * Time.deltaTime);
     }
@@ -43,7 +43,7 @@ public class EnemyPrefab : MonoBehaviour
     //====================ATTACK====================//
     
     //Comment l'enemy attaque le joueur
-    void Attack()
+    private void Attack()
     {
         if (timer.finished && IsClose())
         {
@@ -53,12 +53,12 @@ public class EnemyPrefab : MonoBehaviour
         }
     }
     //Quand l'animation d'attaque est terminé, reviens a l'anim de déplacement de l'animator
-    void AttackFinished()
+    private void AttackFinished()
     {
         animator.SetBool("Attacking", false);
     }
     //Est ce que le joueur est dans le range de l'enemy
-    bool IsClose()
+    private bool IsClose()
     {
         bool result = false;
         if (Vector2.Distance(transform.position, player.transform.position) <= range)
@@ -71,7 +71,7 @@ public class EnemyPrefab : MonoBehaviour
     
     //====================DEATH====================//
     
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -79,13 +79,13 @@ public class EnemyPrefab : MonoBehaviour
             Die();
         }
     }
-    void Die()
+    private void Die()
     {
         DropXp();
         DropMaterial();
         animator.SetBool("Dead", true);
     }
-    void DieFinished()
+    private void DieFinished()
     {
         Destroy(gameObject);
     }

@@ -26,7 +26,7 @@ public class EnemySpawning : MonoBehaviour
         }
     }
 
-    void SpawnEnemy(GameObject enemy)
+    private void SpawnEnemy(GameObject enemy)
     {
         GameObject newEnemy = Instantiate(enemy, enemiesContainer.transform);
         newEnemy.transform.position = RandomSpawnPoint();
@@ -36,7 +36,7 @@ public class EnemySpawning : MonoBehaviour
     {
         //as the game progresses have enemies spawn more often
     }
-    GameObject ChangeEnemy()
+    private GameObject ChangeEnemy()
     {
         //as the game progresses choose harder and harder
         //I have no idea how to do that yet
@@ -44,7 +44,7 @@ public class EnemySpawning : MonoBehaviour
     }
     //=================SPAWN POINT===================//
     //chooses a random spawn point on a circle bigger than the camera
-    Vector2 RandomSpawnPoint()
+    private Vector2 RandomSpawnPoint()
     {
         float circleRadius = CircleRadius();
         float radianPoint = RandomRadianPoint();
@@ -52,7 +52,7 @@ public class EnemySpawning : MonoBehaviour
         return result;
     }
     //longueure de la camera + un % en plus comme radius
-    float CircleRadius()
+    private float CircleRadius()
     {
         if (!currentCamera)
         {
@@ -65,12 +65,12 @@ public class EnemySpawning : MonoBehaviour
         
         return circleRadius;
     }
-    float RandomRadianPoint()
+    private float RandomRadianPoint()
     {
         float radian = Random.Range(0, 2 * Mathf.PI);
         return radian;
     }
-    Vector2 RadianToCoords(float radians, float radius)
+    private Vector2 RadianToCoords(float radians, float radius)
     {
         float x = Mathf.Cos(radians) * radius;
         float y = Mathf.Sin(radians) * radius;
