@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Cooldown : MonoBehaviour
 {
@@ -6,6 +7,11 @@ public class Cooldown : MonoBehaviour
     [SerializeField] private float maxCooldownTime = 2f;
     public bool finished = false;
     float _currentTime = 0f;
+
+    public void Start()
+    {
+        _currentTime = maxCooldownTime;
+    }
 
     public void Play()
     {

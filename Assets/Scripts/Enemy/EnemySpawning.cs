@@ -6,11 +6,13 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     [SerializeField] List<GameObject> enemies = new List<GameObject>();
+    [SerializeField] private GameObject enemiesContainer;
     private Cooldown timer;
     private CinemachineCamera currentCamera;
     void Start()
     {
         Assert.IsNotEmpty(enemies, "EnemySpawning.cs : There are no enemies to spawn");
+        Assert.IsNotNull(enemiesContainer, "EnemySpawning.cs : the enemiesContainer wasn't set properly");
         timer = GetComponent<Cooldown>();
         currentCamera = GameObject.FindGameObjectWithTag("Camera").GetComponent<CinemachineCamera>();
     }
@@ -26,7 +28,7 @@ public class EnemySpawning : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy)
     {
-        GameObject newEnemy = Instantiate(enemy, transform.parent);
+        GameObject newEnemy = Instantiate(enemy, enemiesContainer.transform);
         newEnemy.transform.position = RandomSpawnPoint();
     }
     
