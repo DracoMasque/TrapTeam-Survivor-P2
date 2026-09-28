@@ -12,11 +12,15 @@ public class PlayerBuilding : MonoBehaviour
     [SerializeField] private CinemachineCamera camera;
     private GameObject[] groupementPossible;
     public BuildingSystem building;
+    public GameObject groupement;
+    
 
     void Start()
     {
         groupementPossible = Resources.LoadAll<GameObject>("BuildingPrefabs\\Groupements");
+        building = buildingSystem.GetComponent<BuildingSystem>();
     }
+    
 
     public void StartBuilding(InputAction.CallbackContext cxt)
     {
@@ -27,16 +31,20 @@ public class PlayerBuilding : MonoBehaviour
                 buildingSystem.SetActive(true);
                 camera.gameObject.SetActive(false);
                 StartCoroutine(DeZoom());
-                GameObject groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, transform.rotation);
-                groupement.GetComponent<Groupement>().BuildGroup();
-                building.cellIndicator = groupement;
+                groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
+                groupement.transform.SetParent(building.cellIndicator.transform);
+                groupement.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), building.cellIndicator.transform.localRotation);
             }
         }
     }
-
     IEnumerator DeZoom()
     {
         yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 0;
     }
+
+    
+    
+    
+    
 }

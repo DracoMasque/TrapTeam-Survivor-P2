@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8942418492928640280}
   m_Layer: 0
   m_Name: Groupement3LReverse
-  m_TagString: Untagged
+  m_TagString: Groupement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
