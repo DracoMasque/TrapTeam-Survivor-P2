@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 506894051158575000}
   - component: {fileID: 6429697507425186170}
   - component: {fileID: 337994873977494765}
+  - component: {fileID: 3062345154623349187}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -54,7 +55,7 @@ MonoBehaviour:
   speed: 2
   range: 2
   xpPrefab: {fileID: 0}
-  materialPrefab: {fileID: 0}
+  materialPrefab: {fileID: 653055286994394397, guid: ebe6f71df8b398f40b607775800095fa, type: 3}
 --- !u!212 &1926789264679910545
 SpriteRenderer:
   serializedVersion: 3
@@ -171,6 +172,7 @@ MonoBehaviour:
   loop: 0
   maxCooldownTime: 2
   finished: 0
+  currentTime: 0
 --- !u!70 &337994873977494765
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -206,5 +208,32 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.5568852, y: 3.5568852}
+  m_Size: {x: 1.9365566, y: 1.9365566}
   m_Direction: 0
+--- !u!50 &3062345154623349187
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

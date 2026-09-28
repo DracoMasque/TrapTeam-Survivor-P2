@@ -1,16 +1,49 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private WaveScriptable[] waves ;
+    private WaveScriptable currentWave;
+    private WaveScriptable nextWave;
+    private Cooldown timer;
+
+    private void Start()
     {
-        
+        timer = GetComponent<Cooldown>();
+        currentWave = waves[0];
+        nextWave = waves[0];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (timer.currentTime >= nextWave.time)
+        {
+            currentWave = nextWave;
+            NextWave();
+            if (currentWave.enemies.Count > 0)
+            {
+                // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+                BroadcastMessage("ChangeEnemy", currentWave.enemies);
+            }
+           
+        }
+    }
+    
+    private void NextWave()
+    {
+        WaveScriptable newWave = currentWave;
+        newWave.time = timer.maxCooldownTime;
         
+        foreach (WaveScriptable wave in waves)
+        {
+            float previousWave = wave.time;
+            if (wave.time > nextWave.time && wave.time < previousWave)
+            {
+                newWave = wave;
+            }
+        }
+        
+        nextWave = newWave;
     }
 }

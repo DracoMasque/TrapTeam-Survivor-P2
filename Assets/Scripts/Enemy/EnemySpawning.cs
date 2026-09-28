@@ -21,44 +21,78 @@ public class EnemySpawning : MonoBehaviour
     {
         if (timer.finished)
         {
-            SpawnEnemy(ChangeEnemy());
+            SpawnEnemy(ChooseEnemy());
             timer.Play();
         }
     }
 
     private void SpawnEnemy(GameObject enemy)
     {
-        GameObject newEnemy = Instantiate(enemy, enemiesContainer.transform);
-        newEnemy.transform.position = RandomSpawnPoint();
+        if (enemy)
+        {
+            GameObject newEnemy = Instantiate(enemy, enemiesContainer.transform);
+            newEnemy.transform.position = RandomSpawnPoint();
+        }
     }
     
     void ChangeTimer()
     {
         //as the game progresses have enemies spawn more often
     }
-    private GameObject ChangeEnemy()
+    void ChangeEnemy(Dictionary<GameObject, int> newEnemies)
     {
-        //as the game progresses choose harder and harder
-        //I have no idea how to do that yet
-        return enemies[0];
+        List<GameObject> newEnemiesList = new List<GameObject>();
+        foreach (var item in newEnemies)
+        {
+            if (item.Value > 0)
+            {
+                for (int i = 0; i <= item.Value; i++)
+                {
+                    newEnemiesList.Add(item.Key);
+                }
+            }
+        }
+        enemies = newEnemiesList;
+    }
+    private GameObject ChooseEnemy()
+    {
+        if (enemies.Count == 0)
+        {
+            return null;
+        }
+        int i = Random.Range(0, enemies.Count-1);
+        return enemies[i];
     }
     //=================SPAWN POINT===================//
+    
     //chooses a random spawn point on a circle bigger than the camera
     private Vector2 RandomSpawnPoint()
     {
-        float circleRadius = CircleRadius();
         float radianPoint = RandomRadianPoint();
-        Vector2 result = RadianToCoords(radianPoint, circleRadius);
+        Vector2 result = RadianToCoords(radianPoint);
         return result;
     }
     //longueure de la camera + un % en plus comme radius
-    private float CircleRadius()
+    private float CircleRadiusX()
     {
         if (!currentCamera)
         {
             return 1.0f;
         }
-        float currentCameraWidth = currentCamera.Lens.OrthographicSize/0.5f;
+        float currentCameraWidth = currentCamera.Lens.OrthographicSize*2f;
+        float padding = currentCameraWidth * 0.2f;
+        
+        float circleRadius = currentCameraWidth + padding;
+        
+        return circleRadius;
+    }
+    private float CircleRadiusY()
+    {
+        if (!currentCamera)
+        {
+            return 1.0f;
+        }
+        float currentCameraWidth = currentCamera.Lens.OrthographicSize;
         float padding = currentCameraWidth * 0.2f;
         
         float circleRadius = currentCameraWidth + padding;
@@ -70,10 +104,10 @@ public class EnemySpawning : MonoBehaviour
         float radian = Random.Range(0, 2 * Mathf.PI);
         return radian;
     }
-    private Vector2 RadianToCoords(float radians, float radius)
+    private Vector2 RadianToCoords(float radians)
     {
-        float x = Mathf.Cos(radians) * radius;
-        float y = Mathf.Sin(radians) * radius;
+        float x = Mathf.Cos(radians) * CircleRadiusX();
+        float y = Mathf.Sin(radians) * CircleRadiusY();
         Vector2 cameraPos = currentCamera.gameObject.transform.position;
         return new Vector2(x + cameraPos.x, y + cameraPos.y) ;
     }
