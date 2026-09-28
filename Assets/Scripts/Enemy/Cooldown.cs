@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class AttaqueCooldown : MonoBehaviour
+public class Cooldown : MonoBehaviour
 {
     [SerializeField] public bool loop = false;
     [SerializeField] private float maxCooldownTime = 2f;
-    public bool canAttack = false;
+    public bool finished = false;
     float _currentTime = 0f;
 
     public void Play()
     {
-        canAttack = false;
+        finished = false;
         _currentTime = maxCooldownTime;
     }
 
@@ -17,12 +17,12 @@ public class AttaqueCooldown : MonoBehaviour
     {
         //Fait baisser le timer
         //Si il est a 0 on peut a nouveau attaquer
-        //Si le timer loop il commencer tout seule a recommencer
+        //Si le timer loop il recommencer tout seule 
         _currentTime -= Time.deltaTime;
         
         if (_currentTime <= 0f)
         {
-            canAttack = true;
+            finished = true;
             if (loop)
             {
                 Play();
