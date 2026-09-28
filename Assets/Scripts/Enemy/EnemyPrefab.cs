@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyPrefab : MonoBehaviour
 {
     [SerializeField] int attack = 10;
-    [SerializeField] int speed = 10;
+    public float speed = 10;
     [SerializeField] float range;
     private GameObject player;
     private Controlleur playerControlleur;
