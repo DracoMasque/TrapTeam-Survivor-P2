@@ -31,7 +31,6 @@ public class PlayerBuilding : MonoBehaviour
                 buildingSystem.SetActive(true);
                 building.buildable = true;
                 camera.gameObject.SetActive(false);
-                StartCoroutine(DeZoom());
                 groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
                 building.groupement = groupement.GetComponent<Groupement>();
                 groupement.transform.SetParent(building.cellIndicator.transform);
@@ -39,14 +38,5 @@ public class PlayerBuilding : MonoBehaviour
             }
         }
     }
-    IEnumerator DeZoom()
-    {
-        yield return new WaitForSecondsRealtime(1f);
-        //Time.timeScale = 0;
-    }
-
-    
-    
-    
     
 }
