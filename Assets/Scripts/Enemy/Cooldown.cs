@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Cooldown : MonoBehaviour
 {
+    private GameManager gameManager;
+    
     [SerializeField] public bool loop = false;
     [SerializeField] public float maxCooldownTime = 2f;
     public bool finished = false;
@@ -11,6 +13,7 @@ public class Cooldown : MonoBehaviour
     private void Start()
     {
         currentTime = maxCooldownTime;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void Play()
@@ -24,6 +27,10 @@ public class Cooldown : MonoBehaviour
         //Fait baisser le timer
         //Si il est a 0 on peut a nouveau attaquer
         //Si le timer loop il recommencer tout seule 
+        if (gameManager.paused)
+        {
+            return;
+        }
         currentTime -= Time.deltaTime;
         
         if (currentTime <= 0f)

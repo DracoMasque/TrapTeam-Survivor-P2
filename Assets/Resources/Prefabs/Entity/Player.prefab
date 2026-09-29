@@ -373,6 +373,6 @@ MonoBehaviour:
   speed: 5
   currentXp: 0
   maxXp: 10
-  maxHealth: 0
+  maxHealth: 10
   currentHealth: 0
   healthText: {fileID: 0}

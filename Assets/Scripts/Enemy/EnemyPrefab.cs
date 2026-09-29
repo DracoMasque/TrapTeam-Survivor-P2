@@ -31,6 +31,7 @@ public class EnemyPrefab : MonoBehaviour
     }
     void Update()
     {
+        
         Walk(player.transform.position);
         Attack();
     }

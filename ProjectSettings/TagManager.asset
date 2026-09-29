@@ -9,6 +9,9 @@ TagManager:
   - Camera
   - PlayableZone
   - Groupement
+  - BuildingSystem
+  - XpBar
+  - HealthBar
   layers:
   - Default
   - TransparentFX

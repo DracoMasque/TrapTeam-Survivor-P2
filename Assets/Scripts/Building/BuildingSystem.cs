@@ -54,6 +54,7 @@ public class BuildingSystem : MonoBehaviour
             {
                 playerBuilding.groupement.transform.SetParent(null);
                 playerBuilding.groupement = null;
+                playerBuilding.requarieredMaterial *= 2;
             }
         }
     }

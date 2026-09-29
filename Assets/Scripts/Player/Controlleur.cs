@@ -2,10 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
-using UnityEngine.UIElements;
+
+using UnityEngine.UI;
 
 public class Controlleur : MonoBehaviour
 {
+    private GameManager gameManager;
+    
     private Rigidbody2D rb;
     
     public float speed;
@@ -24,12 +27,22 @@ public class Controlleur : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        xpSlider = GameObject.Find("XpBar").GetComponent<Slider>();
+        healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
+        currentHealth = maxHealth;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.paused)
+        {
+            return;
+        }
         rb.linearVelocity = moveInput.normalized * speed;
+        xpSlider.value = currentXp/maxXp;
+        healthSlider.value = currentHealth/maxHealth;
     }
 
     public void Move(InputAction.CallbackContext cxt)

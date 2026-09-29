@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private WaveScriptable currentWave;
     private WaveScriptable nextWave;
     private Cooldown timer;
+    public bool paused = false;
 
     private void Start()
     {
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (paused)
+        {
+            return;
+        }
         if (timer.currentTime >= nextWave.time)
         {
             currentWave = nextWave;
