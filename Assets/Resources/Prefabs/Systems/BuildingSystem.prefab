@@ -238,8 +238,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -750432289
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
@@ -303,3 +303,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PointeurRecup
   canPickUp: 0
   building: {fileID: 3275875913118168336}
+  groupement: {fileID: 0}
