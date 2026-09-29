@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5671927596536538782}
   - component: {fileID: 506894051158575000}
   - component: {fileID: 6429697507425186170}
+  - component: {fileID: 337994873977494765}
+  - component: {fileID: 3062345154623349187}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -48,9 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3abf5e25b701945a63eb5c8ee7093c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  maxHealth: 10
   attack: 10
   speed: 2
   range: 2
+  xpPrefab: {fileID: 0}
+  materialPrefab: {fileID: 653055286994394397, guid: ebe6f71df8b398f40b607775800095fa, type: 3}
 --- !u!212 &1926789264679910545
 SpriteRenderer:
   serializedVersion: 3
@@ -146,6 +151,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 4a9b7cafc97d79c4d90bdac7613b2eff, type: 2}
   - {fileID: 7400000, guid: 0787941f884f1bb4eaacbef42a5e4fc6, type: 2}
+  - {fileID: 7400000, guid: 7b63423d9dd4b654cade4becea752bc9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -165,4 +171,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
   loop: 0
   maxCooldownTime: 2
-  canAttack: 0
+  finished: 0
+  currentTime: 0
+--- !u!70 &337994873977494765
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.9365566, y: 1.9365566}
+  m_Direction: 0
+--- !u!50 &3062345154623349187
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
