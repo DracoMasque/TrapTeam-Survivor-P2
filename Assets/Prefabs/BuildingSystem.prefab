@@ -79,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4169312408802020347
 Transform:
   m_ObjectHideFlags: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSystem
   cellIndicator: {fileID: 4202314376685387787}
   grid: {fileID: 5335625021640126090}
+  buildable: 1
+  groupement: {fileID: 0}
 --- !u!1 &8133054809311281905
 GameObject:
   m_ObjectHideFlags: 0

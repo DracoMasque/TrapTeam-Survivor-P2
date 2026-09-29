@@ -12,6 +12,9 @@ public class BuildingSystem : MonoBehaviour
     PlayerBuilding playerBuilding;
     private InputAction rotateInput;
     private InputAction placeInput;
+    
+    public bool buildable = true;
+    public Groupement groupement = null;
 
     void Start()
     {
@@ -26,8 +29,6 @@ public class BuildingSystem : MonoBehaviour
     {
         Vector3Int gridPos = grid.WorldToCell(FollowMouse());
         cellIndicator.transform.position = grid.CellToWorld(gridPos);
-        //print("gridPos: " + gridPos);
-        //print("indicateur: " + cellIndicator.transform.position);
 
         if (placeInput.triggered)
         {
@@ -47,16 +48,22 @@ public class BuildingSystem : MonoBehaviour
     
     public void PlaceGroup()
     {
-        if (playerBuilding.groupement.transform.parent != null)
+        if (buildable && playerBuilding.groupement != null)
         {
-            playerBuilding.groupement.transform.SetParent(null);
-            playerBuilding.groupement =  null;
+            if (playerBuilding.groupement.transform.parent != null)
+            {
+                playerBuilding.groupement.transform.SetParent(null);
+                playerBuilding.groupement = null;
+            }
         }
     }
 
     public void RotateGroup()
     {
-        playerBuilding.groupement.transform.GetChild(0).transform.Rotate(0,0,90f);
+        if (playerBuilding.groupement != null)
+        {
+            playerBuilding.groupement.transform.GetChild(0).transform.Rotate(0, 0, 90f);
+        }
     }
     
 }

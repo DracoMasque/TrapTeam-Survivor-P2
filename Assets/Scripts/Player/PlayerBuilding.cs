@@ -29,9 +29,11 @@ public class PlayerBuilding : MonoBehaviour
             if (numberMaterial == requarieredMaterial)
             {
                 buildingSystem.SetActive(true);
+                building.buildable = true;
                 camera.gameObject.SetActive(false);
                 StartCoroutine(DeZoom());
                 groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
+                building.groupement = groupement.GetComponent<Groupement>();
                 groupement.transform.SetParent(building.cellIndicator.transform);
                 groupement.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), building.cellIndicator.transform.localRotation);
             }
@@ -40,7 +42,7 @@ public class PlayerBuilding : MonoBehaviour
     IEnumerator DeZoom()
     {
         yield return new WaitForSecondsRealtime(1f);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     
