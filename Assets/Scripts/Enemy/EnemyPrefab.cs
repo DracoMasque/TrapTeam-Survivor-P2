@@ -19,6 +19,8 @@ public class EnemyPrefab : MonoBehaviour
     
     private Animator animator;
     private Animation animationComponent;
+    
+    private GameManager gameManager;
    
     void Start()
     {
@@ -28,10 +30,14 @@ public class EnemyPrefab : MonoBehaviour
         timer = GetComponent<Cooldown>();
         animator = GetComponent<Animator>();
         animationComponent = GetComponent<Animation>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Update()
     {
-        
+        if (gameManager.paused)
+        {
+            return;
+        }
         Walk(player.transform.position);
         Attack();
     }

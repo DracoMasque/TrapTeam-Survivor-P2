@@ -16,12 +16,14 @@ public class PlayerBuilding : MonoBehaviour
     public GameObject groupement;
     
     public Button cancelButton;
+    public GameManager gameManager;
     
 
     void Start()
     {
         groupementPossible = Resources.LoadAll<GameObject>("BuildingPrefabs\\Groupements");
         building = buildingSystem.GetComponent<BuildingSystem>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void StartBuilding(InputAction.CallbackContext cxt)
@@ -34,6 +36,8 @@ public class PlayerBuilding : MonoBehaviour
                 building.buildable = true;
                 camera.gameObject.SetActive(false);
                 cancelButton.gameObject.SetActive(true);
+                gameManager.paused = true;
+                requarieredMaterial *= 2;
                 groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
                 building.groupement = groupement.GetComponent<Groupement>();
                 groupement.transform.SetParent(building.cellIndicator.transform);
@@ -44,9 +48,11 @@ public class PlayerBuilding : MonoBehaviour
 
     public void StopBuilding()
     {
+        print("Stop Building");
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);
         cancelButton.gameObject.SetActive(false);
+        gameManager.paused = false;
     }
     
 }
