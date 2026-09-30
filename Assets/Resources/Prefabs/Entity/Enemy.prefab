@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3062345154623349187}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
   maxHealth: 10
   attack: 10
   speed: 2
+  maxSpeed: 2
   range: 2
   xpPrefab: {fileID: 0}
   materialPrefab: {fileID: 653055286994394397, guid: ebe6f71df8b398f40b607775800095fa, type: 3}

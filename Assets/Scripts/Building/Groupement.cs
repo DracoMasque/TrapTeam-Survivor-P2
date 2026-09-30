@@ -36,6 +36,15 @@ public class Groupement : MonoBehaviour
     {
         if (other.tag == "Groupement")
         {
+            buildingSystem.buildable = false;
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Groupement")
+        {
+            print("exit");
             buildingSystem.buildable = true;
         }
     }

@@ -17,6 +17,7 @@ public class PlayerBuilding : MonoBehaviour
     
     public Button cancelButton;
     public GameManager gameManager;
+    public PointeurRecup pointeurRecup;
     
 
     void Start()
@@ -49,6 +50,7 @@ public class PlayerBuilding : MonoBehaviour
     public void StopBuilding()
     {
         print("Stop Building");
+        pointeurRecup.gameObject.SetActive(false);
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);
         cancelButton.gameObject.SetActive(false);

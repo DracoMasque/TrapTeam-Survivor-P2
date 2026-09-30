@@ -6,8 +6,8 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] int maxHealth = 10;
     float currentHealth;
     [SerializeField] int attack = 10;
-    public float speed = 10;
-    public float maxSpeed;
+    public float speed;
+    public float maxSpeed = 10;
     [SerializeField] float range;
     [Header("Prefabs")]
     [SerializeField]  GameObject xpPrefab;
@@ -26,6 +26,7 @@ public class EnemyPrefab : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        speed = maxSpeed;
         player = GameObject.FindGameObjectWithTag("Player");
         playerControlleur = player.GetComponent<Controlleur>();
         timer = GetComponent<Cooldown>();

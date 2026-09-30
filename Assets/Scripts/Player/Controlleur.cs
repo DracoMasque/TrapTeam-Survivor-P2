@@ -12,6 +12,7 @@ public class Controlleur : MonoBehaviour
     private Rigidbody2D rb;
     
     public float speed;
+    public float maxSpeed;
     private Vector2 moveInput;
     
     public int currentXp = 0;

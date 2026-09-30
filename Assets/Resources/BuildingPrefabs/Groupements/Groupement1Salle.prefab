@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3787042293650636592}
   - component: {fileID: 3806771759750154530}
   - component: {fileID: 9047712455024558961}
-  - component: {fileID: -6690798726915058741}
+  - component: {fileID: -7172269219186932273}
   m_Layer: 7
   m_Name: Groupement1Salle
   m_TagString: Groupement
@@ -123,9 +123,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 9, y: 9}
   m_EdgeRadius: 0
---- !u!66 &-6690798726915058741
+--- !u!66 &-7172269219186932273
 CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -163,61 +163,13 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 5386307960088058329, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 100000000
-      - X: 0
-        Y: 100000000
-      - X: 0
-        Y: 0
-      - X: 100000000
-        Y: 0
-  - m_Collider: {fileID: 5564871532464824228, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 200000000
-        Y: 100000000
-      - X: 100000000
-        Y: 100000000
-      - X: 100000000
-        Y: 0
-      - X: 200000000
-        Y: 0
-  - m_Collider: {fileID: 8530837116171352050, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 0
-      - X: 0
-        Y: 0
-      - X: 0
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
-  - m_Collider: {fileID: 7108130006439332370, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 200000000
-      - X: 0
-        Y: 200000000
-      - X: 0
-        Y: 100000000
-      - X: 100000000
-        Y: 100000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 9.99997, y: -10}
-      - {x: 10.00003, y: 0}
-      - {x: 20, y: 0.000029300001}
-      - {x: 19.999971, y: 10}
-      - {x: 10, y: 10.00003}
-      - {x: 9.99997, y: 20}
-      - {x: 0, y: 19.999971}
-      - {x: 0.000029300001, y: -10}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 8540007816326181154, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
+  m_CompositeGameObject: {fileID: 6747236425796860641}
 --- !u!1 &8044536511632631083
 GameObject:
   m_ObjectHideFlags: 0

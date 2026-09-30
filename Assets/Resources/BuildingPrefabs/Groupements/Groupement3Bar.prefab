@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7889776164724370865}
   - component: {fileID: 3762292772599047418}
   - component: {fileID: 3880094487345032675}
-  - component: {fileID: -6079210905389840305}
+  - component: {fileID: 148105958396365697}
   m_Layer: 7
   m_Name: Groupement3Bar
   m_TagString: Groupement
@@ -213,7 +213,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: 15, y: 5}
+  m_Offset: {x: 14.671098, y: 5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -223,7 +223,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 9.6578045, y: 9}
   m_EdgeRadius: 0
 --- !u!61 &3762292772599047418
 BoxCollider2D:
@@ -259,7 +259,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: -5, y: 5}
+  m_Offset: {x: -4.506647, y: 5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -269,7 +269,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 9.986706, y: 9}
   m_EdgeRadius: 0
 --- !u!61 &3880094487345032675
 BoxCollider2D:
@@ -305,7 +305,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: 5, y: 5}
+  m_Offset: {x: 5.023493, y: 5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -315,9 +315,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 9.953014, y: 9}
   m_EdgeRadius: 0
---- !u!66 &-6079210905389840305
+--- !u!66 &148105958396365697
 CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,7 +347,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -356,60 +356,46 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 5386307960088058329, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
+  - m_Collider: {fileID: 7889776164724370865}
+    m_ColliderPaths:
+    - - X: 195000000
+        Y: 95000000
+      - X: 98421952
+        Y: 95000000
+      - X: 98421952
+        Y: 5000000
+      - X: 195000000
+        Y: 5000000
+  - m_Collider: {fileID: 3762292772599047418}
+    m_ColliderPaths:
+    - - X: 4867058
+        Y: 95000000
+      - X: -95000000
+        Y: 95000000
+      - X: -95000000
+        Y: 5000000
+      - X: 4867058
+        Y: 5000000
+  - m_Collider: {fileID: 3880094487345032675}
     m_ColliderPaths:
     - - X: 100000000
-        Y: 100000000
-      - X: 0
-        Y: 100000000
-      - X: 0
-        Y: 0
+        Y: 95000000
+      - X: 469856
+        Y: 95000000
+      - X: 469856
+        Y: 5000000
       - X: 100000000
-        Y: 0
-  - m_Collider: {fileID: 5564871532464824228, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 200000000
-        Y: 100000000
-      - X: 100000000
-        Y: 100000000
-      - X: 100000000
-        Y: 0
-      - X: 200000000
-        Y: 0
-  - m_Collider: {fileID: 8530837116171352050, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 0
-      - X: 0
-        Y: 0
-      - X: 0
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
-  - m_Collider: {fileID: 7108130006439332370, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 200000000
-      - X: 0
-        Y: 200000000
-      - X: 0
-        Y: 100000000
-      - X: 100000000
-        Y: 100000000
+        Y: 5000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 9.99997, y: -10}
-      - {x: 10.00003, y: 0}
-      - {x: 20, y: 0.000029300001}
-      - {x: 19.999971, y: 10}
-      - {x: 10, y: 10.00003}
-      - {x: 9.99997, y: 20}
-      - {x: 0, y: 19.999971}
-      - {x: 0.000029300001, y: -10}
+    - - {x: 19.499971, y: 0.5}
+      - {x: 19.499971, y: 9.5}
+      - {x: -9.5, y: 9.49997}
+      - {x: -9.49997, y: 0.5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 8540007816326181154, guid: e4e8f009f0cd0fd4d85ff3bda98eeec9, type: 3}
+  m_CompositeGameObject: {fileID: 7648213879815756486}
 --- !u!1 &8092049507377174683
 GameObject:
   m_ObjectHideFlags: 0

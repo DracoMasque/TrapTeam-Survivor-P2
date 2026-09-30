@@ -358,6 +358,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   building: {fileID: 0}
   groupement: {fileID: 0}
+  cancelButton: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &2399822651837354475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,8 +373,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controlleur
   speed: 5
+  maxSpeed: 5
   currentXp: 0
   maxXp: 10
+  xpSlider: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
+  healthSlider: {fileID: 0}
   healthText: {fileID: 0}

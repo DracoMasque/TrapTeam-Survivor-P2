@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4382106438130371086}
   - component: {fileID: 1163453117590589178}
   m_Layer: 8
-  m_Name: Circle
+  m_Name: PointeurRecup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
