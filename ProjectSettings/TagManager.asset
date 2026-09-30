@@ -2,8 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Material
+  - Camera
+  - PlayableZone
+  - Groupement
+  - BuildingSystem
+  - XpBar
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -11,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - BuildingArea
   - 
   - 
   - 
@@ -38,6 +46,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1693875477
+    locked: 0
+  - name: Room
+    uniqueID: 3756397361
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 416500903
+    locked: 0
+  - name: Player
+    uniqueID: 3544535007
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []
