@@ -1,30 +1,29 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class XP : MonoBehaviour
 {
-    private Transform posJoueur;
+    private Transform pos;
     [SerializeField] private float speedXp = 10f;
-   
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
+    
+    
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, posJoueur.position, speedXp * Time.deltaTime);
+        if (pos)
+        {
+            pos.position = Vector2.MoveTowards( pos.position,transform.position, speedXp * Time.deltaTime);
+        }
         
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag.Equals("Player"))
+        if (other.tag.Equals("XP") || other.tag.Equals("Material"))
         {
-            posJoueur = other.transform;
+            pos = other.transform;
            
         }
+        
     }
 }

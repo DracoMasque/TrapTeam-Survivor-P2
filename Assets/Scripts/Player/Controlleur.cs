@@ -15,7 +15,7 @@ public class Controlleur : MonoBehaviour
     private Vector2 moveInput;
     
     public int currentXp = 0;
-    [SerializeField] private int maxXp = 10;
+    [SerializeField] public int maxXp = 10;
     public Slider xpSlider;
 
     public int maxHealth;
@@ -38,6 +38,7 @@ public class Controlleur : MonoBehaviour
     {
         if (gameManager.paused)
         {
+            rb.linearVelocity = new Vector2(0, 0);
             return;
         }
         rb.linearVelocity = moveInput.normalized * speed;

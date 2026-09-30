@@ -12,6 +12,8 @@ TagManager:
   - BuildingSystem
   - XpBar
   - HealthBar
+  - Room
+  - XP
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Water
   - UI
   - BuildingArea
-  - 
-  - 
+  - GroupementArea
+  - RecupArea
   - 
   - 
   - 

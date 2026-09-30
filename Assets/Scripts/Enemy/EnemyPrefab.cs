@@ -7,6 +7,7 @@ public class EnemyPrefab : MonoBehaviour
     float currentHealth;
     [SerializeField] int attack = 10;
     public float speed = 10;
+    public float maxSpeed;
     [SerializeField] float range;
     [Header("Prefabs")]
     [SerializeField]  GameObject xpPrefab;

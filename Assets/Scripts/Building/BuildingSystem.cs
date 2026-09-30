@@ -31,7 +31,7 @@ public class BuildingSystem : MonoBehaviour
         Vector3Int gridPos = grid.WorldToCell(FollowMouse());
         cellIndicator.transform.position = grid.CellToWorld(gridPos);
 
-        if (placeInput.triggered && groupement != null)
+        if (placeInput.triggered && groupement != null && !pointeurRecup.gameObject.activeSelf)
         {
             PlaceGroup();
         }
@@ -42,7 +42,7 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
-    public Vector2 FollowMouse()
+    private Vector2 FollowMouse()
     {
         return _camera.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
     }
@@ -53,10 +53,12 @@ public class BuildingSystem : MonoBehaviour
         {
             if (groupement.transform.parent != null)
             {
+                print("place");
                 groupement.transform.SetParent(null);
                 groupement.placed = true;
                 playerBuilding.groupement = null;
                 groupement = null;
+                pointeurRecup.gameObject.SetActive(true);
             }
         }
     }
@@ -64,9 +66,9 @@ public class BuildingSystem : MonoBehaviour
 
     public void RotateGroup()
     {
-        if (playerBuilding.groupement != null)
+        if (groupement != null)
         {
-            playerBuilding.groupement.transform.GetChild(0).transform.Rotate(0, 0, 90f);
+            groupement.transform.GetChild(0).transform.Rotate(0, 0, 90f);
         }
     }
     
