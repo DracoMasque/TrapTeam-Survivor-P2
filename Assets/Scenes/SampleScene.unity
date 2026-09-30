@@ -264,6 +264,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1d2682da5864b44a015222d4b302af, type: 3}
+--- !u!1 &477650991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7808806786161143634, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+  m_PrefabInstance: {fileID: 2008134254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &477650995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477650991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
+  enemies: []
+--- !u!50 &477650997
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477650991}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,8 +982,18 @@ PrefabInstance:
       propertyPath: buildingSystem
       value: 
       objectReference: {fileID: 1498402350}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 7744291301841951492, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744291301841951492, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2767506761289612293, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2680952895754424450, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 325469037418543030, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       insertIndex: -1
@@ -947,6 +1002,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3095789563922903222, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1333852945}
+    - targetCorrespondingSourceObject: {fileID: 7808806786161143634, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 477650995}
+    - targetCorrespondingSourceObject: {fileID: 7808806786161143634, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 477650997}
   m_SourcePrefab: {fileID: 100100000, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
 --- !u!1001 &5757881280253571012
 PrefabInstance:
