@@ -38,6 +38,7 @@ public class Controlleur : MonoBehaviour
     {
         if (gameManager.paused)
         {
+            rb.linearVelocity = new Vector2(0, 0);
             return;
         }
         rb.linearVelocity = moveInput.normalized * speed;
