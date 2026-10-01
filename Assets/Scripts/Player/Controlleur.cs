@@ -16,7 +16,7 @@ public class Controlleur : MonoBehaviour
     private Vector2 moveInput;
     
     public int currentXp = 0;
-    [SerializeField] private int maxXp = 10;
+    [SerializeField] public int maxXp = 10;
     public Slider xpSlider;
 
     public int maxHealth;

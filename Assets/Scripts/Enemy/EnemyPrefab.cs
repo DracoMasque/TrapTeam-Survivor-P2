@@ -83,6 +83,7 @@ public class EnemyPrefab : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -102,14 +103,16 @@ public class EnemyPrefab : MonoBehaviour
     private void DropXp()
     {
         //max drop XP joue sur le niveau de difficulté de l'enemy, balancing blabla, pas mtn
-        float maxExp = 5;
-        float minExp = 0;
-        float expToDrop = Random.Range(minExp, maxExp);
+        int maxExp = 5;
+        int minExp = 0;
+        int expToDrop = Random.Range(minExp, maxExp);
         for (int i = 0; i < expToDrop; i++)
         {
             if (xpPrefab != null)
             {
-                Instantiate(xpPrefab, transform.parent);
+                GameObject newXp = Instantiate(xpPrefab, transform.position, transform.rotation);
+                Debug.Log(newXp.name);
+                //newXp.GetComponent<XpRecup>().valueXp = expToDrop;
                 Debug.Log("Drop XP");
             }
             else
@@ -120,13 +123,13 @@ public class EnemyPrefab : MonoBehaviour
     }
     private void DropMaterial()
     {
-        bool[] array = CreateWeighedArray(30);
-        int chance = Random.Range(0, 10);
-        if (array[chance])
+        int chance = Random.Range(0, 100);
+        if (chance <= 2)
         {
             if (materialPrefab != null)
             {
-                Instantiate(materialPrefab, transform.parent);
+                Debug.Log(chance + " AAAAAAAHHHHH ");
+                Instantiate(materialPrefab, transform.position, transform.rotation);
                 Debug.Log("Drop material");
             }
             else
