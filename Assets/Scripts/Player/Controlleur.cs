@@ -48,12 +48,12 @@ public class Controlleur : MonoBehaviour
         xpSlider.value = currentXp/maxXp;
         healthSlider.value = currentHealth/maxHealth;
         healthText.text = currentHealth + "/" + maxHealth;
-        if (currentXp > maxXp)
+        if (currentXp >= maxXp)
         {
             currentXp -= maxXp;
             level++;
-            levelTextTemp.text = "level :  " + level;
         }
+        levelTextTemp.text = "level :  " + level;
     }
 
     public void Move(InputAction.CallbackContext cxt)

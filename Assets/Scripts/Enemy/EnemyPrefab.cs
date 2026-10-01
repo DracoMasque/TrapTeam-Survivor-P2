@@ -9,6 +9,7 @@ public class EnemyPrefab : MonoBehaviour
     public float speed;
     public float maxSpeed = 10;
     [SerializeField] float range;
+    [SerializeField] int materialChance;
     [Header("Prefabs")]
     [SerializeField]  GameObject xpPrefab;
     [SerializeField]  GameObject materialPrefab;
@@ -57,7 +58,7 @@ public class EnemyPrefab : MonoBehaviour
         if (timer.finished && IsClose())
         {
             animator.SetBool("Attacking", true);
-            playerControlleur.currentHealth =- attack;
+            playerControlleur.currentHealth -= attack;
             timer.Play();
         }
     }
@@ -124,7 +125,7 @@ public class EnemyPrefab : MonoBehaviour
     private void DropMaterial()
     {
         int chance = Random.Range(0, 100);
-        if (chance <= 2)
+        if (chance <= materialChance)
         {
             if (materialPrefab != null)
             {

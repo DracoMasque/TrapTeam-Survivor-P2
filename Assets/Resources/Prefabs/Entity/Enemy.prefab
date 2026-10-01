@@ -55,6 +55,7 @@ MonoBehaviour:
   speed: 2
   maxSpeed: 2
   range: 2
+  materialChance: 50
   xpPrefab: {fileID: 919210782642933907, guid: d097435a5252f1d4295e1c321bf03d63, type: 3}
   materialPrefab: {fileID: 653055286994394397, guid: ebe6f71df8b398f40b607775800095fa, type: 3}
 --- !u!212 &1926789264679910545
