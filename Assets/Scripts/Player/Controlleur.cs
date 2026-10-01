@@ -15,12 +15,14 @@ public class Controlleur : MonoBehaviour
     public float maxSpeed;
     private Vector2 moveInput;
     
-    public int currentXp = 0;
-    [SerializeField] public int maxXp = 10;
+    public float currentXp = 0;
+    [SerializeField] public float maxXp = 10;
     public Slider xpSlider;
+    public float level;
+    public TextMeshProUGUI levelTextTemp;
 
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     
@@ -46,6 +48,12 @@ public class Controlleur : MonoBehaviour
         xpSlider.value = currentXp/maxXp;
         healthSlider.value = currentHealth/maxHealth;
         healthText.text = currentHealth + "/" + maxHealth;
+        if (currentXp > maxXp)
+        {
+            currentXp -= maxXp;
+            level++;
+            levelTextTemp.text = "level :  " + level;
+        }
     }
 
     public void Move(InputAction.CallbackContext cxt)

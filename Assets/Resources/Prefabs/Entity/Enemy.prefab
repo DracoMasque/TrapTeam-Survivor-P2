@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 10
-  attack: 10
+  attack: 1
   speed: 2
   maxSpeed: 2
   range: 2
