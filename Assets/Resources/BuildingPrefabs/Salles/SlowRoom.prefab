@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db095d4477f397a41a2abbff17e07606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlowTrap
-  speedPourcentage: 10
+  speedPourcentage: 20
 --- !u!1 &8736723102690927581
 GameObject:
   m_ObjectHideFlags: 0

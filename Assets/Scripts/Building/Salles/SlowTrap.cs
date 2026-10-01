@@ -16,11 +16,11 @@ public class SlowTrap : MonoBehaviour
         if (gameManager.paused) return;
         if (col.tag == "Player")
         {
-            col.gameObject.GetComponent<Controlleur>().speed -= col.gameObject.GetComponent<Controlleur>().speed*speedPourcentage/100;
+            col.gameObject.GetComponent<Controlleur>().speed -= col.gameObject.GetComponent<Controlleur>().speed*(speedPourcentage / 100);
         }
         else if (col.tag == "Enemy")
         {
-            col.gameObject.GetComponent<EnemyPrefab>().speed -= col.gameObject.GetComponent<EnemyPrefab>().speed*speedPourcentage/100;
+            col.gameObject.GetComponent<EnemyPrefab>().speed -= col.gameObject.GetComponent<EnemyPrefab>().speed*(speedPourcentage / 100);
         }
     }
 

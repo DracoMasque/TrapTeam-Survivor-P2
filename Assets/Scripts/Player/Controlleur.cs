@@ -45,6 +45,7 @@ public class Controlleur : MonoBehaviour
         rb.linearVelocity = moveInput.normalized * speed;
         xpSlider.value = currentXp/maxXp;
         healthSlider.value = currentHealth/maxHealth;
+        healthText.text = currentHealth + "/" + maxHealth;
     }
 
     public void Move(InputAction.CallbackContext cxt)
