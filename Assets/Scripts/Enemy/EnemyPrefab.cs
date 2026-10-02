@@ -129,7 +129,6 @@ public class EnemyPrefab : MonoBehaviour
         {
             if (materialPrefab != null)
             {
-                Debug.Log(chance + " AAAAAAAHHHHH ");
                 Instantiate(materialPrefab, transform.position, transform.rotation);
                 Debug.Log("Drop material");
             }

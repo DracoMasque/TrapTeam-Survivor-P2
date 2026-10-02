@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,12 +9,13 @@ public class GameManager : MonoBehaviour
     private WaveScriptable nextWave;
     private Cooldown timer;
     public bool paused = false;
-
+    
     private void Start()
     {
         timer = GetComponent<Cooldown>();
         currentWave = waves[0];
         nextWave = waves[0];
+        BroadcastMessage("ChangeEnemy", currentWave.enemies);
     }
 
     private void Update()
