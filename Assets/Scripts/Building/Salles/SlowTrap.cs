@@ -13,7 +13,6 @@ public class SlowTrap : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameManager.paused) return;
         if (col.tag == "Player")
         {
             col.gameObject.GetComponent<Controlleur>().speed -= col.gameObject.GetComponent<Controlleur>().speed*(speedPourcentage / 100);
@@ -26,7 +25,6 @@ public class SlowTrap : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (gameManager.paused) return;
         if (other.tag == "Player")
         {
             other.gameObject.GetComponent<Controlleur>().speed = other.gameObject.GetComponent<Controlleur>().maxSpeed;

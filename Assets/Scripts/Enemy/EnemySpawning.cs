@@ -12,7 +12,7 @@ public class EnemySpawning : MonoBehaviour
     private CinemachineCamera currentCamera;
     void Start()
     {
-        Assert.IsNotNull(enemies, "EnemySpawning.cs : There are no enemies to spawn");
+        Assert.IsTrue(enemies.Count>0, "EnemySpawning.cs : There are no enemies to spawn");
         Assert.IsNotNull(enemiesContainer, "EnemySpawning.cs : the enemiesContainer wasn't set properly");
         timer = GetComponent<Cooldown>();
         currentCamera = GameObject.FindGameObjectWithTag("Camera").GetComponent<CinemachineCamera>();
