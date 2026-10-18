@@ -22,7 +22,6 @@ public class XP : MonoBehaviour
         if (other.tag.Equals("XP") || other.tag.Equals("Material"))
         {
             pos = other.transform;
-           
         }
         
     }
