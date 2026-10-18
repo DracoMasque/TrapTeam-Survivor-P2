@@ -56,7 +56,6 @@ public class BuildingSystem : MonoBehaviour
                 print("place");
                 groupement.transform.SetParent(null);
                 groupement.placed = true;
-                playerBuilding.groupement = null;
                 groupement = null;
                 pointeurRecup.gameObject.SetActive(true);
             }
@@ -69,6 +68,10 @@ public class BuildingSystem : MonoBehaviour
         if (groupement != null)
         {
             groupement.transform.GetChild(0).transform.Rotate(0, 0, 90f);
+            foreach (GameObject room in groupement.groupedRooms)
+            {
+                room.transform.GetChild(0).transform.Rotate(0, 0, -90f);
+            }
         }
     }
     
