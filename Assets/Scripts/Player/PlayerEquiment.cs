@@ -1,16 +1,17 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEquiment : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public List<Equipement> equipements;
+    public int maxEquipements = 5;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        foreach (Equipement equipement in equipements)
+        {
+            equipement.EquipementAction();
+        }
     }
 }

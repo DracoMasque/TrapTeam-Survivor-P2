@@ -15,4 +15,9 @@ public class SangHydre : Equipement
         player.maxHealth += player.maxHealth * (1 + (modifier/100));
         player.currentHealth += player.currentHealth * (1 + (modifier/100));
     }
+
+    public void EquipementAction()
+    {
+        
+    }
 }
