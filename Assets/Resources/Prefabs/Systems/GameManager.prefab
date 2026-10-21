@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5134107246921310157}
   - component: {fileID: 8009231335495671721}
   - component: {fileID: 9031326179128620955}
-  - component: {fileID: 6035946164091288343}
+  - component: {fileID: 5008284455122970707}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   maxCooldownTime: 60
   finished: 0
   currentTime: 0
---- !u!114 &6035946164091288343
+--- !u!114 &5008284455122970707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,8 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentXp: 0
   level: 0
-  maxXp: 0
+  maxXp: 10
   levelUpMenu: {fileID: 0}
+  levelTextTemp: {fileID: 0}
+  xpSlider: {fileID: 0}
 --- !u!1001 &2681948118852174361
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &986009042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1526,6 +1526,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5008284455122970707, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: levelUpMenu
+      value: 
+      objectReference: {fileID: 986009041}
+    - target: {fileID: 5008284455122970707, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: levelTextTemp
+      value: 
+      objectReference: {fileID: 1026282193}
     - target: {fileID: 5134107246921310157, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1566,10 +1574,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6443870687674055191, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
-      propertyPath: timerTextDebug
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8642258851303945025, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1577,34 +1581,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8642258851303945025, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7663643234692151381}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
---- !u!1 &7663643234692151380 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8642258851303945025, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
-  m_PrefabInstance: {fileID: 7663643234692151379}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7663643234692151381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663643234692151380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0a9a4b21e208a428e7beee5be54d97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  currentXp: 0
-  level: 0
-  maxXp: 0
-  levelUpMenu: {fileID: 0}
-  levelTextTemp: {fileID: 0}
-  xpSlider: {fileID: 0}
 --- !u!1001 &8916967754920683561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1767,6 +1745,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 7663643234692151379}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1965314780}
@@ -1776,7 +1755,6 @@ SceneRoots:
   - {fileID: 6467154312633247872}
   - {fileID: 254193205}
   - {fileID: 2048239150}
-  - {fileID: 7663643234692151379}
   - {fileID: 348653125}
   - {fileID: 1532005352}
   - {fileID: 986009042}
