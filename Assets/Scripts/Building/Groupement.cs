@@ -10,6 +10,7 @@ public class Groupement : MonoBehaviour
     [SerializeField] private Room[] sallePossible;
     public bool placed;
     private BuildingSystem buildingSystem;
+    public Vector3 previousPosition;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class Groupement : MonoBehaviour
     {
         if (other.tag == "Groupement")
         {
+            print("!buildable");
             buildingSystem.buildable = false;
         }
     }
@@ -45,7 +47,6 @@ public class Groupement : MonoBehaviour
     {
         if (other.tag == "Groupement")
         {
-            print("exit");
             buildingSystem.buildable = true;
         }
     }
