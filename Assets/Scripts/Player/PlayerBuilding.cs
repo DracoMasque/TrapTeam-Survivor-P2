@@ -11,10 +11,11 @@ public class PlayerBuilding : MonoBehaviour
     public int numberMaterial;
     public int requarieredMaterial;
     [SerializeField] private GameObject buildingSystem;
+    [SerializeField] private GameObject UIBuildingChoice;
+    private BuildingChoise buildingChoice;
     [SerializeField] private CinemachineCamera camera;
     private GameObject[] groupementPossible;
     public BuildingSystem building;
-    public GameObject groupement;
     
     public TextMeshProUGUI keyToPress;
     public TextMeshProUGUI numberMaterialText;
@@ -29,6 +30,7 @@ public class PlayerBuilding : MonoBehaviour
         groupementPossible = Resources.LoadAll<GameObject>("BuildingPrefabs\\Groupements");
         building = buildingSystem.GetComponent<BuildingSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
     }
 
     void Update()
@@ -54,11 +56,15 @@ public class PlayerBuilding : MonoBehaviour
                 gameManager.paused = true;
                 requarieredMaterial *= 2;
                 numberMaterial = 0;
-                groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
+                UIBuildingChoice.gameObject.SetActive(true);
+                buildingChoice.BuildingChoice();
+                keyToPress.gameObject.SetActive(false);
+                /*
+                GameObject groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
                 building.groupement = groupement.GetComponent<Groupement>();
                 groupement.transform.SetParent(building.cellIndicator.transform);
                 groupement.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), building.cellIndicator.transform.localRotation);
-                keyToPress.gameObject.SetActive(false);
+                */
             }
         }
     }

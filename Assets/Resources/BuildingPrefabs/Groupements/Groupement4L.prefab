@@ -126,9 +126,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5894212649783709723}
   - {fileID: 3249751198960676935}
   - {fileID: 3424892184478675623}
-  - {fileID: 5894212649783709723}
   - {fileID: 340000392964049931}
   m_Father: {fileID: 7015251600855376320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Groupement
   groupedRooms:
+  - {fileID: 7613067523676213308}
   - {fileID: 3189502976048818219}
   - {fileID: 661977118702262738}
-  - {fileID: 7613067523676213308}
   - {fileID: 5037985931765785714}
   sallePossible: []
   placed: 0

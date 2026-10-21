@@ -31,11 +31,6 @@ public class BuildingSystem : MonoBehaviour
         Vector3Int gridPos = grid.WorldToCell(FollowMouse());
         cellIndicator.transform.position = grid.CellToWorld(gridPos);
 
-        if (placeInput.triggered && groupement != null && !pointeurRecup.gameObject.activeSelf)
-        {
-            PlaceGroup();
-        }
-
         if (rotateInput.triggered)
         {
             RotateGroup();
@@ -47,19 +42,31 @@ public class BuildingSystem : MonoBehaviour
         return _camera.ScreenToWorldPoint(mousePos.ReadValue<Vector2>());
     }
     
-    public void PlaceGroup()
+    public void PlaceGroup(InputAction.CallbackContext cxt)
     {
-        if (buildable && groupement != null)
+        if (cxt.canceled)
         {
-            if (groupement.transform.parent != null)
+            if (buildable && groupement != null && !pointeurRecup.gameObject.activeSelf)
             {
-                print("place");
+                if (groupement.transform.parent != null)
+                {
+                    print("place");
+                    groupement.transform.SetParent(null);
+                    groupement.placed = true;
+                    groupement.previousPosition = groupement.transform.position;
+                    groupement = null;
+                    pointeurRecup.gameObject.SetActive(true);
+                }
+            }
+            else if (!buildable && groupement != null && groupement.previousPosition != null)
+            {
                 groupement.transform.SetParent(null);
+                groupement.transform.position = groupement.previousPosition;
                 groupement.placed = true;
-                playerBuilding.groupement = null;
                 groupement = null;
                 pointeurRecup.gameObject.SetActive(true);
             }
+            
         }
     }
     
@@ -69,6 +76,10 @@ public class BuildingSystem : MonoBehaviour
         if (groupement != null)
         {
             groupement.transform.GetChild(0).transform.Rotate(0, 0, 90f);
+            foreach (GameObject room in groupement.groupedRooms)
+            {
+                room.transform.GetChild(0).transform.Rotate(0, 0, -90f);
+            }
         }
     }
     
