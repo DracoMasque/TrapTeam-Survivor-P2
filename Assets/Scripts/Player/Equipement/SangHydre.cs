@@ -6,14 +6,14 @@ public class SangHydre : Equipement
     
     public override void OnPickUp(Controlleur player)
     {
-        Mathf.Ceil(player.maxHealth *= 1 + (modifier / 100));
-        Mathf.Ceil(player.currentHealth *= 1 + (modifier / 100));
+        player.maxHealth = Mathf.Ceil(player.maxHealth * 1 + (modifier / 100));
+        player.currentHealth = Mathf.Ceil(player.currentHealth * 1 + (modifier / 100));
     }
 
     public void OnMaxHealthChange(Controlleur player)
     {
-        Mathf.Ceil(player.maxHealth *= 1 + (modifier / 100));
-        Mathf.Ceil(player.currentHealth *= 1 + (modifier / 100));
+        player.maxHealth = Mathf.Ceil(player.maxHealth * 1 + (modifier / 100));
+        player.currentHealth = Mathf.Ceil(player.currentHealth * 1 + (modifier / 100));
     }
 
     public override void EquipementAction()

@@ -6,3 +6,10 @@ public enum Rarity
     Uncommon,
     Rare,
 }
+
+public enum TypeArme
+{
+    Aura,
+    CorpACorp,
+    Range,
+}

@@ -15,7 +15,7 @@ public class LevelUPManager : MonoBehaviour
     public TextMeshProUGUI levelTextTemp;
     public Slider xpSlider;
     [SerializeField] private Equipement[] equipementsPossible;
-    [SerializeField] private GameObject[] armesPossible;
+    [SerializeField] private Arme[] armesPossible;
     [SerializeField] private LevelUPPanel[] levelUpPanels;
     
     [SerializeField] private List<GameObject> possiblilities;
@@ -33,7 +33,7 @@ public class LevelUPManager : MonoBehaviour
         xpSlider = GameObject.Find("XpBar").GetComponent<Slider>();
         xpSlider.value = currentXp;
         equipementsPossible = Resources.LoadAll<Equipement>("Prefabs/Equipement");
-        armesPossible = Resources.LoadAll<GameObject>("Prefabs/Competences");
+        armesPossible = Resources.LoadAll<Arme>("Prefabs/Competences");
         playerEquiment = GameObject.FindWithTag("Player").GetComponent<PlayerEquiment>();
     }
     public void AddXp(float xp)
@@ -64,6 +64,7 @@ public class LevelUPManager : MonoBehaviour
     public void UiLevelUpClose()
     {
         levelUpMenu.SetActive(false);
+        possiblilities.Clear();
         Time.timeScale = 1;
     }
 
@@ -76,12 +77,16 @@ public class LevelUPManager : MonoBehaviour
             switch (type)
             {
                 case 1: possiblilities.Add(equipementsPossible[Random.Range(0, equipementsPossible.Length)].gameObject);
-                    levelUpPanels[i].descriptionText.text = possiblilities[i].GetComponent<Equipement>().description;
-                    levelUpPanels[i].nameText.text = possiblilities[i].GetComponent<Equipement>().name;
-                    levelUpPanels[i].imagePoint.GetComponent<Image>().sprite = possiblilities[i].GetComponent<Equipement>().image;
+                    Equipement equipement = possiblilities[i].GetComponent<Equipement>();
+                    levelUpPanels[i].descriptionText.text = equipement.description;
+                    levelUpPanels[i].nameText.text = equipement.name;
+                    levelUpPanels[i].imagePoint.GetComponent<Image>().sprite = equipement.image;
                     break;
-                case 2: possiblilities.Add(armesPossible[Random.Range(0, armesPossible.Length)]);
-                    levelUpPanels[i].nameText.text = possiblilities[i].gameObject.name;
+                case 2: possiblilities.Add(armesPossible[Random.Range(0, armesPossible.Length)].gameObject);
+                    Arme arme = possiblilities[i].GetComponent<Arme>();
+                    levelUpPanels[i].nameText.text = arme.name;
+                    levelUpPanels[i].descriptionText.text = arme.description;
+                    levelUpPanels[i].imagePoint.GetComponent<Image>().sprite = arme.image;
                     break;
             }
         }
@@ -98,9 +103,16 @@ public class LevelUPManager : MonoBehaviour
                 equipement.OnPickUp(playerEquiment.gameObject.GetComponent<Controlleur>());
             }
         }
-        else if (armesPossible.Contains(possiblilities[number]))
+        else if (armesPossible.Contains(possiblilities[number].GetComponent<Arme>()))
         {
-            Instantiate(possiblilities[number], playerEquiment.transform.position, playerEquiment.transform.rotation);
+            GameObject armeInstant = Instantiate(possiblilities[number], playerEquiment.transform.position, playerEquiment.transform.rotation);
+            switch (possiblilities[number].GetComponent<Arme>().type)
+            {
+                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(1).transform);
+                    break;
+                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(2).transform);
+                    break;
+            }
         }
         UiLevelUpClose();
     }
