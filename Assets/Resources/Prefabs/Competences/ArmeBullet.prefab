@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3889104354028105318}
   - component: {fileID: -7448512160758680029}
   - component: {fileID: 4036983710478797114}
+  - component: {fileID: 1256515293023088115}
   - component: {fileID: 8748174306677952328}
   m_Layer: 0
-  m_Name: BulletComp
+  m_Name: ArmeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3451265055e1744b8345246f8e7ec87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bulletPrefab: {fileID: 8515340455976918080, guid: 4403705b537f61e4bbb242a7408cdf8a, type: 3}
+  name: Lance-Pierre
+  description: lance des kayou
+  image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
   damage: 10
+  rarity: 0
+  bulletPrefab: {fileID: 8515340455976918080, guid: 4403705b537f61e4bbb242a7408cdf8a, type: 3}
   speed: 10
   target: {fileID: 0}
 --- !u!114 &4036983710478797114
@@ -63,10 +68,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 0
+  loop: 1
   maxCooldownTime: 1
   finished: 0
   currentTime: 0
+--- !u!114 &1256515293023088115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097422571285625630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
+  enemies: []
 --- !u!58 &8748174306677952328
 CircleCollider2D:
   m_ObjectHideFlags: 0
