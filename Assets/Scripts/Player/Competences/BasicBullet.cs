@@ -23,6 +23,7 @@ public class BasicBullet : MonoBehaviour
         
         direction = target.transform.position - transform.position;
         direction.Normalize();
+        Destroy(gameObject,10);
     }
     void Update()
     {
@@ -34,7 +35,6 @@ public class BasicBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyPrefab>().TakeDamage(damage);
-            Destroy(gameObject);
         }
     }
     

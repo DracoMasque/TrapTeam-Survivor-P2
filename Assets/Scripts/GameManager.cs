@@ -13,17 +13,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timer = GetComponent<Cooldown>();
+        timer.OnTimeout = UpdateWave;
         currentWave = waves[0];
         nextWave = waves[0];
         BroadcastMessage("ChangeEnemy", currentWave.enemies);
     }
-
-    private void Update()
+    
+    void UpdateWave()
     {
-        if (paused)
-        {
-            return;
-        }
+        if (paused) return;
+
         if (timer.currentTime >= nextWave.time)
         {
             currentWave = nextWave;
@@ -36,7 +35,6 @@ public class GameManager : MonoBehaviour
            
         }
     }
-    
     private void NextWave()
     {
         WaveScriptable newWave = currentWave;
