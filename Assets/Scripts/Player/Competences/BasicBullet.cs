@@ -35,6 +35,7 @@ public class BasicBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<EnemyPrefab>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
     
