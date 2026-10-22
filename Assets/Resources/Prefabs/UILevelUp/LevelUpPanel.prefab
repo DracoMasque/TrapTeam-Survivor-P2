@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 330122540434038184}
   - component: {fileID: 1915834872488293033}
   - component: {fileID: 6659417062720651377}
+  - component: {fileID: 3218453082883077871}
   m_Layer: 5
   m_Name: LevelUpPanel
   m_TagString: Untagged
@@ -292,6 +293,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3218453082883077871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335425358398757587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a7b2ed7ce804f4886bb33c27b02e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelUPPanel
+  nameText: {fileID: 3265521449150998155}
+  descriptionText: {fileID: 4895994394741434114}
+  imagePoint: {fileID: 7341831048650530837}
 --- !u!1 &7341831048650530837
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +676,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -30.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 332.8, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4437814901658365946
 CanvasRenderer:
@@ -717,8 +733,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
