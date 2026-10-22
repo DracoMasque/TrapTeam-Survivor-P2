@@ -81,7 +81,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
   loop: 1
-  maxCooldownTime: 2
+  maxCooldownTime: 0.5
   finished: 0
   currentTime: 0
 --- !u!212 &5733203590376042617

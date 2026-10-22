@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3451265055e1744b8345246f8e7ec87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  name: 
-  description: 
-  image: {fileID: 0}
+  name: Lance-Pierre
+  description: lance des kayou
+  image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
   damage: 10
   bulletPrefab: {fileID: 8515340455976918080, guid: 4403705b537f61e4bbb242a7408cdf8a, type: 3}
   speed: 10
