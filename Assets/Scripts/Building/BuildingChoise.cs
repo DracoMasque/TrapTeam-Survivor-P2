@@ -50,7 +50,7 @@ public class BuildingChoise : MonoBehaviour
             List<Room> formeRooms = new List<Room>();
             for (int i = 0; i < forme.groupedRooms.Count; i++)
             {
-                formeRooms.Add(sallePossible[Random.Range(0, sallePossible.Length+1)]);
+                formeRooms.Add(sallePossible[Random.Range(0, sallePossible.Length)]);
             }
             sallePossibleChoice.Add(formeRooms);
         }
