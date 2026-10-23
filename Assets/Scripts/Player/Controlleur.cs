@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,19 +9,51 @@ using UnityEngine.UI;
 public class Controlleur : MonoBehaviour
 {
     private GameManager gameManager;
-    
     private Rigidbody2D rb;
-    
-    public float speed;
-    public float maxSpeed;
     private Vector2 moveInput;
     
-    public float currentXp = 0;
-    [SerializeField] public float maxXp = 10;
+    //modificateurs sont des multiplications donc sont de base a 1, contrairement aux Upgrades qui sont +
+    [Header("Stats")]
     
+    public float speed;
+    [HideInInspector]public float speedUpgrade = 0;
+    [HideInInspector]public float modSpeedTrap = 0;
     
-    public float maxHealth;
-    public float currentHealth;
+    public float health;
+    [HideInInspector] public float currentHealth;
+    [HideInInspector] public float healthUpgrade = 1;
+    [HideInInspector] public float modHealth = 1; 
+    
+    [HideInInspector] public float healthRegen = 0;
+    [HideInInspector] public float healthRegenFreq = 0;
+    [HideInInspector] public float modHealthRegen = 1;
+    [HideInInspector] public float modHealthRegenFreq = 1;
+    
+    [Tooltip("in %")] public float critDamage;
+    [HideInInspector] public float critDamageUpgrade = 0;
+    [HideInInspector] public float modCritDamage = 1;
+    
+    [Tooltip("in %")] public float critChance;
+    [HideInInspector] public float critChanceUpgrade = 0;
+    [HideInInspector] public float modCritChance = 1;
+
+    //Chaque armes prennent comme base un certains pourcentage des degats du joueur : Fortes -> 100%, Faibles -> 40%
+    public float damage;
+    [HideInInspector] public float damageUpgrade = 0;
+    [HideInInspector] public float modDamage = 1;
+    //Chaque armes prennent comme base un certains pourcentage de la freq du joueur : Fortes -> 100%, Faibles -> 40%
+    [Tooltip("in seconds")]
+    public float damageFreq;
+    [HideInInspector] public float damageFreqUpgrade = 0;
+    [HideInInspector] public float modDamageFreq = 1;
+
+    public float defense;
+    [HideInInspector] public float defenseUpgrade = 0;
+    [HideInInspector] public float modDefense = 1;
+    
+    [HideInInspector]public float currentXp = 0;
+    
+    [Header("UI")]
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     
@@ -29,7 +62,7 @@ public class Controlleur : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
-        currentHealth = maxHealth;
+        currentHealth = health;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -42,8 +75,8 @@ public class Controlleur : MonoBehaviour
             return;
         }
         rb.linearVelocity = moveInput.normalized * speed;
-        healthSlider.value = currentHealth/maxHealth;
-        healthText.text = currentHealth + "/" + maxHealth;
+        healthSlider.value = currentHealth/health;
+        healthText.text = currentHealth + "/" + health;
     }
 
     public void Move(InputAction.CallbackContext cxt)

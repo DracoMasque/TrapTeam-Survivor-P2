@@ -11,16 +11,19 @@ public class LevelUPManager : MonoBehaviour
     public float currentXp = 0;
     public int level = 0;
     public float maxXp = 10;
+
+    [Header("Level Up")]
+    [SerializeField] private List<GameObject> possiblilities;
+    [SerializeField] private LevelUPPanel[] levelUpPanels;
+    [Header("Level Up UI")]
     public GameObject levelUpMenu;
     public TextMeshProUGUI levelTextTemp;
-    public Slider xpSlider;
-    [SerializeField] private Equipement[] equipementsPossible;
-    [SerializeField] private Arme[] armesPossible;
-    [SerializeField] private LevelUPPanel[] levelUpPanels;
     
-    [SerializeField] private List<GameObject> possiblilities;
-    [SerializeField] private PlayerEquiment playerEquiment;
-
+    private Slider xpSlider;
+    private Equipement[] equipementsPossible;
+    private Arme[] armesPossible;
+    private PlayerEquiment _playerEquipment;
+    
     public static LevelUPManager instance;
     
     void Awake()
@@ -34,7 +37,7 @@ public class LevelUPManager : MonoBehaviour
         xpSlider.value = currentXp;
         equipementsPossible = Resources.LoadAll<Equipement>("Prefabs/Equipement");
         armesPossible = Resources.LoadAll<Arme>("Prefabs/Competences");
-        playerEquiment = GameObject.FindWithTag("Player").GetComponent<PlayerEquiment>();
+        _playerEquipment = GameObject.FindWithTag("Player").GetComponent<PlayerEquiment>();
     }
     public void AddXp(float xp)
     {
@@ -97,20 +100,20 @@ public class LevelUPManager : MonoBehaviour
         if (equipementsPossible.Contains(possiblilities[number].GetComponent<Equipement>()))
         {
             Equipement equipement = possiblilities[number].GetComponent<Equipement>();
-            if (playerEquiment.equipements.Count < playerEquiment.maxEquipements)
+            if (_playerEquipment.equipements.Count < _playerEquipment.maxEquipements)
             {
-                playerEquiment.equipements.Add(equipement);
-                equipement.OnPickUp(playerEquiment.gameObject.GetComponent<Controlleur>());
+                _playerEquipment.equipements.Add(equipement);
+                equipement.OnPickUp(_playerEquipment.gameObject.GetComponent<Controlleur>());
             }
         }
         else if (armesPossible.Contains(possiblilities[number].GetComponent<Arme>()))
         {
-            GameObject armeInstant = Instantiate(possiblilities[number], playerEquiment.transform.position, playerEquiment.transform.rotation);
+            GameObject armeInstant = Instantiate(possiblilities[number], _playerEquipment.transform.position, _playerEquipment.transform.rotation);
             switch (possiblilities[number].GetComponent<Arme>().type)
             {
-                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(1).transform);
+                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(1).transform);
                     break;
-                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(2).transform);
+                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(2).transform);
                     break;
             }
         }

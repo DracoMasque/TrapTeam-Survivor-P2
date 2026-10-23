@@ -6,10 +6,28 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] int maxHealth = 10;
     float currentHealth;
     [SerializeField] int attack = 10;
+    
     public float speed;
-    public float maxSpeed = 10;
+    [HideInInspector] public float modSpeedTrap = 1;
+    
+    public float damage;
+    [HideInInspector] public float damageUpgrade = 0;
+    [HideInInspector] public float modDamage = 1;
+    
+    [Tooltip("in seconds")] public float damageFreq;
+    [HideInInspector] public float damageFreqUpgrade = 0;
+    [HideInInspector] public float modDamageFreq = 1;
+
+    public float defense;
+    [HideInInspector] public float defenseUpgrade = 0;
+    [HideInInspector] public float modDefense = 1;
+
     [SerializeField] float range;
-    [SerializeField] int materialChance;
+    [HideInInspector] public float rangeUpgrade;
+    [HideInInspector] public float modRange = 1;
+    
+    [SerializeField] int materialChance; //il faut que je change ça pour remplacer avec le nouveau system
+    
     [Header("Prefabs")]
     [SerializeField]  GameObject xpPrefab;
     [SerializeField]  GameObject materialPrefab;
@@ -27,7 +45,6 @@ public class EnemyPrefab : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        speed = maxSpeed;
         player = GameObject.FindGameObjectWithTag("Player");
         playerControlleur = player.GetComponent<Controlleur>();
         timer = GetComponent<Cooldown>();
@@ -35,6 +52,7 @@ public class EnemyPrefab : MonoBehaviour
         animationComponent = GetComponent<Animation>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    //====================WALKING====================//
     void Update()
     {
         if (gameManager.paused)
@@ -46,7 +64,11 @@ public class EnemyPrefab : MonoBehaviour
     }
     private void Walk(Vector2 player_pos)
     {
-        transform.position = Vector2.MoveTowards(transform.position, player_pos, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(
+            transform.position, 
+            player_pos, 
+            (speed * modSpeedTrap) * Time.deltaTime
+            );
     }
 
     
@@ -109,12 +131,10 @@ public class EnemyPrefab : MonoBehaviour
         int expToDrop = Random.Range(minExp, maxExp);
         for (int i = 0; i < expToDrop; i++)
         {
-            if (xpPrefab != null)
+            if (xpPrefab)
             {
                 GameObject newXp = Instantiate(xpPrefab, transform.position, transform.rotation);
-                Debug.Log(newXp.name);
-                //newXp.GetComponent<XpRecup>().valueXp = expToDrop;
-                Debug.Log("Drop XP");
+                newXp.GetComponent<XpRecup>().valueXp = expToDrop;
             }
             else
             {
@@ -130,7 +150,6 @@ public class EnemyPrefab : MonoBehaviour
             if (materialPrefab != null)
             {
                 Instantiate(materialPrefab, transform.position, transform.rotation);
-                Debug.Log("Drop material");
             }
             else
             {

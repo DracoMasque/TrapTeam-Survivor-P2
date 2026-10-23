@@ -797,6 +797,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7bf70defef4f484ab68fef14e7e7e31, type: 3}
+--- !u!114 &1965314781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3703852500161222977, guid: e7bf70defef4f484ab68fef14e7e7e31, type: 3}
+  m_PrefabInstance: {fileID: 1965314780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &2008134254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1374,6 +1385,10 @@ PrefabInstance:
       propertyPath: maxXp
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5008284455122970707, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: xpSlider
+      value: 
+      objectReference: {fileID: 1965314781}
     - target: {fileID: 5008284455122970707, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
       propertyPath: levelUpMenu
       value: 
