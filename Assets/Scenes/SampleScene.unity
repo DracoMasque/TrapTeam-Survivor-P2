@@ -141,6 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!114 &168185298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8009231335495671721, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+  m_PrefabInstance: {fileID: 7663643234692151379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ca2102db1e683498874ae00578d10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &254193205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1328,9 +1339,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 67258945}
     - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       propertyPath: keyToPress
       value: 
       objectReference: {fileID: 5531157}
+    - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 168185298}
     - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       propertyPath: cancelButton
       value: 

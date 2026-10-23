@@ -2151,12 +2151,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8736723102690927581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
   loop: 1
-  maxCooldownTime: 20
+  maxCooldownTime: 1
   finished: 0
   currentTime: 0
 --- !u!61 &4094993423186172048

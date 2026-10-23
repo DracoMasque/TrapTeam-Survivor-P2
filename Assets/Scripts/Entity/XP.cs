@@ -4,13 +4,12 @@ using UnityEngine.Serialization;
 
 public class XP : MonoBehaviour
 {
-    public int valueXp;
+    public int valueXp = 1;
     
     void OnTriggerEnter2D(Collider2D xp)
     {
         if (xp.CompareTag("Player"))
         {
-            Controlleur player = xp.gameObject.GetComponent<Controlleur>();
             LevelUPManager.instance.AddXp(valueXp);
             Destroy(gameObject);
         }
