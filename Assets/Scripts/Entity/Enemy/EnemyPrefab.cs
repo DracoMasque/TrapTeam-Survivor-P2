@@ -122,9 +122,9 @@ public class EnemyPrefab : MonoBehaviour
     private void DieFinished()
     {
         GameObject drop = _randomDrop.GetRandomDrop();
-        if (drop.GetComponent<XpRecup>() != null)
+        if (drop.GetComponent<XP>() != null)
         {
-            drop.GetComponent<XpRecup>().valueXp = xpToDrop;
+            drop.GetComponent<XP>().valueXp = xpToDrop;
         }
         Instantiate(drop, transform.position, transform.rotation);
         Destroy(gameObject);

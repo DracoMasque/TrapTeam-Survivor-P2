@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 117250893113249195}
   - component: {fileID: 2709262731672822385}
   - component: {fileID: 7043177997608987741}
-  - component: {fileID: 2426350983294189586}
+  - component: {fileID: 387572966497050416}
   - component: {fileID: 174905792778183666}
   m_Layer: 0
   m_Name: Player
@@ -397,7 +397,7 @@ MonoBehaviour:
   cancelButton: {fileID: 0}
   gameManager: {fileID: 0}
   pointeurRecup: {fileID: 0}
---- !u!114 &2426350983294189586
+--- !u!114 &387572966497050416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,10 +406,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3095789563922903222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f34f938312d10f4f9ce1f986d639c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 43c87bfaae94ee84aa14b8224693ab6e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XP
-  speedXp: 10
+  m_EditorClassIdentifier: Assembly-CSharp::XpRecup
+  valueXp: 0
 --- !u!114 &174905792778183666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 3959840853756025120}
   - component: {fileID: 9147438323416447119}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PickupDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

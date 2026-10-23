@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4220673983756312883}
   - component: {fileID: 7681950066925825595}
   - component: {fileID: 7198460037765592500}
-  - component: {fileID: 7818142253668005782}
   m_Layer: 0
   m_Name: BouleXP
   m_TagString: Pickup
@@ -130,16 +129,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &7818142253668005782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919210782642933907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c87bfaae94ee84aa14b8224693ab6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XpRecup
-  valueXp: 1

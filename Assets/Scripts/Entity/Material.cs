@@ -6,7 +6,7 @@ public class Material : MonoBehaviour
     
         void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             PlayerBuilding player = collision.gameObject.GetComponent<PlayerBuilding>();
             player.numberMaterial += value;
