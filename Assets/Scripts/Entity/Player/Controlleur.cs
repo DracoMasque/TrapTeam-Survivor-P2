@@ -2,6 +2,7 @@ using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.Serialization;
 
 using UnityEngine.UI;
@@ -83,6 +84,11 @@ public class Controlleur : MonoBehaviour
     {
         moveInput = cxt.ReadValue<Vector2>();
     }
-    
+
+    public void Heal(float healAmount)
+    {
+        currentHealth += healAmount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, health);
+    }
     
 }
