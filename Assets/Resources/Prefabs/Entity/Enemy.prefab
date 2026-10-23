@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2783721247255743970}
   - component: {fileID: 8356898122462958994}
+  - component: {fileID: 2892070363298123474}
   - component: {fileID: 1926789264679910545}
   - component: {fileID: 5671927596536538782}
   - component: {fileID: 506894051158575000}
@@ -53,11 +54,37 @@ MonoBehaviour:
   maxHealth: 10
   attack: 1
   speed: 2
-  maxSpeed: 2
+  modSpeedTrap: 1
+  damage: 0
+  damageUpgrade: 0
+  modDamage: 1
+  damageFreq: 0
+  damageFreqUpgrade: 0
+  modDamageFreq: 1
+  defense: 0
+  defenseUpgrade: 0
+  modDefense: 1
   range: 2
+  rangeUpgrade: 0
+  modRange: 1
   materialChance: 50
   xpPrefab: {fileID: 919210782642933907, guid: d097435a5252f1d4295e1c321bf03d63, type: 3}
   materialPrefab: {fileID: 653055286994394397, guid: ebe6f71df8b398f40b607775800095fa, type: 3}
+--- !u!114 &2892070363298123474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867be0d718f875846a2ff812aa0a6173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects:
+  - {fileID: 11400000, guid: 9613ee29d30c8644e9c1cc0293031b10, type: 2}
+  - {fileID: 11400000, guid: 1735ed1d90fd27f4babb90e518f367f3, type: 2}
 --- !u!212 &1926789264679910545
 SpriteRenderer:
   serializedVersion: 3

@@ -1,10 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RandomDrop : MonoBehaviour
 {
     public List<ScriptableObjectRarity> objects;
-    [HideInInspector] public List<List<ScriptableObjectRarity>> possibilities = new List<List<ScriptableObjectRarity>>(); 
+    [HideInInspector] public List<List<ScriptableObjectRarity>> possibilities = new List<List<ScriptableObjectRarity>>();
+
+    private void Start()
+    {
+        SortRarities();
+    }
 
     //return un gameObject random parmis la liste
     public GameObject GetRandomDrop()

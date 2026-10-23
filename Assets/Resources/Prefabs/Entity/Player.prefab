@@ -80,7 +80,6 @@ MonoBehaviour:
   defense: 0
   defenseUpgrade: 0
   modDefense: 1
-  maxXp: 10
   currentXp: 0
   healthSlider: {fileID: 0}
   healthText: {fileID: 0}

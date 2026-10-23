@@ -18,7 +18,6 @@ public class ArmeAura : Arme
         
         if (other.CompareTag("Enemy"))
         {
-            print(other);
             enemies.Add(other.gameObject.GetComponent<EnemyPrefab>());
         }
     }

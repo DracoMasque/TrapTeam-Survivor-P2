@@ -26,11 +26,11 @@ public class EnemyPrefab : MonoBehaviour
     [HideInInspector] public float rangeUpgrade;
     [HideInInspector] public float modRange = 1;
     
-    [SerializeField] int materialChance; //il faut que je change ça pour remplacer avec le nouveau system
+    public int xpToDrop = 1;
     
-    [Header("Prefabs")]
-    [SerializeField]  GameObject xpPrefab;
-    [SerializeField]  GameObject materialPrefab;
+    [Header("Prefabs")] 
+    private RandomDrop _randomDrop;
+
     
     private GameObject player;
     private Controlleur playerControlleur;
@@ -51,7 +51,10 @@ public class EnemyPrefab : MonoBehaviour
         animator = GetComponent<Animator>();
         animationComponent = GetComponent<Animation>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _randomDrop = GetComponent<RandomDrop>();
     }
+    
+    
     //====================WALKING====================//
     void Update()
     {
@@ -106,7 +109,6 @@ public class EnemyPrefab : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -114,57 +116,17 @@ public class EnemyPrefab : MonoBehaviour
     }
     private void Die()
     {
-        DropXp();
-        DropMaterial();
         animator.SetBool("Dead", true);
     }
+    
     private void DieFinished()
     {
+        GameObject drop = _randomDrop.GetRandomDrop();
+        if (drop.GetComponent<XpRecup>() != null)
+        {
+            drop.GetComponent<XpRecup>().valueXp = xpToDrop;
+        }
+        Instantiate(drop, transform.position, transform.rotation);
         Destroy(gameObject);
-    }
-
-    private void DropXp()
-    {
-        //max drop XP joue sur le niveau de difficulté de l'enemy, balancing blabla, pas mtn
-        int maxExp = 5;
-        int minExp = 0;
-        int expToDrop = Random.Range(minExp, maxExp);
-        for (int i = 0; i < expToDrop; i++)
-        {
-            if (xpPrefab)
-            {
-                GameObject newXp = Instantiate(xpPrefab, transform.position, transform.rotation);
-                newXp.GetComponent<XpRecup>().valueXp = expToDrop;
-            }
-            else
-            {
-                Debug.LogError("xpPrefab isn't set properly");
-            }
-        }
-    }
-    private void DropMaterial()
-    {
-        int chance = Random.Range(0, 100);
-        if (chance <= materialChance)
-        {
-            if (materialPrefab != null)
-            {
-                Instantiate(materialPrefab, transform.position, transform.rotation);
-            }
-            else
-            {
-                Debug.LogError("materialPrefab isn't set properly");
-            }
-            
-        }
-    }
-    private static bool[] CreateWeighedArray(int percentage)
-    {
-        bool[] array = new bool[100];
-        for ( int i = 0; i < percentage; i++)
-        {
-            array[i] = true;
-        }
-        return array;
     }
 }
