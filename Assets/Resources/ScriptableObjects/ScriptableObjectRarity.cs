@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "ScriptableObjectRarity", menuName = "Scriptable Objects/ScriptableObjectRarity")]
 public class ScriptableObjectRarity : ScriptableObject
 {
@@ -18,7 +18,7 @@ public class ScriptableObjectRarity : ScriptableObject
         {
             int objectChance = Random.Range(0, drops.Count);
             drop = drops[objectChance];
-            Debug.Log(rarity);
+            //Debug.Log(rarity);
         }
         
         return drop;
