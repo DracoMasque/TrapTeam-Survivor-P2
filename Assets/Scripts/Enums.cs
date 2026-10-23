@@ -13,3 +13,12 @@ public enum TypeArme
     CorpACorp,
     Range,
 }
+
+public enum Elements
+{
+    None,
+    Feu,
+    Glace,
+    Nature,
+    Maudit,
+}
