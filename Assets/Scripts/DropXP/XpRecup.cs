@@ -9,7 +9,9 @@ public class XpRecup : MonoBehaviour
         if (xp.tag.Equals("Player"))
         {
             Controlleur player = xp.gameObject.GetComponent<Controlleur>();
-            player.currentXp += valueXp;
+            LevelUPManager.instance.AddXp(valueXp);
+            
+            
             if (player.currentXp >= player.maxXp)
             {
                 player.currentXp = player.maxXp;

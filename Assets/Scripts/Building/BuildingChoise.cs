@@ -42,7 +42,7 @@ public class BuildingChoise : MonoBehaviour
     {
         for (int i = 0; i < choicePanel.Length; i++)
         {
-            formePossibleChoice.Add(formePossible[Random.Range(0, sallePossible.Length)]);
+            formePossibleChoice.Add(formePossible[Random.Range(0, sallePossible.Length+1)]);
         }
 
         foreach (Groupement forme in formePossibleChoice)
@@ -50,7 +50,7 @@ public class BuildingChoise : MonoBehaviour
             List<Room> formeRooms = new List<Room>();
             for (int i = 0; i < forme.groupedRooms.Count; i++)
             {
-                formeRooms.Add(sallePossible[Random.Range(0, sallePossible.Length)]);
+                formeRooms.Add(sallePossible[Random.Range(0, sallePossible.Length+1)]);
             }
             sallePossibleChoice.Add(formeRooms);
         }

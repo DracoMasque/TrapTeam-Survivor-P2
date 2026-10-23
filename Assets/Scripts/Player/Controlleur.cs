@@ -17,10 +17,8 @@ public class Controlleur : MonoBehaviour
     
     public float currentXp = 0;
     [SerializeField] public float maxXp = 10;
-    public Slider xpSlider;
-    public float level;
-    public TextMeshProUGUI levelTextTemp;
-
+    
+    
     public float maxHealth;
     public float currentHealth;
     public Slider healthSlider;
@@ -30,7 +28,6 @@ public class Controlleur : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        xpSlider = GameObject.Find("XpBar").GetComponent<Slider>();
         healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         currentHealth = maxHealth;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -45,15 +42,8 @@ public class Controlleur : MonoBehaviour
             return;
         }
         rb.linearVelocity = moveInput.normalized * speed;
-        xpSlider.value = currentXp/maxXp;
         healthSlider.value = currentHealth/maxHealth;
         healthText.text = currentHealth + "/" + maxHealth;
-        if (currentXp >= maxXp)
-        {
-            currentXp -= maxXp;
-            level++;
-        }
-        levelTextTemp.text = "level :  " + level;
     }
 
     public void Move(InputAction.CallbackContext cxt)

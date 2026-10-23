@@ -2,10 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BulletCompetence : MonoBehaviour
+public class ArmeBullet : Arme
 {
     [SerializeField] GameObject bulletPrefab;
-    public int damage = 10;
     public float speed = 10;
     private Cooldown timer;
     private DetectEnemy detectEnemy;
@@ -19,19 +18,19 @@ public class BulletCompetence : MonoBehaviour
     { 
         player = GameObject.FindGameObjectWithTag("Player");
         timer = GetComponent<Cooldown>();
+        timer.OnTimeout = OnTimeout;
         detectEnemy = GetComponent<DetectEnemy>();
         enemies = detectEnemy.enemies;
     }
 
-    void Update()
-    {
-        if (timer.finished && detectEnemy.enemies.Count > 0)
+    void OnTimeout()
+    {        if (timer.finished && detectEnemy.enemies.Count > 0)
         {
             LaunchBullet();
             timer.Play();
         }
+        
     }
-
     // ReSharper disable Unity.PerformanceAnalysis
     void LaunchBullet()
     {
