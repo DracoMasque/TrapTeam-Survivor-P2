@@ -6,8 +6,28 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] int maxHealth = 10;
     float currentHealth;
     [SerializeField] int attack = 10;
-    public float speed = 10;
+    
+    public float speed;
+    [HideInInspector] public float modSpeedTrap = 1;
+    
+    public float damage;
+    [HideInInspector] public float damageUpgrade = 0;
+    [HideInInspector] public float modDamage = 1;
+    
+    [Tooltip("in seconds")] public float damageFreq;
+    [HideInInspector] public float damageFreqUpgrade = 0;
+    [HideInInspector] public float modDamageFreq = 1;
+
+    public float defense;
+    [HideInInspector] public float defenseUpgrade = 0;
+    [HideInInspector] public float modDefense = 1;
+
     [SerializeField] float range;
+    [HideInInspector] public float rangeUpgrade;
+    [HideInInspector] public float modRange = 1;
+    
+    [SerializeField] int materialChance; //il faut que je change ça pour remplacer avec le nouveau system
+    
     [Header("Prefabs")]
     [SerializeField]  GameObject xpPrefab;
     [SerializeField]  GameObject materialPrefab;
@@ -19,6 +39,8 @@ public class EnemyPrefab : MonoBehaviour
     
     private Animator animator;
     private Animation animationComponent;
+    
+    private GameManager gameManager;
    
     void Start()
     {
@@ -28,15 +50,25 @@ public class EnemyPrefab : MonoBehaviour
         timer = GetComponent<Cooldown>();
         animator = GetComponent<Animator>();
         animationComponent = GetComponent<Animation>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    //====================WALKING====================//
     void Update()
     {
+        if (gameManager.paused)
+        {
+            return;
+        }
         Walk(player.transform.position);
         Attack();
     }
     private void Walk(Vector2 player_pos)
     {
-        transform.position = Vector2.MoveTowards(transform.position, player_pos, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(
+            transform.position, 
+            player_pos, 
+            (speed * modSpeedTrap) * Time.deltaTime
+            );
     }
 
     
@@ -48,7 +80,7 @@ public class EnemyPrefab : MonoBehaviour
         if (timer.finished && IsClose())
         {
             animator.SetBool("Attacking", true);
-            playerControlleur.currentHealth =- attack;
+            playerControlleur.currentHealth -= attack;
             timer.Play();
         }
     }
@@ -74,6 +106,7 @@ public class EnemyPrefab : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -93,15 +126,15 @@ public class EnemyPrefab : MonoBehaviour
     private void DropXp()
     {
         //max drop XP joue sur le niveau de difficulté de l'enemy, balancing blabla, pas mtn
-        float maxExp = 5;
-        float minExp = 0;
-        float expToDrop = Random.Range(minExp, maxExp);
+        int maxExp = 5;
+        int minExp = 0;
+        int expToDrop = Random.Range(minExp, maxExp);
         for (int i = 0; i < expToDrop; i++)
         {
-            if (xpPrefab != null)
+            if (xpPrefab)
             {
-                Instantiate(xpPrefab, transform.parent);
-                Debug.Log("Drop XP");
+                GameObject newXp = Instantiate(xpPrefab, transform.position, transform.rotation);
+                newXp.GetComponent<XpRecup>().valueXp = expToDrop;
             }
             else
             {
@@ -111,14 +144,12 @@ public class EnemyPrefab : MonoBehaviour
     }
     private void DropMaterial()
     {
-        bool[] array = CreateWeighedArray(30);
-        int chance = Random.Range(0, 10);
-        if (array[chance])
+        int chance = Random.Range(0, 100);
+        if (chance <= materialChance)
         {
             if (materialPrefab != null)
             {
-                Instantiate(materialPrefab, transform.parent);
-                Debug.Log("Drop material");
+                Instantiate(materialPrefab, transform.position, transform.rotation);
             }
             else
             {

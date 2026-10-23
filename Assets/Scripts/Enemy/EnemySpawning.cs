@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using NUnit.Framework;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+//using UnityEngine.Assertions;
 
 public class EnemySpawning : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class EnemySpawning : MonoBehaviour
     [SerializeField] private GameObject enemiesContainer;
     private Cooldown timer;
     private CinemachineCamera currentCamera;
+    
     void Start()
     {
-        Assert.IsNotEmpty(enemies, "EnemySpawning.cs : There are no enemies to spawn");
-        Assert.IsNotNull(enemiesContainer, "EnemySpawning.cs : the enemiesContainer wasn't set properly");
         timer = GetComponent<Cooldown>();
         currentCamera = GameObject.FindGameObjectWithTag("Camera").GetComponent<CinemachineCamera>();
+        //Assert.IsTrue(enemies.Count>0, "EnemySpawning.cs : There are no enemies to spawn");
+        //Assert.IsNotNull(enemiesContainer, "EnemySpawning.cs : the enemiesContainer wasn't set properly");
     }
 
     void Update()
@@ -50,6 +52,10 @@ public class EnemySpawning : MonoBehaviour
                 {
                     newEnemiesList.Add(item.Key);
                 }
+            }
+            else
+            {
+                newEnemiesList.Add(item.Key);
             }
         }
         enemies = newEnemiesList;

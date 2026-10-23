@@ -6,28 +6,48 @@ using Random = UnityEngine.Random;
 
 public class Groupement : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> groupedRooms;
+    public List<GameObject> groupedRooms;
     [SerializeField] private Room[] sallePossible;
+    public bool placed;
+    private BuildingSystem buildingSystem;
+    public Vector3 previousPosition;
 
     private void Start()
     {
-        sallePossible = Resources.LoadAll<Room>("BuildingPrefabs\\Salles");
+        buildingSystem = GameObject.FindGameObjectWithTag("BuildingSystem").GetComponent<BuildingSystem>();
     }
 
-    public void BuildGroup()
+    public void BuildGroup(List<Room> rooms)
     {
-        List<Room> salles = new List<Room>();
-        foreach (Room r in sallePossible)
+        
+        for (int i = 0; i < groupedRooms.Count; i++)
         {
-                print("ajoute");
-                salles.Add(r);
+            Instantiate(rooms[i].gameObject, groupedRooms[i].transform.position, groupedRooms[i].transform.rotation,groupedRooms[i].transform);
         }
-        foreach (GameObject g in groupedRooms)
+    }
+
+    public void BuildThumbnail(List<Room> rooms)
+    {
+        for (int i = 0; i < groupedRooms.Count; i++)
         {
-            int index = Random.Range(0, sallePossible.Length-1);
-            print(index);
-            print(sallePossible.Length);
-            Instantiate(sallePossible[index].gameObject, g.transform.position, g.transform.rotation,g.transform);
+            Instantiate(AssetPreview.GetMiniThumbnail(rooms[i].gameObject), groupedRooms[i].transform.position, groupedRooms[i].transform.rotation, groupedRooms[i].transform);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Groupement")
+        {
+            print("!buildable");
+            buildingSystem.buildable = false;
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Groupement")
+        {
+            buildingSystem.buildable = true;
         }
     }
 }

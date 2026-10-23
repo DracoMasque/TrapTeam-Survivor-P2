@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,16 +8,21 @@ public class GameManager : MonoBehaviour
     private WaveScriptable currentWave;
     private WaveScriptable nextWave;
     private Cooldown timer;
-
+    public bool paused = false;
+    
     private void Start()
     {
         timer = GetComponent<Cooldown>();
+        timer.OnTimeout = UpdateWave;
         currentWave = waves[0];
         nextWave = waves[0];
+        BroadcastMessage("ChangeEnemy", currentWave.enemies);
     }
-
-    private void Update()
+    
+    void UpdateWave()
     {
+        if (paused) return;
+
         if (timer.currentTime >= nextWave.time)
         {
             currentWave = nextWave;
@@ -29,7 +35,6 @@ public class GameManager : MonoBehaviour
            
         }
     }
-    
     private void NextWave()
     {
         WaveScriptable newWave = currentWave;
