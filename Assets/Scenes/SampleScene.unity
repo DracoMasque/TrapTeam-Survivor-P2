@@ -1618,7 +1618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2430596078496097930, guid: ac6378ee44f93934087f31825357e87a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2902421225009247828, guid: ac6378ee44f93934087f31825357e87a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1630,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2902421225009247828, guid: ac6378ee44f93934087f31825357e87a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6120182188499251352, guid: ac6378ee44f93934087f31825357e87a, type: 3}
       propertyPath: m_Pivot.x
@@ -2106,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9031326179128620955, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
       propertyPath: maxCooldownTime
-      value: 60
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

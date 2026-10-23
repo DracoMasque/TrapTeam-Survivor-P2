@@ -51,6 +51,8 @@ MonoBehaviour:
   description: fait zone youpi
   image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
   damage: 10
+  rarity: 0
+  type: 0
 --- !u!58 &6444601418911907440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -96,12 +98,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5909026551719737472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
   loop: 1
-  maxCooldownTime: 0.5
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!212 &5733203590376042617

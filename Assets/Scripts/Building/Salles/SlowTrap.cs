@@ -31,7 +31,7 @@ public class SlowTrap : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap = (100 / speedPourcentage) * other.gameObject.GetComponent<Controlleur>().modSpeedTrap;
+            other.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap = (100 / speedPourcentage) * other.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap;
         }
     }
 }
