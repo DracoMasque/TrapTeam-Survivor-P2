@@ -42,7 +42,7 @@ public class BuildingChoise : MonoBehaviour
     {
         for (int i = 0; i < choicePanel.Length; i++)
         {
-            formePossibleChoice.Add(formePossible[Random.Range(0, sallePossible.Length+1)]);
+            formePossibleChoice.Add(formePossible[Random.Range(0, formePossible.Length)]);
         }
 
         foreach (Groupement forme in formePossibleChoice)

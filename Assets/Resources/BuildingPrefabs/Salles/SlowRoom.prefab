@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   SpawnChance: 10
+  element: 1
 --- !u!61 &8200998359770869107
 BoxCollider2D:
   m_ObjectHideFlags: 0

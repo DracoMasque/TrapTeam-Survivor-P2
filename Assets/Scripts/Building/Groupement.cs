@@ -9,6 +9,7 @@ public class Groupement : MonoBehaviour
     public List<GameObject> groupedRooms;
     [SerializeField] private Room[] sallePossible;
     public bool placed;
+    public bool firstTimeBuild = false;
     private BuildingSystem buildingSystem;
     public Vector3 previousPosition;
 

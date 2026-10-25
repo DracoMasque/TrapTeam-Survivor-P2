@@ -186,14 +186,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ElementManager
   rooms: []
-  ratioFeu: 0
-  numberRoomsFeu: 0
-  ratioGlace: 0
-  numberRoomsGlace: 0
-  ratioNature: 0
-  numberRoomsNature: 0
-  ratioMaudit: 0
-  numberRoomsMaudit: 0
+  sameLevelElements: 
+  numberRoomsToLevel1: 3
+  numberRoomsToLevel2: 4
+  numberRoomsToLevel3: 5
+  numberRoomsToLevel4: 6
+  elementLevels:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementRatios:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementNumberRooms:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementDominant: 0
 --- !u!1001 &254193205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1524,6 +1549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122384901929610891, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3588735063691706376, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

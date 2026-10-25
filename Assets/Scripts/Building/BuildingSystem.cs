@@ -54,13 +54,17 @@ public class BuildingSystem : MonoBehaviour
                     groupement.transform.SetParent(null);
                     groupement.placed = true;
                     groupement.previousPosition = groupement.transform.position;
-                    foreach (GameObject room in groupement.groupedRooms)
+                    if (!groupement.firstTimeBuild)
                     {
-                        Room elementRoom = room.transform.GetChild(0).GetComponent<Room>();
-                        if (elementRoom.element != Elements.None)
+                        foreach (GameObject room in groupement.groupedRooms)
                         {
-                            ElementManager.instance.AjouterRoom(elementRoom);
+                            Room elementRoom = room.transform.GetChild(0).GetComponent<Room>();
+                            if (elementRoom.element != Elements.None)
+                            {
+                                ElementManager.instance.AjouterRoom(elementRoom);
+                            }
                         }
+                        groupement.firstTimeBuild = true;
                     }
                     groupement = null;
                     pointeurRecup.gameObject.SetActive(true);

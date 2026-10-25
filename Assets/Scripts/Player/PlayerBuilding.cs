@@ -14,7 +14,6 @@ public class PlayerBuilding : MonoBehaviour
     [SerializeField] private GameObject UIBuildingChoice;
     private BuildingChoise buildingChoice;
     [SerializeField] private CinemachineCamera camera;
-    private GameObject[] groupementPossible;
     public BuildingSystem building;
     
     public TextMeshProUGUI keyToPress;
@@ -27,7 +26,6 @@ public class PlayerBuilding : MonoBehaviour
 
     void Start()
     {
-        groupementPossible = Resources.LoadAll<GameObject>("BuildingPrefabs\\Groupements");
         building = buildingSystem.GetComponent<BuildingSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
