@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -30,7 +31,7 @@ public class ElementManager : MonoBehaviour
         {Elements.Maudit, 0f}
     };
     
-    [SerializeField] public Dictionary<Elements, int> elementNumberRooms = new Dictionary<Elements, int>
+    [SerializeField] public Dictionary<Elements, float> elementNumberRooms = new Dictionary<Elements, float>
     {
         {Elements.Feu, 0},
         {Elements.Glace, 0},
@@ -52,26 +53,6 @@ public class ElementManager : MonoBehaviour
         elementRatios[Elements.Nature] = elementNumberRooms[Elements.Nature]/rooms.Count;
         elementRatios[Elements.Maudit] = elementNumberRooms[Elements.Maudit] / rooms.Count;
 
-        foreach (KeyValuePair<Elements, int> key in elementLevels)
-        {
-            if (elementNumberRooms[key.Key] == numberRoomsToLevel1)
-            {
-                elementLevels[key.Key] = 1;
-            }
-            else if (elementNumberRooms[key.Key] == numberRoomsToLevel2)
-            {
-                elementLevels[key.Key] = 2;
-            }
-            else if (elementNumberRooms[key.Key] == numberRoomsToLevel3)
-            {
-                elementLevels[key.Key] = 3;
-            }
-            else if (elementNumberRooms[key.Key] == numberRoomsToLevel4)
-            {
-                elementLevels[key.Key] = 4;
-            }
-        }
-
         DominatingElement();
     }
     
@@ -90,7 +71,32 @@ public class ElementManager : MonoBehaviour
                 break;
         }
         
+        ChangeLevel(room.element);
         BuildRatio();
+    }
+
+    private void ChangeLevel(Elements element)
+    {
+        if (elementNumberRooms[element] >= numberRoomsToLevel4)
+        {
+            print("level up element");
+            elementLevels[element] = 4;
+        }
+        else if (elementNumberRooms[element] >= numberRoomsToLevel3)
+        {
+            print("level up element");
+            elementLevels[element] = 3;
+        }
+        else if (elementNumberRooms[element] >= numberRoomsToLevel2)
+        {
+            print("level up element");
+            elementLevels[element] = 2;
+        }
+        else if (elementNumberRooms[element] >= numberRoomsToLevel1)
+        {
+            print("level up element");
+            elementLevels[element] = 1;
+        }
     }
     
     public void RemoveRoom(Room room)
@@ -107,15 +113,59 @@ public class ElementManager : MonoBehaviour
             case Elements.Maudit : elementNumberRooms[Elements.Maudit]--;
                 break;
         }
+        ChangeLevel(room.element);
         BuildRatio();
     }
 
     public void DominatingElement()
     {
+        sameLevelElements.Clear();
+        Elements[] elements = elementLevels.Keys.ToArray() ;
         Elements previousElement = Elements.None;
+        Elements highestLevelElement = Elements.None;
+        for (int i = 0; i < elementLevels.Count; i++)
+        {
+            if (previousElement != Elements.None && elementLevels[elements[i]] > elementLevels[previousElement])
+            {
+                highestLevelElement = elements[i];
+                print(elementLevels[elements[i]]);
+            }
+            else if (previousElement != Elements.None && elementLevels[elements[i]] == elementLevels[previousElement])
+            {
+                if (highestLevelElement != Elements.None && elementLevels[elements[i]] == elementLevels[highestLevelElement])
+                {
+                    sameLevelElements.Add(elements[i]);
+                }
+            }
+            else if (previousElement == Elements.None)
+            {
+                highestLevelElement = elements[i];
+            }
+            previousElement = elements[i];
+        }
+
+        if (highestLevelElement != Elements.None && sameLevelElements.Count < 1)
+        {
+            elementDominant = highestLevelElement;
+        }
+        else if (sameLevelElements.Count > 1)
+        {
+            previousElement = Elements.None;
+            foreach (Elements element in sameLevelElements)
+            {
+                if (previousElement != Elements.None && elementRatios[element] > elementRatios[previousElement])
+                {
+                    elementDominant = element;
+                }
+                previousElement = element;
+            }
+        }
+        
+        /*Elements previousElement = Elements.None;
         
         foreach (KeyValuePair<Elements,int> key in elementLevels)
         {
+            print("check level");
             if (previousElement != Elements.None)
             {
                 if (elementLevels[key.Key] > elementLevels[previousElement])
@@ -125,6 +175,7 @@ public class ElementManager : MonoBehaviour
                 }
                 else if (elementLevels[key.Key] == elementLevels[previousElement])
                 {
+                    print("same level");
                     sameLevelElements.Add(key.Key);
                     previousElement = key.Key;
                 }
@@ -167,6 +218,7 @@ public class ElementManager : MonoBehaviour
                 previousElement = elements;
             }
         }
+        sameLevelElements.Clear();*/
     }
 
 }

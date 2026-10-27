@@ -39,7 +39,6 @@ public class Groupement : MonoBehaviour
     {
         if (other.tag == "Groupement")
         {
-            print("!buildable");
             buildingSystem.buildable = false;
         }
     }
