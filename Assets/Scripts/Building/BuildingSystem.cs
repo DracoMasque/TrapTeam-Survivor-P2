@@ -59,13 +59,14 @@ public class BuildingSystem : MonoBehaviour
                         foreach (GameObject room in groupement.groupedRooms)
                         {
                             Room elementRoom = room.transform.GetChild(0).GetComponent<Room>();
-                            if (elementRoom.element != Elements.None)
+                            if (elementRoom.elements.elements != Elements.None)
                             {
                                 ElementManager.instance.AjouterRoom(elementRoom);
                             }
                         }
                         groupement.firstTimeBuild = true;
                     }
+                    ElementManager.instance.ElementBonusTotalCalcul();
                     groupement = null;
                     pointeurRecup.gameObject.SetActive(true);
                 }

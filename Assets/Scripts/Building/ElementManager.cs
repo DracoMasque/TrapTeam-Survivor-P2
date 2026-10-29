@@ -39,11 +39,26 @@ public class ElementManager : MonoBehaviour
         {Elements.Maudit, 0}
     };
     
+    public Dictionary<Elements, float> elementBonusTotal = new Dictionary<Elements, float>
+    {
+        {Elements.Feu, 0},
+        {Elements.Glace, 0},
+        {Elements.Nature, 0},
+        {Elements.Maudit, 0}
+    };
+
+    private Elements[] keys;
+    
     public Elements elementDominant;
 
     void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
+        keys = elementNumberRooms.Keys.ToArray();
     }
 
     private void BuildRatio()
@@ -59,7 +74,7 @@ public class ElementManager : MonoBehaviour
     public void AjouterRoom(Room room)
     {
         rooms.Add(room);
-        switch (room.element)
+        switch (room.elements.elements)
         {
             case Elements.Feu : elementNumberRooms[Elements.Feu]++;
                 break;
@@ -71,7 +86,7 @@ public class ElementManager : MonoBehaviour
                 break;
         }
         
-        ChangeLevel(room.element);
+        ChangeLevel(room.elements.elements);
         BuildRatio();
     }
 
@@ -102,7 +117,7 @@ public class ElementManager : MonoBehaviour
     public void RemoveRoom(Room room)
     {
         rooms.Remove(room);
-        switch (room.element)
+        switch (room.elements.elements)
         {
             case Elements.Feu : elementNumberRooms[Elements.Feu]--;
                 break;
@@ -113,38 +128,41 @@ public class ElementManager : MonoBehaviour
             case Elements.Maudit : elementNumberRooms[Elements.Maudit]--;
                 break;
         }
-        ChangeLevel(room.element);
+        ChangeLevel(room.elements.elements);
         BuildRatio();
     }
 
     public void DominatingElement()
     {
         sameLevelElements.Clear();
-        Elements[] elements = elementLevels.Keys.ToArray() ;
         Elements previousElement = Elements.None;
         Elements highestLevelElement = Elements.None;
         for (int i = 0; i < elementLevels.Count; i++)
         {
-            if (previousElement != Elements.None && elementLevels[elements[i]] > elementLevels[previousElement])
+            if (previousElement != Elements.None && elementLevels[keys[i]] > elementLevels[previousElement])
             {
-                highestLevelElement = elements[i];
-                print(elementLevels[elements[i]]);
+                highestLevelElement = keys[i];
+                print(elementLevels[keys[i]]);
             }
-            else if (previousElement != Elements.None && elementLevels[elements[i]] == elementLevels[previousElement])
+            else if (previousElement != Elements.None && elementLevels[keys[i]] == elementLevels[previousElement])
             {
-                if (highestLevelElement != Elements.None && elementLevels[elements[i]] == elementLevels[highestLevelElement])
+                if (highestLevelElement != Elements.None && elementLevels[keys[i]] == elementLevels[highestLevelElement])
                 {
-                    sameLevelElements.Add(elements[i]);
+                    sameLevelElements.Add(keys[i]);
                 }
             }
             else if (previousElement == Elements.None)
             {
-                highestLevelElement = elements[i];
+                highestLevelElement = keys[i];
             }
-            previousElement = elements[i];
+            previousElement = keys[i];
         }
 
-        if (highestLevelElement != Elements.None && sameLevelElements.Count < 1)
+        if (highestLevelElement == Elements.None && elementLevels[highestLevelElement] > 0)
+        {
+            elementDominant = Elements.None;
+        }
+        else if (highestLevelElement != Elements.None && sameLevelElements.Count < 1)
         {
             elementDominant = highestLevelElement;
         }
@@ -160,65 +178,23 @@ public class ElementManager : MonoBehaviour
                 previousElement = element;
             }
         }
-        
-        /*Elements previousElement = Elements.None;
-        
-        foreach (KeyValuePair<Elements,int> key in elementLevels)
-        {
-            print("check level");
-            if (previousElement != Elements.None)
-            {
-                if (elementLevels[key.Key] > elementLevels[previousElement])
-                {
-                    previousElement = key.Key;
-                    elementDominant = key.Key;
-                }
-                else if (elementLevels[key.Key] == elementLevels[previousElement])
-                {
-                    print("same level");
-                    sameLevelElements.Add(key.Key);
-                    previousElement = key.Key;
-                }
-            }
-            previousElement = key.Key;
-        }
-
-        previousElement = Elements.None;
-
-        int hightestLevel = 0;
-        foreach (Elements elements in sameLevelElements)
-        {
-            if (elementLevels[elements] > hightestLevel)
-            {
-                hightestLevel = elementLevels[elements];
-            }
-        }
-        
-        List<Elements> sameLevelElementsTemp = sameLevelElements;
-        foreach (Elements elements in sameLevelElementsTemp)
-        {
-            if (elementLevels[elements] > hightestLevel)
-            {
-                sameLevelElements.Remove(elements);
-            }
-        }
-        
-        if (sameLevelElements.Count < 1)
-        {
-            foreach (Elements elements in sameLevelElements)
-            {
-                if (previousElement != Elements.None)
-                {
-                    if (elementRatios[elements] > elementRatios[previousElement])
-                    {
-                        previousElement = elements;
-                        elementDominant = elements;
-                    }
-                }
-                previousElement = elements;
-            }
-        }
-        sameLevelElements.Clear();*/
     }
 
+    public void ElementBonusTotalCalcul()
+    {
+        foreach (Elements element in keys)
+        {
+            elementBonusTotal[element] = 0;
+        }
+        foreach (Elements element in keys)
+        {
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                if (rooms[i].elements.elements == element)
+                {
+                    elementBonusTotal[element] += rooms[i].bonusElement;
+                }
+            }
+        }
+    }
 }
