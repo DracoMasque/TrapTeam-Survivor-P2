@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8009231335495671721}
   - component: {fileID: 9031326179128620955}
   - component: {fileID: 5008284455122970707}
+  - component: {fileID: 1150661991008216829}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -117,6 +118,60 @@ MonoBehaviour:
   levelUpMenu: {fileID: 0}
   levelTextTemp: {fileID: 0}
   xpSlider: {fileID: 0}
+  equipementsPossible: []
+  armesPossible: []
+  levelUpPanels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  possiblilities: []
+  playerEquiment: {fileID: 0}
+--- !u!114 &1150661991008216829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7716eda0b89f14bba145907bbc72f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementManager
+  rooms: []
+  sameLevelElements: 
+  numberRoomsToLevel1: 3
+  numberRoomsToLevel2: 4
+  numberRoomsToLevel3: 5
+  numberRoomsToLevel4: 6
+  elementLevels:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementRatios:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementNumberRooms:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementDominant: 0
 --- !u!1001 &2681948118852174361
 PrefabInstance:
   m_ObjectHideFlags: 0
