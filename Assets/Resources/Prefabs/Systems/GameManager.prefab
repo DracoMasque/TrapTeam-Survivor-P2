@@ -77,7 +77,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93806ae2f5153ef42a4328bbe61927b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ca2102db1e683498874ae00578d10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   waves:
@@ -92,12 +92,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 0
-  maxCooldownTime: 60
+  loop: 1
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!114 &5008284455122970707
@@ -109,12 +109,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0a9a4b21e208a428e7beee5be54d97, type: 3}
+  m_Script: {fileID: 11500000, guid: e1e9493878b121d469b370b4f8d73d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentXp: 0
   level: 0
   maxXp: 10
+  possiblilities: []
+  levelUpPanels: []
   levelUpMenu: {fileID: 0}
   levelTextTemp: {fileID: 0}
   xpSlider: {fileID: 0}
