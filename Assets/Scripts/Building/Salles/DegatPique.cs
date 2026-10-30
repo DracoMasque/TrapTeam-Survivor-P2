@@ -26,7 +26,8 @@ public class DegatPique : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyPrefab>().TakeDamage(degatPique);
+            Room parentRoom = GetComponentInParent<Room>();
+            collision.gameObject.GetComponent<EnemyPrefab>().TakeDamageTrap(degatPique, parentRoom.elements.elements, parentRoom.bonusElement);
         }
     }
 }

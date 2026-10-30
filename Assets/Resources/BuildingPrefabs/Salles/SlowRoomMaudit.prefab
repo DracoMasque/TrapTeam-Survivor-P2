@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6966880435556050345}
   - component: {fileID: 8774044383783453720}
   m_Layer: 0
-  m_Name: SlowRoom
+  m_Name: SlowRoomMaudit
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,9 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8085077938ece974297eaf18abcad03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
+  name: Flaque Gluante
   spawnChance: 0
-  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
+  elements: {fileID: 11400000, guid: bf3b2ef9c4e642e4bb24ad28f0392410, type: 2}
   bonusElement: 1
+  alreadyStrong: 0
+  alreadyWeak: 0
 --- !u!61 &8200998359770869107
 BoxCollider2D:
   m_ObjectHideFlags: 0

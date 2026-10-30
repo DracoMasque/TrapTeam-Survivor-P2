@@ -112,8 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
   spawnChance: 0
-  elements: {fileID: 11400000, guid: 500b00ca80ef623428e9ed223178211d, type: 2}
+  elements: {fileID: 11400000, guid: 375b8e62fce628d4da846586f9777b3e, type: 2}
   bonusElement: 1
+  alreadyStrong: 0
+  alreadyWeak: 0
 --- !u!61 &4094993423186172048
 BoxCollider2D:
   m_ObjectHideFlags: 0

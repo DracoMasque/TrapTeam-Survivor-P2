@@ -42,7 +42,10 @@ GameObject:
   - component: {fileID: 5134107246921310157}
   - component: {fileID: 8009231335495671721}
   - component: {fileID: 9031326179128620955}
+  - component: {fileID: 6373040385761384896}
+  - component: {fileID: 7184666730033418670}
   - component: {fileID: 5008284455122970707}
+  - component: {fileID: 4871025640144010732}
   - component: {fileID: 1150661991008216829}
   m_Layer: 0
   m_Name: GameManager
@@ -96,10 +99,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 1
-  maxCooldownTime: 2
+  loop: 0
+  maxCooldownTime: 500
   finished: 0
   currentTime: 0
+--- !u!114 &6373040385761384896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects:
+  - {fileID: 11400000, guid: 52e579bb2c50d7c408f93a03067d4d8c, type: 2}
+  - {fileID: 11400000, guid: bd1bf6c928b18054f85a256d6ac07741, type: 2}
+  - {fileID: 11400000, guid: 0070d54291ec47944a34db265a1d01a1, type: 2}
+  - {fileID: 11400000, guid: a5a975b8d7d021142af1169a3fa42507, type: 2}
+--- !u!114 &7184666730033418670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects:
+  - {fileID: 11400000, guid: 4614ebbcdef6f8b46a8a2c1aed56997e, type: 2}
 --- !u!114 &5008284455122970707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,20 +148,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentXp: 0
   level: 0
-  maxXp: 10
+  maxXp: 1
   possiblilities: []
-  levelUpPanels: []
-  levelUpMenu: {fileID: 0}
-  levelTextTemp: {fileID: 0}
-  xpSlider: {fileID: 0}
-  equipementsPossible: []
-  armesPossible: []
   levelUpPanels:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  possiblilities: []
-  playerEquiment: {fileID: 0}
+  notEquipementDrop: {fileID: 6373040385761384896}
+  equipementDrop: {fileID: 7184666730033418670}
+  levelUpMenu: {fileID: 0}
+  levelTextTemp: {fileID: 0}
+--- !u!114 &4871025640144010732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects: []
 --- !u!114 &1150661991008216829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5134107246921310157}
     m_Modifications:
+    - target: {fileID: 1743427623201580384, guid: df0997208abaf0e4bbe88b144c9fdb4d, type: 3}
+      propertyPath: maxCooldownTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4710139645798851305, guid: df0997208abaf0e4bbe88b144c9fdb4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

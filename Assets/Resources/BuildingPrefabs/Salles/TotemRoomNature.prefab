@@ -107,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  cooldown: {fileID: 0}
   degatTotem: 1
 --- !u!58 &4139892071416628648
 CircleCollider2D:
@@ -154,12 +153,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840452455949088714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 0
-  maxCooldownTime: 4
+  loop: 1
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!1 &5843419432319920196
@@ -269,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  cooldown: {fileID: 0}
   degatTotem: 1
 --- !u!58 &794881810919510763
 CircleCollider2D:
@@ -316,12 +314,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5843419432319920196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 0
-  maxCooldownTime: 4
+  loop: 1
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!1 &5862405625863568665
@@ -431,7 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  cooldown: {fileID: 0}
   degatTotem: 1
 --- !u!58 &1157375598514310444
 CircleCollider2D:
@@ -478,12 +475,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5862405625863568665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
-  loop: 0
-  maxCooldownTime: 4
+  loop: 1
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!1 &8736723102690927581
@@ -501,8 +498,9 @@ GameObject:
   - component: {fileID: 7194692443341283262}
   - component: {fileID: 5469565042554869472}
   - component: {fileID: 3744625890168489655}
+  - component: {fileID: 3080951192457506172}
   m_Layer: 0
-  m_Name: TotemRoom
+  m_Name: TotemRoomNature
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,6 +522,8 @@ Transform:
   - {fileID: 606819403391459652}
   - {fileID: 8920896678255103873}
   - {fileID: 1391095747744141628}
+  - {fileID: 5440121997617156612}
+  - {fileID: 8833679169728159442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8479579097288399008
@@ -598,8 +598,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8085077938ece974297eaf18abcad03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  SpawnChance: 10
-  element: 0
+  name: Totems
+  spawnChance: 0
+  elements: {fileID: 11400000, guid: 1245e8dd7f6d7164d9994fba3f152685, type: 2}
+  bonusElement: 1
+  alreadyStrong: 0
+  alreadyWeak: 0
 --- !u!61 &4094993423186172048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -784,6 +788,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.03}
   m_EdgeRadius: 0
+--- !u!61 &3080951192457506172
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736723102690927581}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &8801145762249002034
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,3 +926,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1001 &3344792711117446947
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8539156930781365350}
+    m_Modifications:
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854419847183283885, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+      propertyPath: m_Name
+      value: ElementRoomCheck
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+--- !u!4 &8833679169728159442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
+  m_PrefabInstance: {fileID: 3344792711117446947}
+  m_PrefabAsset: {fileID: 0}

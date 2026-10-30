@@ -13,4 +13,6 @@ public abstract class Equipement : MonoBehaviour
 
     public abstract void EquipementAction();
 
+    public abstract void LetGoEquipement(Controlleur player);
+
 }

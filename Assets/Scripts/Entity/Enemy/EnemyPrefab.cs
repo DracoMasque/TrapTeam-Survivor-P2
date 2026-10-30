@@ -31,6 +31,8 @@ public class EnemyPrefab : MonoBehaviour
     [Header("Prefabs")] 
     private RandomDrop _randomDrop;
 
+    private ElementWeakScriptable elements;
+
     
     private GameObject player;
     private Controlleur playerControlleur;
@@ -108,12 +110,50 @@ public class EnemyPrefab : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (ElementManager.instance.elementDominant == elements.weakness)
+        {
+            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
+                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
+                               1.50f)) * (defense / 100);
+        }
+        else if (ElementManager.instance.elementDominant == elements.strength)
+        {
+            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
+                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
+                               0.50f)) * (defense / 100);
+        }
+        else
+        {
+            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
+                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant])) 
+                              * (defense / 100);
+        }
         if (currentHealth <= 0)
         {
             Die();
         }
     }
+    
+    public void TakeDamageTrap(int damage, Elements element, float trapBonus)
+        {
+            if (element == elements.weakness)
+            {
+                currentHealth -= (damage * trapBonus * 1.50f) * (defense / 100);
+            }
+            else if (element == elements.strength)
+            {
+                currentHealth -= (damage * trapBonus * 0.50f) * (defense / 100);
+            }
+            else
+            {
+                currentHealth -= (damage * trapBonus) * (defense / 100);
+            }
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    
     private void Die()
     {
         animator.SetBool("Dead", true);
@@ -128,5 +168,16 @@ public class EnemyPrefab : MonoBehaviour
         }
         Instantiate(drop, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+    
+    public void RedoSpeedModTrap(float modTrap)
+    {
+        modSpeedTrap += modTrap; 
+        speed += Mathf.Ceil(modSpeedTrap);
+    }
+
+    public void SpeedReturn(float modTrap)
+    {
+        speed += Mathf.Abs(modTrap);
     }
 }

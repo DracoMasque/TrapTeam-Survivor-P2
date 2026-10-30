@@ -68,6 +68,7 @@ public class ElementManager : MonoBehaviour
         elementRatios[Elements.Nature] = elementNumberRooms[Elements.Nature]/rooms.Count;
         elementRatios[Elements.Maudit] = elementNumberRooms[Elements.Maudit] / rooms.Count;
 
+        JaugeElement.instance.RefreshJauge(keys);
         DominatingElement();
     }
     

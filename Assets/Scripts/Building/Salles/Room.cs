@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 
 public class Room : MonoBehaviour
 {
+    public string name;
     public float spawnChance;
     public ElementWeakScriptable elements;
     public float bonusElement;

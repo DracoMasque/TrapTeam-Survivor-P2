@@ -33,7 +33,8 @@ public class BuildingChoise : MonoBehaviour
             g.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             for (int k = 0; k < sallePossibleChoice[i].Count; k++)
             {
-                choicePanel[i].roomNames[k].text = "- " + sallePossibleChoice[i][k].gameObject.name;
+                choicePanel[i].roomNames[k].text = "- " + sallePossibleChoice[i][k].name;
+                choicePanel[i].elementNames[k].text = "- " + sallePossibleChoice[i][k].elements.elements;
             }
         }
     }
@@ -42,7 +43,7 @@ public class BuildingChoise : MonoBehaviour
     {
         for (int i = 0; i < choicePanel.Length; i++)
         {
-            formePossibleChoice.Add(formePossible[Random.Range(0, sallePossible.Length)]);
+            formePossibleChoice.Add(formePossible[Random.Range(0, formePossible.Length)]);
         }
 
         foreach (Groupement forme in formePossibleChoice)
@@ -50,7 +51,7 @@ public class BuildingChoise : MonoBehaviour
             List<Room> formeRooms = new List<Room>();
             for (int i = 0; i < forme.groupedRooms.Count; i++)
             {
-                formeRooms.Add(sallePossible[Random.Range(0, sallePossible.Length)]);
+                formeRooms.Add(GetComponent<RandomDrop>().GetRandomDrop().GetComponent<Room>());
             }
             sallePossibleChoice.Add(formeRooms);
         }

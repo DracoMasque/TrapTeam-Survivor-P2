@@ -60,7 +60,8 @@ MonoBehaviour:
   health: 10
   currentHealth: 0
   healthUpgrade: 1
-  modHealth: 1
+  modHealth: 0
+  oldModHealth: 0
   healthRegen: 0
   healthRegenFreq: 0
   modHealthRegen: 1
@@ -409,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c87bfaae94ee84aa14b8224693ab6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XpRecup
-  valueXp: 0
+  speedXp: 10
 --- !u!114 &174905792778183666
 MonoBehaviour:
   m_ObjectHideFlags: 0
