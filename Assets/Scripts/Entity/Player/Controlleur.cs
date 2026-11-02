@@ -27,8 +27,8 @@ public class Controlleur : MonoBehaviour
     public float health;
     [HideInInspector] public float currentHealth;
     [HideInInspector] public float healthUpgrade;
-    [HideInInspector] public float modHealth = 0;
-    [HideInInspector] public float oldModHealth = 0; 
+     public float modHealth = 0;
+     public float oldModHealth = 0; 
     
     [HideInInspector] public float healthRegen = 0;
     [HideInInspector] public float healthRegenFreq = 0;
@@ -56,7 +56,8 @@ public class Controlleur : MonoBehaviour
 
     public float defense;
     [HideInInspector] public float defenseUpgrade = 0;
-    [HideInInspector] public float modDefense = 1;
+    [HideInInspector] public float modDefense = 0;
+    [HideInInspector] public float oldmodDefense = 0;
     
     [HideInInspector]public float currentXp = 0;
     
@@ -112,7 +113,7 @@ public class Controlleur : MonoBehaviour
             }
         }
         health += Mathf.Ceil(modHealth);
-        currentHealth += modHealth - oldModHealth;
+        currentHealth += Mathf.Ceil(modHealth) - (health - currentHealth);
     }
     public void RedoSpeedMod()
     {
@@ -141,7 +142,7 @@ public class Controlleur : MonoBehaviour
                 e.GetComponent<SabotsCentaures>().OnMaxSpeedChange(this);
             }
         }
-        speed += Mathf.Ceil(modSpeedTrap + modTrap);
+        speed += Mathf.Ceil(modSpeedTrap) + modTrap;
     }
     
     public void RedoDamageMod()
@@ -157,6 +158,21 @@ public class Controlleur : MonoBehaviour
             }
         }
         damage += Mathf.Ceil(modDamage);
+    }
+    
+    public void RedoDefenseMod()
+    {
+        oldmodDefense = modDefense;
+        modDefense = 0;
+        List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
+        foreach (Equipement e in equipements)
+        {
+            if (e.GetComponent<CarapaceTarasque>())
+            {
+                e.GetComponent<CarapaceTarasque>().OnMaxDefenseChange(this);
+            }
+        }
+        defense += Mathf.Ceil(modDefense);
     }
     
 }

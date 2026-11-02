@@ -44,7 +44,8 @@ public class ElementManager : MonoBehaviour
         {Elements.Feu, 0},
         {Elements.Glace, 0},
         {Elements.Nature, 0},
-        {Elements.Maudit, 0}
+        {Elements.Maudit, 0},
+        { Elements.None, 0}
     };
 
     private Elements[] keys;

@@ -56,6 +56,7 @@ public class LevelUPManager : MonoBehaviour
         {
             currentXp -= maxXp;
             level++;
+            xpSlider.value = 0;
             UILevelUpOpen();
             levelTextTemp.text = "level :  " + level;
         }
@@ -95,7 +96,7 @@ public class LevelUPManager : MonoBehaviour
                     Equipement equipement = possiblilities[i].GetComponent<Equipement>();
                     levelUpPanels[i].descriptionText.text = equipement.description;
                     levelUpPanels[i].nameText.text = equipement.name;
-                    levelUpPanels[i].imagePoint.GetComponent<Image>().sprite = equipement.image;
+                    levelUpPanels[i].imagePoint.GetComponent<Image>().sprite = equipement.imageLevelUp;
                     break;
                 case 2: possiblilities.Add(notEquipementDrop.GetRandomDrop());
                     if (possiblilities[i].GetComponent<Arme>())
