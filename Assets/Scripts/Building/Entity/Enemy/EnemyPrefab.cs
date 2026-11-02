@@ -4,7 +4,7 @@ public class EnemyPrefab : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] int maxHealth = 10;
-    float currentHealth;
+    public float currentHealth;
     [SerializeField] int attack = 10;
     
     public float speed;
