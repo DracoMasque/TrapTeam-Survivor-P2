@@ -31,7 +31,7 @@ public class Groupement : MonoBehaviour
     {
         for (int i = 0; i < groupedRooms.Count; i++)
         {
-            Instantiate(AssetPreview.GetMiniThumbnail(rooms[i].gameObject), groupedRooms[i].transform.position, groupedRooms[i].transform.rotation, groupedRooms[i].transform);
+            //Instantiate(AssetPreview.GetMiniThumbnail(rooms[i].gameObject), groupedRooms[i].transform.position, groupedRooms[i].transform.rotation, groupedRooms[i].transform);
         }
     }
 

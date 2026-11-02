@@ -57,6 +57,7 @@ public class LevelUPManager : MonoBehaviour
             currentXp -= maxXp;
             level++;
             xpSlider.value = 0;
+            maxXp = Mathf.Ceil( maxXp * 1.50f);
             UILevelUpOpen();
             levelTextTemp.text = "level :  " + level;
         }

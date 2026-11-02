@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyGlace
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3abf5e25b701945a63eb5c8ee7093c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 10
+  maxHealth: 9
+  currentHealth: 0
   attack: 1
   speed: 2
   modSpeedTrap: 1
@@ -68,7 +69,7 @@ MonoBehaviour:
   rangeUpgrade: 0
   modRange: 1
   xpToDrop: 1
-  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
+  elements: {fileID: 11400000, guid: 500b00ca80ef623428e9ed223178211d, type: 2}
 --- !u!114 &2892070363298123474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.9020985, a: 1}
+  m_Color: {r: 0, g: 0.4009434, b: 0.9020985, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

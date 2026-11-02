@@ -117,8 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
   objects:
   - {fileID: 11400000, guid: 52e579bb2c50d7c408f93a03067d4d8c, type: 2}
-  - {fileID: 11400000, guid: bd1bf6c928b18054f85a256d6ac07741, type: 2}
-  - {fileID: 11400000, guid: 0070d54291ec47944a34db265a1d01a1, type: 2}
   - {fileID: 11400000, guid: a5a975b8d7d021142af1169a3fa42507, type: 2}
 --- !u!114 &7184666730033418670
 MonoBehaviour:
@@ -148,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentXp: 0
   level: 0
-  maxXp: 1
+  maxXp: 5
   possiblilities: []
   levelUpPanels:
   - {fileID: 0}

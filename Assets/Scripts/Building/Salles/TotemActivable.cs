@@ -20,7 +20,10 @@ public class TotemActivable : MonoBehaviour
         {
             cooldown.Play();
         }
-        entite.Add(collision.gameObject);
+        if (!entite.Contains(collision.gameObject))
+        {
+            entite.Add(collision.gameObject);
+        }
         
     }
 
