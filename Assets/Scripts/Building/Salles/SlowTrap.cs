@@ -15,11 +15,11 @@ public class SlowTrap : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.gameObject.GetComponent<Controlleur>().speed -= col.gameObject.GetComponent<Controlleur>().speed*(speedPourcentage / 100);
+            col.gameObject.GetComponent<Controlleur>().RedoSpeedModTrap(-col.gameObject.GetComponent<Controlleur>().modSpeedTrap * (speedPourcentage / 100));
         }
         else if (col.tag == "Enemy")
         {
-            col.gameObject.GetComponent<EnemyPrefab>().speed -= col.gameObject.GetComponent<EnemyPrefab>().speed*(speedPourcentage / 100);
+            col.gameObject.GetComponent<EnemyPrefab>().RedoSpeedModTrap(-col.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap * (speedPourcentage / 100));
         }
     }
 
@@ -27,11 +27,11 @@ public class SlowTrap : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<Controlleur>().speed = other.gameObject.GetComponent<Controlleur>().maxSpeed;
+            other.gameObject.GetComponent<Controlleur>().RedoSpeedMod();
         }
         else if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyPrefab>().speed = other.gameObject.GetComponent<EnemyPrefab>().maxSpeed;
+            other.gameObject.GetComponent<EnemyPrefab>().SpeedReturn(other.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap * (speedPourcentage / 100));
         }
     }
 }

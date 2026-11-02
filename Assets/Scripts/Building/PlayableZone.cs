@@ -6,7 +6,6 @@ public class PlayableZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        print("no Room");
         if (other.gameObject.tag == "Room")
         {
             
@@ -16,7 +15,6 @@ public class PlayableZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("yes Room");
         if (other.gameObject.tag == "Room")
         {
             
