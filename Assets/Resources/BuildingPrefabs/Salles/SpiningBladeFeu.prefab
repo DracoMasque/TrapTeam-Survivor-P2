@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 3744625890168489655}
   - component: {fileID: 6043656695423548372}
   m_Layer: 0
-  m_Name: SpiningBlade
+  m_Name: SpiningBladeFeu
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8085077938ece974297eaf18abcad03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  name: Spining Blade
+  name: 'Spining Blade '
   spawnChance: 0
   elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
   bonusElement: 1

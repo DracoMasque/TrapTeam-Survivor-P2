@@ -15,7 +15,7 @@ MonoBehaviour:
   rarity: 0
   dropRate: 100
   drops:
-  - {fileID: 8736723102690927581, guid: 1aa6bd39c60227f48bb5092e8216c1c3, type: 3}
+  - {fileID: 8736723102690927581, guid: d80275c1eca3c6843a33f9e5a4ad2fa2, type: 3}
   - {fileID: 168979627509435943, guid: e4c549bad878bfb40b831c905d5a49bd, type: 3}
   - {fileID: 7785954248818313519, guid: beb505580c65ec1449672a4a54f80b4e, type: 3}
   - {fileID: 9051109400957487189, guid: c67e5628244def645aff36d84a75d3cf, type: 3}
@@ -28,3 +28,7 @@ MonoBehaviour:
   - {fileID: 4435195496947449114, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
   - {fileID: 3547358710312437392, guid: df0548002c7cebd4d8baafbdcd3fa03d, type: 3}
   - {fileID: 8736723102690927581, guid: 980671331384a2340933e53dd7fbf4a6, type: 3}
+  - {fileID: 8736723102690927581, guid: b62eb6308e25b8b479eae7d47d4233d7, type: 3}
+  - {fileID: 1780920301075011987, guid: a7f0be024e7f12642b1e7cddc4368529, type: 3}
+  - {fileID: 1780920301075011987, guid: fc37b4475d91e5242986b0e425f4ab9c, type: 3}
+  - {fileID: 1780920301075011987, guid: 852f608e1da1bd040999f3ff930f5a00, type: 3}

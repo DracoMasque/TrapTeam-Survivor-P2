@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 547722826696065903, guid: b62eb6308e25b8b479eae7d47d4233d7, type: 3}
+      propertyPath: name
+      value: Spining Blade
+      objectReference: {fileID: 0}
+    - target: {fileID: 547722826696065903, guid: b62eb6308e25b8b479eae7d47d4233d7, type: 3}
       propertyPath: elements
       value: 
       objectReference: {fileID: 11400000, guid: bf3b2ef9c4e642e4bb24ad28f0392410, type: 2}
