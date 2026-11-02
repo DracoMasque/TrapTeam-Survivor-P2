@@ -9,6 +9,7 @@ public class TreasureChest : MonoBehaviour
         {
             Debug.Log("Player collided with " + other.name);
             UiChest.instance.EnableChest();
+            Destroy(gameObject);
         }
     }
 }

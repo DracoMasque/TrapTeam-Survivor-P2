@@ -1456,9 +1456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
   objects:
-  - {fileID: 11400000, guid: 52e579bb2c50d7c408f93a03067d4d8c, type: 2}
-  - {fileID: 11400000, guid: bd1bf6c928b18054f85a256d6ac07741, type: 2}
-  - {fileID: 11400000, guid: 0070d54291ec47944a34db265a1d01a1, type: 2}
+  - {fileID: 11400000, guid: 4614ebbcdef6f8b46a8a2c1aed56997e, type: 2}
 --- !u!1001 &691194672426696978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2056,6 +2054,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6373040385761384896, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: objects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373040385761384896, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: 'objects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a5a975b8d7d021142af1169a3fa42507, type: 2}
+    - target: {fileID: 6373040385761384896, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: 'objects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bd1bf6c928b18054f85a256d6ac07741, type: 2}
+    - target: {fileID: 6373040385761384896, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
+      propertyPath: 'objects.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0070d54291ec47944a34db265a1d01a1, type: 2}
     - target: {fileID: 8642258851303945025, guid: 0eda30163dfa7ee4d9d5ff8b0d09fd50, type: 3}
       propertyPath: m_Name
       value: GameManager

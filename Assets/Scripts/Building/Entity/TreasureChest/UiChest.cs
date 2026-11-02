@@ -32,6 +32,8 @@ public class UiChest : MonoBehaviour
     public void Choice()
     {
         playerEquiment.equipements.Add(equipement);
+        Instantiate(equipement);
+        equipement.OnPickUp(playerEquiment.gameObject.GetComponent<Controlleur>());
         Close();
     }
 
