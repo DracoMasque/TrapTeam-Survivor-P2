@@ -42,7 +42,11 @@ GameObject:
   - component: {fileID: 5134107246921310157}
   - component: {fileID: 8009231335495671721}
   - component: {fileID: 9031326179128620955}
+  - component: {fileID: 6373040385761384896}
+  - component: {fileID: 7184666730033418670}
   - component: {fileID: 5008284455122970707}
+  - component: {fileID: 4871025640144010732}
+  - component: {fileID: 1150661991008216829}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -76,7 +80,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93806ae2f5153ef42a4328bbe61927b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 13ca2102db1e683498874ae00578d10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   waves:
@@ -91,14 +95,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
   loop: 0
-  maxCooldownTime: 60
+  maxCooldownTime: 500
   finished: 0
   currentTime: 0
+--- !u!114 &6373040385761384896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects:
+  - {fileID: 11400000, guid: 52e579bb2c50d7c408f93a03067d4d8c, type: 2}
+  - {fileID: 11400000, guid: bd1bf6c928b18054f85a256d6ac07741, type: 2}
+  - {fileID: 11400000, guid: 0070d54291ec47944a34db265a1d01a1, type: 2}
+  - {fileID: 11400000, guid: a5a975b8d7d021142af1169a3fa42507, type: 2}
+--- !u!114 &7184666730033418670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects:
+  - {fileID: 11400000, guid: 4614ebbcdef6f8b46a8a2c1aed56997e, type: 2}
 --- !u!114 &5008284455122970707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,15 +143,80 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642258851303945025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff0a9a4b21e208a428e7beee5be54d97, type: 3}
+  m_Script: {fileID: 11500000, guid: e1e9493878b121d469b370b4f8d73d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentXp: 0
   level: 0
-  maxXp: 10
+  maxXp: 1
+  possiblilities: []
+  levelUpPanels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  notEquipementDrop: {fileID: 6373040385761384896}
+  equipementDrop: {fileID: 7184666730033418670}
   levelUpMenu: {fileID: 0}
   levelTextTemp: {fileID: 0}
-  xpSlider: {fileID: 0}
+--- !u!114 &4871025640144010732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a681c4a1472542542b2d9857a11caa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
+  objects: []
+--- !u!114 &1150661991008216829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642258851303945025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7716eda0b89f14bba145907bbc72f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementManager
+  rooms: []
+  sameLevelElements: 
+  numberRoomsToLevel1: 3
+  numberRoomsToLevel2: 4
+  numberRoomsToLevel3: 5
+  numberRoomsToLevel4: 6
+  elementLevels:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementRatios:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementNumberRooms:
+  - key: 1
+    value: 0
+  - key: 2
+    value: 0
+  - key: 3
+    value: 0
+  - key: 4
+    value: 0
+  elementDominant: 0
 --- !u!1001 &2681948118852174361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,6 +225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5134107246921310157}
     m_Modifications:
+    - target: {fileID: 1743427623201580384, guid: df0997208abaf0e4bbe88b144c9fdb4d, type: 3}
+      propertyPath: maxCooldownTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4710139645798851305, guid: df0997208abaf0e4bbe88b144c9fdb4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

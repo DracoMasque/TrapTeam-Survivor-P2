@@ -34,15 +34,16 @@ public class TotemActivable : MonoBehaviour
         foreach (GameObject p in entite)
         {
              if (p.tag == "Player")
-                    {
-                        p.GetComponent<Controlleur>().currentHealth -= degatTotem;
+             {
+                 p.GetComponent<Controlleur>().currentHealth -= degatTotem;
                         
-                    }
+             }
             
-                    if (p.tag == "Enemy")
-                    {
-                        p.GetComponent<EnemyPrefab>().TakeDamage(degatTotem);
-                    }
+             if (p.tag == "Enemy")
+             {
+                 Room parentRoom = GetComponentInParent<Room>();
+                 p.GetComponent<EnemyPrefab>().TakeDamageTrap(degatTotem, parentRoom.elements.elements, parentRoom.bonusElement);
+             }
         }
        
     }
