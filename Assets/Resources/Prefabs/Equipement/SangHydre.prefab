@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b4880cf8b2a744689e2a4b26f1ae81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SangHydre
-  name: Sang D'ydre
+  name: Sang D'Hydre
   description: 'Augmente les point de vie de 5% '
   image: {fileID: 0}
   rarity: 0
