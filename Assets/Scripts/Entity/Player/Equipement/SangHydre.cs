@@ -17,7 +17,6 @@ public class SangHydre : Equipement
     {
         
         appliedMod = Mathf.Ceil((player.health - player.oldModHealth) * (modifier / 100));
-        print("appliedMod : " + appliedMod);
         
         player.modHealth += appliedMod;
     }

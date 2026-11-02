@@ -68,6 +68,7 @@ MonoBehaviour:
   rangeUpgrade: 0
   modRange: 1
   xpToDrop: 1
+  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
 --- !u!114 &2892070363298123474
 MonoBehaviour:
   m_ObjectHideFlags: 0

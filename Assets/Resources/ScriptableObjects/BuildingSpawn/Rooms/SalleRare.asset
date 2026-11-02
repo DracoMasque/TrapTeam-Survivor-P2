@@ -16,6 +16,3 @@ MonoBehaviour:
   dropRate: 25
   drops:
   - {fileID: 8736723102690927581, guid: 651fc479c06be254fb677d5ddf08f8b9, type: 3}
-  - {fileID: 8736723102690927581, guid: ec9ed6cb1640db747aae877d637ce9e6, type: 3}
-  - {fileID: 8736723102690927581, guid: 3e4fb5212e34ad441a84e1567bc0c207, type: 3}
-  - {fileID: 8736723102690927581, guid: 236fdba62ae0b02469e8ef13e180c7e1, type: 3}

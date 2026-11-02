@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 7194692443341283262}
   - component: {fileID: 5469565042554869472}
   - component: {fileID: 3744625890168489655}
-  - component: {fileID: 1370179948181500448}
+  - component: {fileID: 533398540420900798}
   m_Layer: 0
-  m_Name: FontaineRoomGlace
+  m_Name: FontaineRoom
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4061188162028907489}
-  - {fileID: 7147605816308946099}
+  - {fileID: 3796756232868649573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &547722826696065903
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Room
   name: Fontaine
   spawnChance: 0
-  elements: {fileID: 11400000, guid: 500b00ca80ef623428e9ed223178211d, type: 2}
+  elements: {fileID: 11400000, guid: 375b8e62fce628d4da846586f9777b3e, type: 2}
   bonusElement: 1
   alreadyStrong: 0
   alreadyWeak: 0
@@ -402,7 +402,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.03}
   m_EdgeRadius: 0
---- !u!61 &1370179948181500448
+--- !u!61 &533398540420900798
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +448,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!1001 &4021145778969826626
+--- !u!1001 &6939016732999703444
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -505,8 +505,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
---- !u!4 &7147605816308946099 stripped
+--- !u!4 &3796756232868649573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6123944798892229105, guid: 978e0485d6a00b747bcae41022e01268, type: 3}
-  m_PrefabInstance: {fileID: 4021145778969826626}
+  m_PrefabInstance: {fileID: 6939016732999703444}
   m_PrefabAsset: {fileID: 0}

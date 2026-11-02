@@ -31,7 +31,7 @@ public class EnemyPrefab : MonoBehaviour
     [Header("Prefabs")] 
     private RandomDrop _randomDrop;
 
-    private ElementWeakScriptable elements;
+    [SerializeField] private ElementWeakScriptable elements;
 
     
     private GameObject player;
@@ -114,19 +114,19 @@ public class EnemyPrefab : MonoBehaviour
         {
             currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
                               (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
-                               1.50f)) * (defense / 100);
+                               1.50f)) * (1 - (defense / 100));
         }
         else if (ElementManager.instance.elementDominant == elements.strength)
         {
             currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
                               (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
-                               0.50f)) * (defense / 100);
+                               0.50f)) * (1 - (defense / 100));
         }
         else
         {
             currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
                               (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant])) 
-                              * (defense / 100);
+                              * (1 - (defense / 100));
         }
         if (currentHealth <= 0)
         {
@@ -138,15 +138,15 @@ public class EnemyPrefab : MonoBehaviour
         {
             if (element == elements.weakness)
             {
-                currentHealth -= (damage * trapBonus * 1.50f) * (defense / 100);
+                currentHealth -= (damage * trapBonus * 1.50f) * (1 - (defense / 100));
             }
             else if (element == elements.strength)
             {
-                currentHealth -= (damage * trapBonus * 0.50f) * (defense / 100);
+                currentHealth -= (damage * trapBonus * 0.50f) * (1 - (defense / 100));
             }
             else
             {
-                currentHealth -= (damage * trapBonus) * (defense / 100);
+                currentHealth -= (damage * trapBonus) * (1-(defense / 100));
             }
             if (currentHealth <= 0)
             {
