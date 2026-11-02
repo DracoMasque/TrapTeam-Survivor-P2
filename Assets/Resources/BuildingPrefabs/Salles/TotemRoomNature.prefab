@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  degatTotem: 1
+  degatTotem: 5
 --- !u!58 &4828510154034919334
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  degatTotem: 1
+  degatTotem: 5
 --- !u!58 &6344021929363400801
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e2a033d75f8f44084b5fafa43e18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TotemActivable
-  degatTotem: 1
+  degatTotem: 5
 --- !u!58 &8175851138569363685
 CircleCollider2D:
   m_ObjectHideFlags: 0
