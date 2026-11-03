@@ -19,10 +19,10 @@ public class JaugeElement : MonoBehaviour
     void Start()
     {
         instance = this;
-        foreach (KeyValuePair<Elements, Slider> i in elementJauge)
-        {
-            i.Value.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
-        }
+        //foreach (KeyValuePair<Elements, Slider> i in elementJauge)
+        //{
+        //    i.Value.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
+        //}
         RefreshJauge(elementJauge.Keys.ToArray());
     }
 
@@ -31,10 +31,10 @@ public class JaugeElement : MonoBehaviour
         foreach (Elements e in elements)
         {
             elementJauge[e].value = ElementManager.instance.elementRatios[e];
-            if (ElementManager.instance.elementRatios[e] == 4)
-            {
-                elementJauge[e].GetComponentInChildren<TextMeshProUGUI>().text = "MAX";
-            }
+            //if (ElementManager.instance.elementRatios[e] == 4)
+            //{
+            //    elementJauge[e].GetComponentInChildren<TextMeshProUGUI>().text = "MAX";
+            //}
         }
     }
 }

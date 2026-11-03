@@ -12,7 +12,7 @@ public class PlayerBuilding : MonoBehaviour
     public int requarieredMaterial;
     [SerializeField] private GameObject buildingSystem;
     [SerializeField] private GameObject UIBuildingChoice;
-    private BuildingChoise buildingChoice;
+    private BuildingChoice buildingChoice;
     [SerializeField] private CinemachineCamera camera;
     public BuildingSystem building;
     
@@ -28,7 +28,7 @@ public class PlayerBuilding : MonoBehaviour
     {
         building = buildingSystem.GetComponent<BuildingSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
+        buildingChoice = GameObject.Find("UIWorldSpace").GetComponent<BuildingChoice>();
     }
 
     void Update()
@@ -55,7 +55,7 @@ public class PlayerBuilding : MonoBehaviour
                 requarieredMaterial *= 2;
                 numberMaterial = 0;
                 UIBuildingChoice.gameObject.SetActive(true);
-                buildingChoice.BuildingChoice();
+                buildingChoice.BuildingChoices();
                 keyToPress.gameObject.SetActive(false);
                 /*
                 GameObject groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
