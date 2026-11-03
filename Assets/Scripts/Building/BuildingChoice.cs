@@ -58,6 +58,10 @@ public class BuildingChoice : MonoBehaviour
 
     public void Choice(int number)
     {
+        foreach (Groupement forme in formePossibleChoice)
+        {
+            print(forme.name);
+        }
         GameObject groupement = Instantiate(formePossibleChoice[number].gameObject, transform.position, new Quaternion(0,0,0,0));
         groupement.GetComponent<Groupement>().BuildGroup(sallePossibleChoice[number]);
         building.groupement = groupement.GetComponent<Groupement>();
