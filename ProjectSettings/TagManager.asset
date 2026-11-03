@@ -5,15 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Material
   - Camera
   - PlayableZone
   - Groupement
   - BuildingSystem
-  - XpBar
-  - HealthBar
   - Room
-  - XP
+  - Pickup
   layers:
   - Default
   - TransparentFX

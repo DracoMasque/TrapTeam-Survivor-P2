@@ -5,6 +5,8 @@ public class SlowTrap : MonoBehaviour
 {
     [SerializeField] private float speedPourcentage;
     private GameManager gameManager;
+    private float speedPlayer;
+    private float speedEnemy;
 
     void Start()
     {
@@ -15,11 +17,13 @@ public class SlowTrap : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.gameObject.GetComponent<Controlleur>().modSpeedTrap -= col.gameObject.GetComponent<Controlleur>().modSpeedTrap * (speedPourcentage / 100);
+            speedPlayer = col.gameObject.GetComponent<Controlleur>().speed;
+            col.gameObject.GetComponent<Controlleur>().RedoSpeedModTrap(-col.gameObject.GetComponent<Controlleur>().speed * (speedPourcentage / 100));
         }
         else if (col.tag == "Enemy")
         {
-            col.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap -= col.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap * (speedPourcentage / 100);
+            speedEnemy = col.gameObject.GetComponent<EnemyPrefab>().speed;
+            col.gameObject.GetComponent<EnemyPrefab>().RedoSpeedModTrap(-col.gameObject.GetComponent<EnemyPrefab>().speed * (speedPourcentage / 100));
         }
     }
 
@@ -27,11 +31,13 @@ public class SlowTrap : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<Controlleur>().modSpeedTrap = (100 / speedPourcentage) * other.gameObject.GetComponent<Controlleur>().modSpeedTrap;
+            other.gameObject.GetComponent<Controlleur>()
+                .SpeedReturn(speedPlayer * (speedPourcentage / 100));
+            other.gameObject.GetComponent<Controlleur>().RedoSpeedMod();
         }
         else if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyPrefab>().modSpeedTrap = (100 / speedPourcentage) * other.gameObject.GetComponent<Controlleur>().modSpeedTrap;
+            other.gameObject.GetComponent<EnemyPrefab>().SpeedReturn(speedEnemy * (speedPourcentage / 100));
         }
     }
 }

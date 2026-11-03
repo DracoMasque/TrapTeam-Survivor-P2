@@ -9,6 +9,7 @@ public class Groupement : MonoBehaviour
     public List<GameObject> groupedRooms;
     [SerializeField] private Room[] sallePossible;
     public bool placed;
+    public bool firstTimeBuild = false;
     private BuildingSystem buildingSystem;
     public Vector3 previousPosition;
 
@@ -30,7 +31,7 @@ public class Groupement : MonoBehaviour
     {
         for (int i = 0; i < groupedRooms.Count; i++)
         {
-            Instantiate(AssetPreview.GetMiniThumbnail(rooms[i].gameObject), groupedRooms[i].transform.position, groupedRooms[i].transform.rotation, groupedRooms[i].transform);
+            //Instantiate(AssetPreview.GetMiniThumbnail(rooms[i].gameObject), groupedRooms[i].transform.position, groupedRooms[i].transform.rotation, groupedRooms[i].transform);
         }
     }
 
@@ -38,7 +39,6 @@ public class Groupement : MonoBehaviour
     {
         if (other.tag == "Groupement")
         {
-            print("!buildable");
             buildingSystem.buildable = false;
         }
     }
