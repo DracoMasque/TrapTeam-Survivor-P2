@@ -55,7 +55,6 @@ public class JaugeElement : MonoBehaviour
         }
     }
     
-    
     //Match le level de chaques element dans le UI
     private void RefreshLevel(Elements[] elements)
     {
@@ -68,29 +67,8 @@ public class JaugeElement : MonoBehaviour
     //match le frame du BuildingMode avec l'element le plus présent pour le UI
     private void RefreshFrame(Elements[] elements)
     {
-        //find the highest value element
-        //if an element's value is equal to another the frame will always be null
-        Elements highestElement = Elements.None;
-        float highestValue = 0;
-        List<float> values = new List<float>();
-        foreach (Elements e in elements)
-        {
-            if (e != Elements.None)
-            {
-                values.Add(ElementManager.instance.elementRatios[e]);
-                if (ElementManager.instance.elementRatios[e] > highestValue)
-                {
-                    highestElement = e;
-                    highestValue = ElementManager.instance.elementRatios[e];
-                } 
-                else if (ElementManager.instance.elementRatios[e] == highestValue && ElementManager.instance.elementRatios[e] > 0)
-                {
-                    highestElement = Elements.None;
-                    break;
-                }
-            }
-        }
-        
+        Elements highestElement = 0;
+        highestElement = ElementManager.instance.elementDominant;
         //Now that we have our overarching element we can set the frame
         switch (highestElement)
         {
@@ -119,7 +97,6 @@ public class JaugeElement : MonoBehaviour
                 HideFrame(Elements.Maudit);
                 break;
             case Elements.Maudit:
-                print("frame maudit");
                 HideFrame(Elements.Feu);
                 HideFrame(Elements.Glace);
                 HideFrame(Elements.Nature);
@@ -137,7 +114,6 @@ public class JaugeElement : MonoBehaviour
     //Tweens Frame's image color into opaque
     private void ShowFrame(Elements element)
     {
-        print("SHOW");
         var frame = elementFrameUI[element];
         Image frameImage = frame.GetComponent<Image>();
         var goalColor = new Color(1, 1, 1, 1);
@@ -161,7 +137,6 @@ public class JaugeElement : MonoBehaviour
     //Tweens Frame's image color into transparent
     private void HideFrame(Elements element)
     {
-        print("HIDE");
         GameObject frame = elementFrameUI[element];
         Image frameImage = frame.GetComponent<Image>();
         var goalColor = new Color(1, 1, 1, 0);

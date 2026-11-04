@@ -67,6 +67,8 @@ public class Controlleur : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
     
+    
+    private SpriteRenderer playerSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -74,7 +76,7 @@ public class Controlleur : MonoBehaviour
         healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         currentHealth = health;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        playerSprite = GetComponent<SpriteRenderer>();
         instance = this;
     }
 
@@ -97,9 +99,12 @@ public class Controlleur : MonoBehaviour
         }
     }
 
+  
     public void Move(InputAction.CallbackContext cxt)
     {
         moveInput = cxt.ReadValue<Vector2>();
+        print(moveInput.x);
+        playerSprite.flipX = moveInput.x >= 0;
     }
 
     public void Heal(float healAmount)

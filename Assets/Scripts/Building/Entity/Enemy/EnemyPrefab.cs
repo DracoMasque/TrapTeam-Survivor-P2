@@ -43,6 +43,7 @@ public class EnemyPrefab : MonoBehaviour
     private Animation animationComponent;
     
     private GameManager gameManager;
+   private SpriteRenderer spriteRenderer;
    
     void Start()
     {
@@ -54,6 +55,7 @@ public class EnemyPrefab : MonoBehaviour
         animationComponent = GetComponent<Animation>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _randomDrop = GetComponent<RandomDrop>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     
@@ -74,6 +76,8 @@ public class EnemyPrefab : MonoBehaviour
             player_pos, 
             (speed * modSpeedTrap) * Time.deltaTime
             );
+        spriteRenderer.flipX = (transform.position.x - player_pos.x > 0);
+
     }
 
     

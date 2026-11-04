@@ -79,7 +79,7 @@ public class PlayerBuilding : MonoBehaviour
         pointeurRecup.gameObject.SetActive(false);
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);
-        cancelButton.SetActive(false);
+        //cancelButton.SetActive(false);
         gameManager.paused = false;
         uiPLayer.GetComponent<Canvas>().enabled = true;
     }
