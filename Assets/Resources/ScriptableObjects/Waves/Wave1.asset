@@ -15,5 +15,11 @@ MonoBehaviour:
   enemies:
   - key: {fileID: 4113786732323820682, guid: ad89c8e28fff54a4fa52b9e0c9f04933, type: 3}
     value: 0
+  - key: {fileID: 4113786732323820682, guid: da2667dc707e82649aa6e6440046b749, type: 3}
+    value: 0
+  - key: {fileID: 4113786732323820682, guid: c8aede3baae211146a68ad31314bbf57, type: 3}
+    value: 0
+  - key: {fileID: 4113786732323820682, guid: 0a10e9fe84562ca438251a248369b7ed, type: 3}
+    value: 0
   time: 0
   spawnRate: 2

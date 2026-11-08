@@ -11,6 +11,8 @@ using UnityEngine.UI;
 public class Controlleur : MonoBehaviour
 {
     public static Controlleur instance;
+
+    public GameObject endGameScreen;
     
     private GameManager gameManager;
     private Rigidbody2D rb;
@@ -87,6 +89,12 @@ public class Controlleur : MonoBehaviour
         rb.linearVelocity = moveInput.normalized * speed;
         healthSlider.value = currentHealth/health;
         healthText.text = currentHealth + "/" + health;
+
+        if (currentHealth <= 0)
+        {
+            endGameScreen.SetActive(true);
+            gameManager.paused = true;
+        }
     }
 
     public void Move(InputAction.CallbackContext cxt)
@@ -142,7 +150,13 @@ public class Controlleur : MonoBehaviour
                 e.GetComponent<SabotsCentaures>().OnMaxSpeedChange(this);
             }
         }
+        print(modTrap);
         speed += Mathf.Ceil(modSpeedTrap) + modTrap;
+    }
+
+    public void SpeedReturn(float modTrap)
+    {
+        speed += Mathf.Abs(modTrap);
     }
     
     public void RedoDamageMod()
