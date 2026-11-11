@@ -18,7 +18,7 @@ public class Vampirism : Equipement
 
     public override void LetGoEquipement(Controlleur player)
     {
-        return;
+        Destroy(gameObject);
     }
 
     public void VampHeal(float damage)
