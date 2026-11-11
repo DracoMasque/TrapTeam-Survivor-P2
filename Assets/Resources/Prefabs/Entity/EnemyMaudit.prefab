@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyMaudit
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3abf5e25b701945a63eb5c8ee7093c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 10
+  maxHealth: 9
+  currentHealth: 0
   attack: 1
   speed: 2
   modSpeedTrap: 1
@@ -68,7 +69,7 @@ MonoBehaviour:
   rangeUpgrade: 0
   modRange: 1
   xpToDrop: 1
-  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
+  elements: {fileID: 11400000, guid: bf3b2ef9c4e642e4bb24ad28f0392410, type: 2}
 --- !u!114 &2892070363298123474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,14 +248,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4113786732323820682}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -265,4 +266,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

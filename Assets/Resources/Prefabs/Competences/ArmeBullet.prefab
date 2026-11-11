@@ -50,7 +50,7 @@ MonoBehaviour:
   name: Lance-Pierre
   description: lance des kayou
   image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
-  damage: 10
+  damage: 3
   rarity: 0
   type: 2
   bulletPrefab: {fileID: 8515340455976918080, guid: 4403705b537f61e4bbb242a7408cdf8a, type: 3}

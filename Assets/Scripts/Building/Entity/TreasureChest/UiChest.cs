@@ -25,13 +25,15 @@ public class UiChest : MonoBehaviour
         equipement = GetComponent<RandomDrop>().GetRandomDrop().GetComponent<Equipement>();
         levelupPanel.nameText.text = equipement.name;
         levelupPanel.descriptionText.text = equipement.description;
-        levelupPanel.imagePoint.GetComponent<Image>().sprite = equipement.image;
+        levelupPanel.imagePoint.GetComponent<Image>().sprite = equipement.imageLevelUp;
         Time.timeScale = 0;
     }
 
     public void Choice()
     {
         playerEquiment.equipements.Add(equipement);
+        Instantiate(equipement);
+        equipement.OnPickUp(playerEquiment.gameObject.GetComponent<Controlleur>());
         Close();
     }
 

@@ -5,7 +5,8 @@ public abstract class Equipement : MonoBehaviour
 {
     public string name;
     [TextArea(5,20)] public string description;
-    public Sprite image;
+    public Sprite imageLevelUp;
+    public Sprite imageUI;
     public Rarity rarity;
 
     public abstract void OnPickUp(Controlleur player);

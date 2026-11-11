@@ -10,20 +10,20 @@ public class Room : MonoBehaviour
     public float bonusElement;
     [SerializeField] private bool alreadyStrong = false;
     [SerializeField] private bool alreadyWeak = false;
+    [SerializeField] private GameObject effectStrong;
 
     private void ChangeBonusElement(Elements element)
     {
         if (element == elements.weakness && !alreadyWeak)
         {
-            print(gameObject.name + " " +"weakness before : "  + bonusElement/2);
             alreadyWeak = true;
             bonusElement /= 2;
-            print(gameObject.name + " " +"weakness after : "  + bonusElement);
         }
         else if (element == elements.strength && !alreadyStrong)
         {
             alreadyStrong = true;
             bonusElement *= 2;
+            effectStrong.SetActive(true);
         }
     }
 
@@ -38,6 +38,7 @@ public class Room : MonoBehaviour
         {
             alreadyStrong = false;
             bonusElement /= 2;
+            effectStrong.SetActive(false);
         }
     }
 }

@@ -9,12 +9,16 @@ public class PlayerEquiment : MonoBehaviour
     public List<Equipement> equipements;
     public int maxEquipements = 5;
 
-    private void Update()
+    void Start()
     {
         instance = this;
-        foreach (Equipement equipement in equipements)
-        {
-            equipement.EquipementAction();
-        }
     }
+
+    // private void Update()
+    // {
+    //     foreach (Equipement equipement in equipements)
+    //     {
+    //         equipement.EquipementAction();
+    //     }
+    // }
 }
