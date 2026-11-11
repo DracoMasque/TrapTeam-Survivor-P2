@@ -74,6 +74,7 @@ MonoBehaviour:
   critChance: 10
   critChanceUpgrade: 0
   modCritChance: 1
+  oldModCritChance: 0
   damage: 5
   damageUpgrade: 0
   modDamage: 1
@@ -81,6 +82,7 @@ MonoBehaviour:
   damageFreq: 0
   damageFreqUpgrade: 0
   modDamageFreq: 1
+  OldModDamageFreq: 0
   defense: 0
   defenseUpgrade: 0
   modDefense: 1
