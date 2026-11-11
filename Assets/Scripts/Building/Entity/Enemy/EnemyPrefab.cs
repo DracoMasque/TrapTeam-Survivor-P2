@@ -86,10 +86,23 @@ public class EnemyPrefab : MonoBehaviour
     //Comment l'enemy attaque le joueur
     private void Attack()
     {
+        bool negate = false;
         if (timer.finished && IsClose())
         {
             animator.SetBool("Attacking", true);
-            playerControlleur.currentHealth -= attack;
+            foreach (Equipement e in PlayerEquiment.instance.equipements)
+            {
+                if (e.GetComponent<AilesGorgone>() && e.GetComponent<AilesGorgone>().negateChance <= Random.Range(0, 101))
+                {
+                    e.EquipementAction();
+                    negate = true;
+                    break;
+                }
+            }
+            if (!negate)
+            {
+                playerControlleur.currentHealth -= attack;
+            }
             timer.Play();
         }
     }

@@ -130,6 +130,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1001 &57982712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 979290810}
+    m_Modifications:
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178573733293785667, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+      propertyPath: m_Name
+      value: AilesGorgone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+--- !u!114 &57982713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5982017198379579339, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+  m_PrefabInstance: {fileID: 57982712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619b67e315a74b14a968ce67f707db83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AilesGorgone
 --- !u!114 &67258945 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6124336525720217981, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
@@ -672,6 +740,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!4 &570399215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 265782788156754454, guid: a731a5882f45a5a4e87e81418c4dcf8c, type: 3}
+  m_PrefabInstance: {fileID: 57982712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1705,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 174905792778183666, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: equipements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174905792778183666, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: 'equipements.Array.data[0]'
+      value: 
+      objectReference: {fileID: 57982713}
     - target: {fileID: 325469037418543030, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1728,9 +1809,16 @@ PrefabInstance:
       propertyPath: numberMaterialText
       value: 
       objectReference: {fileID: 2104566833}
+    - target: {fileID: 7862835102043177291, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 325469037418543030, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 570399215}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
 --- !u!114 &2104566833 stripped
