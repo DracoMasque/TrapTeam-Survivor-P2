@@ -132,6 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
   objects:
   - {fileID: 11400000, guid: 4614ebbcdef6f8b46a8a2c1aed56997e, type: 2}
+  - {fileID: 11400000, guid: 35d9eec324333534d9cc56a103d44fb3, type: 2}
+  - {fileID: 11400000, guid: 1d269854a8955e74bad84509dacb4318, type: 2}
 --- !u!114 &5008284455122970707
 MonoBehaviour:
   m_ObjectHideFlags: 0
