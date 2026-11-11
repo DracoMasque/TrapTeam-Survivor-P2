@@ -6,9 +6,9 @@ public class XP : MonoBehaviour
 {
     public int valueXp = 1;
     
-    void OnTriggerEnter2D(Collider2D xp)
+    void OnTriggerEnter2D(Collider2D player)
     {
-        if (xp.CompareTag("Player"))
+        if (player.CompareTag("Player"))
         {
             LevelUPManager.instance.AddXp(valueXp);
             Destroy(gameObject);
