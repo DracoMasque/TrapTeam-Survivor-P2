@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce98b6f5cda20a448e8dd257f610a58, type: 3}
   m_Name: EquipementUncommun
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjectRarity
-  rarity: 0
-  dropRate: 1
+  rarity: 1
+  dropRate: 100
   drops: []

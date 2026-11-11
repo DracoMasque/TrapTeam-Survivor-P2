@@ -30,7 +30,7 @@ public class EnemyPrefab : MonoBehaviour
     
     [Header("Prefabs")] 
     private RandomDrop _randomDrop;
-
+    [SerializeField] GameObject xpPrefab;
     [SerializeField] private ElementWeakScriptable elements;
 
     
@@ -182,6 +182,11 @@ public class EnemyPrefab : MonoBehaviour
         if (drop.GetComponent<XP>() != null)
         {
             drop.GetComponent<XP>().valueXp = xpToDrop;
+        }
+        else
+        {
+            xpPrefab.GetComponent<XP>().valueXp = xpToDrop;
+            Instantiate(xpPrefab, transform.position, transform.rotation);
         }
         Instantiate(drop, transform.position, transform.rotation);
         Destroy(gameObject);

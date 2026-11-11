@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: EquipementRare
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjectRarity
   rarity: 0
-  dropRate: 1
-  drops: []
+  dropRate: 100
+  drops:
+  - {fileID: 5105054623556248372, guid: fa971b9c7c547ac4191a3f51e60238ac, type: 3}
+  - {fileID: 2250364011616326336, guid: bf5e04df2b51b4641a120ef068e0bdf4, type: 3}

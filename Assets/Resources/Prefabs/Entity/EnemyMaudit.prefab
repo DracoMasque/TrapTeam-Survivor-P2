@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
   objects:
   - {fileID: 11400000, guid: 9613ee29d30c8644e9c1cc0293031b10, type: 2}
+  - {fileID: 11400000, guid: 085a9788de6e282409fee2cbed591248, type: 2}
   - {fileID: 11400000, guid: 1735ed1d90fd27f4babb90e518f367f3, type: 2}
 --- !u!212 &1926789264679910545
 SpriteRenderer:

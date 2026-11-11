@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vampirism
   name: Vampirism
-  description: "10% de chance que 10% des d\xE9gats donn\xE9 a un enemis soient rajout\xE9 en soin au joueur"
+  description: "2% de chance que 10% des d\xE9gats donn\xE9 a un enemis soient rajout\xE9 en soin au joueur"
   imageLevelUp: {fileID: 21300000, guid: 2d785b4e12352384ca5a77f03d21234a, type: 3}
   imageUI: {fileID: 21300000, guid: 2d785b4e12352384ca5a77f03d21234a, type: 3}
-  rarity: 0
-  chance: 10
+  rarity: 2
+  chance: 2
   healRatio: 10
