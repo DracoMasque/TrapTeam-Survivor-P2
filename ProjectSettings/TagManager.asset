@@ -11,6 +11,9 @@ TagManager:
   - BuildingSystem
   - Room
   - Pickup
+  - Material
+  - HealthBar
+  - XpBar
   layers:
   - Default
   - TransparentFX
@@ -59,6 +62,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3544535007
+    locked: 0
+  - name: WorldUI
+    uniqueID: 2320792673
     locked: 0
   m_RenderingLayers:
   - Default

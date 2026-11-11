@@ -51,6 +51,7 @@ public class BuildingSystem : MonoBehaviour
                 if (groupement.transform.parent != null)
                 {
                     print("place");
+                    
                     groupement.transform.SetParent(null);
                     groupement.placed = true;
                     groupement.previousPosition = groupement.transform.position;

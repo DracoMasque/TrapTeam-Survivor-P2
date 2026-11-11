@@ -12,14 +12,16 @@ public class PlayerBuilding : MonoBehaviour
     public int requarieredMaterial;
     [SerializeField] private GameObject buildingSystem;
     [SerializeField] private GameObject UIBuildingChoice;
-    private BuildingChoise buildingChoice;
+    private GameObject uiPLayer;
+    private GameObject uiWorldSpace;
+    private BuildingChoice buildingChoice;
     [SerializeField] private CinemachineCamera camera;
     public BuildingSystem building;
     
     public TextMeshProUGUI keyToPress;
     public TextMeshProUGUI numberMaterialText;
     
-    public Button cancelButton;
+    public GameObject cancelButton;
     public GameManager gameManager;
     public PointeurRecup pointeurRecup;
     
@@ -28,7 +30,10 @@ public class PlayerBuilding : MonoBehaviour
     {
         building = buildingSystem.GetComponent<BuildingSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
+        uiPLayer = GameObject.Find("UIPlayer");
+        uiWorldSpace = GameObject.Find("UIWorldSpace");
+        cancelButton = GameObject.Find("Exit");
+        buildingChoice = uiWorldSpace.GetComponent<BuildingChoice>();
     }
 
     void Update()
@@ -47,16 +52,17 @@ public class PlayerBuilding : MonoBehaviour
         {
             if (numberMaterial == requarieredMaterial)
             {
+                uiWorldSpace.GetComponent<Canvas>().enabled = true; 
                 buildingSystem.SetActive(true);
                 building.buildable = true;
                 camera.gameObject.SetActive(false);
-                cancelButton.gameObject.SetActive(true);
                 gameManager.paused = true;
                 requarieredMaterial *= 2;
                 numberMaterial = 0;
                 UIBuildingChoice.gameObject.SetActive(true);
-                buildingChoice.BuildingChoice();
+                buildingChoice.BuildingChoices();
                 keyToPress.gameObject.SetActive(false);
+                uiPLayer.GetComponent<Canvas>().enabled = false;
                 /*
                 GameObject groupement = Instantiate(groupementPossible[Random.Range(0, groupementPossible.Length)], transform.position, new Quaternion(0,0,0,0));
                 building.groupement = groupement.GetComponent<Groupement>();
@@ -69,12 +75,13 @@ public class PlayerBuilding : MonoBehaviour
 
     public void StopBuilding()
     {
-        print("Stop Building");
+        uiWorldSpace.GetComponent<Canvas>().enabled = false;
         pointeurRecup.gameObject.SetActive(false);
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);
-        cancelButton.gameObject.SetActive(false);
+        //cancelButton.SetActive(false);
         gameManager.paused = false;
+        uiPLayer.GetComponent<Canvas>().enabled = true;
     }
     
 }

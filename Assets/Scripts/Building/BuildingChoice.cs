@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BuildingChoise : MonoBehaviour
+public class BuildingChoice : MonoBehaviour
 {
     [SerializeField] private ChoicePanel[] choicePanel;
     [SerializeField] private Room[] sallePossible;
@@ -16,10 +16,10 @@ public class BuildingChoise : MonoBehaviour
     private void Start()
     {
         sallePossible = Resources.LoadAll<Room>("BuildingPrefabs\\Salles");
-        formePossible = Resources.LoadAll<Groupement>("BuildingPrefabs\\Groupements");
+        formePossible = Resources.LoadAll<Groupement>("BuildingPrefabs/Groupements");
     }
 
-    public void BuildingChoice()
+    public void BuildingChoices()
     {
         foreach (ChoicePanel c in choicePanel)
         {
@@ -45,7 +45,6 @@ public class BuildingChoise : MonoBehaviour
         {
             formePossibleChoice.Add(formePossible[Random.Range(0, formePossible.Length)]);
         }
-
         foreach (Groupement forme in formePossibleChoice)
         {
             List<Room> formeRooms = new List<Room>();
@@ -59,6 +58,10 @@ public class BuildingChoise : MonoBehaviour
 
     public void Choice(int number)
     {
+        foreach (Groupement forme in formePossibleChoice)
+        {
+            print(forme.name);
+        }
         GameObject groupement = Instantiate(formePossibleChoice[number].gameObject, transform.position, new Quaternion(0,0,0,0));
         groupement.GetComponent<Groupement>().BuildGroup(sallePossibleChoice[number]);
         building.groupement = groupement.GetComponent<Groupement>();

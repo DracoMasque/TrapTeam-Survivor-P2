@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8771196108768627900}
   - component: {fileID: 1819131211514018941}
   m_Layer: 5
-  m_Name: LevelUpUI
+  m_Name: UILevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
