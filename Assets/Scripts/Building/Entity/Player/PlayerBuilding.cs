@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class PlayerBuilding : MonoBehaviour
 {
+    public static PlayerBuilding instance;
+    
     public int numberMaterial;
     public int requarieredMaterial;
     [SerializeField] private GameObject buildingSystem;
@@ -29,6 +31,8 @@ public class PlayerBuilding : MonoBehaviour
         building = buildingSystem.GetComponent<BuildingSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
+
+        instance = this;
     }
 
     void Update()
