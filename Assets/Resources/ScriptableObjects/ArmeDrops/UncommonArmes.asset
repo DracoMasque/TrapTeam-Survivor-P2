@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjectRarity
   rarity: 1
   dropRate: 50
-  drops:
-  - {fileID: 9097422571285625630, guid: 30db8308e16b439428165f8911d12d1d, type: 3}
+  drops: []

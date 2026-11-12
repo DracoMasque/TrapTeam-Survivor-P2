@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    
     [SerializeField] private WaveScriptable[] waves ;
     private WaveScriptable currentWave;
     private WaveScriptable nextWave;
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
         currentWave = waves[0];
         nextWave = waves[0];
         BroadcastMessage("ChangeEnemy", currentWave.enemies);
+
+        instance = this;
     }
     
     void UpdateWave()

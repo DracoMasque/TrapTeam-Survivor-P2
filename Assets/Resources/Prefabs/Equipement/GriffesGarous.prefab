@@ -47,5 +47,5 @@ MonoBehaviour:
   name: Griffes de loup garous
   description: 'Augmente la force de 5% '
   image: {fileID: 0}
-  rarity: 1
+  rarity: 0
   modifier: 5
