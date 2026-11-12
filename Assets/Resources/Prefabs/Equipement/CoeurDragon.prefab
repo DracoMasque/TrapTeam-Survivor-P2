@@ -49,7 +49,7 @@ MonoBehaviour:
   description: soigne 1% de vie toute les 20 seconde
   imageLevelUp: {fileID: 0}
   imageUI: {fileID: 0}
-  rarity: 0
+  rarity: 1
   cooldown: {fileID: 0}
   healAmount: 1
 --- !u!114 &5026230313031751112
