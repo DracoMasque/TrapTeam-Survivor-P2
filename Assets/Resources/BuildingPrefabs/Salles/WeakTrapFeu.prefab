@@ -218,12 +218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8085077938ece974297eaf18abcad03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  name: 
+  name: WeakTrap
   spawnChance: 0
-  elements: {fileID: 11400000, guid: 375b8e62fce628d4da846586f9777b3e, type: 2}
+  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
   bonusElement: 1
   alreadyStrong: 0
   alreadyWeak: 0
+  effectStrong: {fileID: 0}
 --- !u!61 &4094993423186172048
 BoxCollider2D:
   m_ObjectHideFlags: 0
