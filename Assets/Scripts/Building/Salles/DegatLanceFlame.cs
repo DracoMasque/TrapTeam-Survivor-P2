@@ -1,10 +1,21 @@
+using System;
 using UnityEngine;
 
 public class DegatLanceFlame : MonoBehaviour
 {
     public int degatLanceFlame;
+    public DeplacementLanceFlame deplacementLanceFlame;
 
+    private void Start()
+    {
+        deplacementLanceFlame = GetComponent<DeplacementLanceFlame>();
+    }
     
+    void Update()
+    {
+        deplacementLanceFlame.Aller();
+   
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

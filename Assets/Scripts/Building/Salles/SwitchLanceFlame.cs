@@ -4,9 +4,11 @@ public class SwitchLanceFlame : MonoBehaviour
 {
     public Cooldown cooldown;
     public GameObject autreColision;
+    public DeplacementLanceFlame deplacementLanceFlame;
     
     void Start()
     {
+      
         cooldown = GetComponent<Cooldown>();
         cooldown.OnTimeout = ActivateLanceFlame;
     }
@@ -27,9 +29,12 @@ public class SwitchLanceFlame : MonoBehaviour
     void ActivateLanceFlame()
     { 
         autreColision.SetActive(!autreColision.activeSelf);
+        
         if (autreColision.activeSelf)
         {
             cooldown.Play();
         }
+
+        
     }
 }
