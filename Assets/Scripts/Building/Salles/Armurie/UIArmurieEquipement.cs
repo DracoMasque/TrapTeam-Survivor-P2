@@ -12,6 +12,8 @@ public class UIArmurieEquipement : MonoBehaviour
     public GameObject UIChoice;
     public GameObject UIChoiceEquipement;
     public LevelUPPanel UINewGear;
+    
+    public GameObject activateButton;
     public GameObject cancelButton;
     private Armurie armurie;
     
@@ -34,7 +36,7 @@ public class UIArmurieEquipement : MonoBehaviour
     {
         for (int i = 0; i < buttonList.Length; i++)
         {
-            if (i <= PlayerEquiment.instance.equipements.Count)
+            if (i <= PlayerEquiment.instance.equipements.Count-1)
             {
                 buttonList[i].SetActive(true);
             }

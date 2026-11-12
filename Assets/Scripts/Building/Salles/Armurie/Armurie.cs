@@ -6,17 +6,13 @@ public class Armurie : MonoBehaviour
     private bool playerIn;
     public Cooldown cooldown;
     private Collider2D _collider2D;
-    public GameObject activateButton;
     private InputAction openArmurie;
-    [SerializeField] private GameObject cancelButton;
 
     void Start()
     {
         cooldown = GetComponent<Cooldown>();
         cooldown.OnTimeout = ActiveArmurie;
         openArmurie = InputSystem.actions["Construction"];
-        cancelButton = GameObject.Find("Cancel");
-        activateButton = GameObject.Find("ActivateButton");
         
         _collider2D = GetComponent<Collider2D>();
     }
@@ -26,7 +22,6 @@ public class Armurie : MonoBehaviour
         if (playerIn && PlayerBuilding.instance.numberMaterial != PlayerBuilding.instance.requarieredMaterial &&
             openArmurie.triggered)
         {
-            activateButton.SetActive(false);
             OpenArmurie();
         }
     }
@@ -35,7 +30,7 @@ public class Armurie : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            activateButton.SetActive(true);
+            UIArmurieEquipement.instance.activateButton.SetActive(true);
             playerIn = true;
         }
     }
@@ -44,7 +39,7 @@ public class Armurie : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            activateButton.SetActive(false);
+            UIArmurieEquipement.instance.activateButton.SetActive(false);
             playerIn = false;
         }
     }
@@ -62,7 +57,8 @@ public class Armurie : MonoBehaviour
     void OpenArmurie()
     {
         GameManager.instance.paused = true;
-        cancelButton.SetActive(true);
+        UIArmurieEquipement.instance.cancelButton.SetActive(true);
+        UIArmurieEquipement.instance.activateButton.SetActive(false);
         UIArmurieEquipement.instance.StartArmurie(this);
     }
 }

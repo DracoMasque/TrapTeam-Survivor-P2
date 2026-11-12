@@ -48,5 +48,5 @@ MonoBehaviour:
   description: Augmente les chance de coups critique de 10%
   imageLevelUp: {fileID: 0}
   imageUI: {fileID: 0}
-  rarity: 0
+  rarity: 1
   modifier: 10
