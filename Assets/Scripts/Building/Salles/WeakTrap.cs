@@ -5,6 +5,8 @@ public class WeakTrap : MonoBehaviour
 {
     [SerializeField] private float weakPourcentage;
     private GameManager gameManager;
+    private float damagePlayer;
+    private float damageEnemy;
 
     void Start()
     {
@@ -15,10 +17,12 @@ public class WeakTrap : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.gameObject.GetComponent<Controlleur>().RedoSpeedModTrap(-col.gameObject.GetComponent<Controlleur>().modDamage * (weakPourcentage / 100));
+            damagePlayer = col.gameObject.GetComponent<Controlleur>().damage;
+            col.gameObject.GetComponent<Controlleur>().RedoDamageModTrap(-col.gameObject.GetComponent<Controlleur>().modDamage * (weakPourcentage / 100));
         }
         else if (col.tag == "Enemy")
         {
+            damageEnemy = col.gameObject.GetComponent<EnemyPrefab>().damage;
             col.gameObject.GetComponent<EnemyPrefab>().RedoSpeedModTrap(-col.gameObject.GetComponent<EnemyPrefab>().modDamage * (weakPourcentage / 100));
         }
     }
@@ -27,11 +31,13 @@ public class WeakTrap : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            other.gameObject.GetComponent<Controlleur>()
+                .DamageReturn(damagePlayer * (weakPourcentage / 100));
             other.gameObject.GetComponent<Controlleur>().RedoDamageMod();
         }
         else if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyPrefab>().SpeedReturn(other.gameObject.GetComponent<EnemyPrefab>().modDamage * (weakPourcentage / 100));
+            other.gameObject.GetComponent<EnemyPrefab>().DamageReturn(damageEnemy * (weakPourcentage / 100));
         }
     }
 }

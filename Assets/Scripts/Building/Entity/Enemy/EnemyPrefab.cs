@@ -32,6 +32,7 @@ public class EnemyPrefab : MonoBehaviour
     private RandomDrop _randomDrop;
 
     [SerializeField] private ElementWeakScriptable elements;
+    public Etat etat;
 
     
     private GameObject player;
@@ -186,14 +187,22 @@ public class EnemyPrefab : MonoBehaviour
     public void RedoSpeedModTrap(float modTrap)
     {
         modSpeedTrap += modTrap; 
-        print("modspeed "+modSpeedTrap);
-        print("speed "+speed);
         speed += Mathf.Ceil(modSpeedTrap);
-        print("speed after "+speed);
     }
 
     public void SpeedReturn(float modTrap)
     {
         speed += Mathf.Abs(modTrap);
+    }
+    
+    public void RedoDamageModTrap(float modTrap)
+    {
+        modDamage += modTrap; 
+        damage += Mathf.Ceil(modDamage);
+    }
+
+    public void DamageReturn(float modTrap)
+    {
+        damage += Mathf.Abs(modTrap);
     }
 }
