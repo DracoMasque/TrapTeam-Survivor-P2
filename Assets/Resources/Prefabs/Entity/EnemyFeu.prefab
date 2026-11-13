@@ -55,19 +55,19 @@ MonoBehaviour:
   currentHealth: 0
   attack: 1
   speed: 2
-  modSpeedTrap: 1
+  modSpeedTrap: 0
   damage: 1
   damageUpgrade: 0
-  modDamage: 1
+  modDamage: 0
   damageFreq: 0
   damageFreqUpgrade: 0
-  modDamageFreq: 1
+  modDamageFreq: 0
   defense: 0
   defenseUpgrade: 0
-  modDefense: 1
+  modDefense: 0
   range: 2
   rangeUpgrade: 0
-  modRange: 1
+  modRange: 0
   xpToDrop: 1
   elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
 --- !u!114 &2892070363298123474

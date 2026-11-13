@@ -8,11 +8,11 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] int attack = 10;
     
     public float speed;
-    [HideInInspector] public float modSpeedTrap = 1;
+    [HideInInspector] public float modSpeedTrap = 0;
     
     public float damage;
     [HideInInspector] public float damageUpgrade = 0;
-    [HideInInspector] public float modDamage = 1;
+    [HideInInspector] public float modDamage = 0;
     
     [Tooltip("in seconds")] public float damageFreq;
     [HideInInspector] public float damageFreqUpgrade = 0;
@@ -20,11 +20,11 @@ public class EnemyPrefab : MonoBehaviour
 
     public float defense;
     [HideInInspector] public float defenseUpgrade = 0;
-    [HideInInspector] public float modDefense = 1;
+    [HideInInspector] public float modDefense = 0;
 
     [SerializeField] float range;
     [HideInInspector] public float rangeUpgrade;
-    [HideInInspector] public float modRange = 1;
+    [HideInInspector] public float modRange = 0;
     
     public int xpToDrop = 1;
     
@@ -72,7 +72,7 @@ public class EnemyPrefab : MonoBehaviour
         transform.position = Vector2.MoveTowards(
             transform.position, 
             player_pos, 
-            (speed * modSpeedTrap) * Time.deltaTime
+            (speed) * Time.deltaTime
             );
     }
 
@@ -97,7 +97,7 @@ public class EnemyPrefab : MonoBehaviour
             }
             if (!negate)
             {
-                playerControlleur.currentHealth -= attack;
+                playerControlleur.currentHealth -= ((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
             }
             timer.Play();
         }
@@ -186,7 +186,10 @@ public class EnemyPrefab : MonoBehaviour
     public void RedoSpeedModTrap(float modTrap)
     {
         modSpeedTrap += modTrap; 
+        print("modspeed "+modSpeedTrap);
+        print("speed "+speed);
         speed += Mathf.Ceil(modSpeedTrap);
+        print("speed after "+speed);
     }
 
     public void SpeedReturn(float modTrap)
