@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class BasicBullet : MonoBehaviour
 {
     GameObject target;
-    int damage = 10;
+    float damage = 10;
     float speed;
+    private int pourcentageAmelioration = 10;
+    
     
     Vector3 direction = Vector3.right;
     /*void Start()
@@ -15,7 +18,7 @@ public class BasicBullet : MonoBehaviour
         speed = GetComponentInParent<BulletCompetence>().speed;
     }*/
 
-    public void Init(GameObject _target, int _damage, float _speed)
+    public void Init(GameObject _target, float _damage, float _speed)
     {
         target = _target;
         damage = _damage;

@@ -20,6 +20,8 @@ public class LevelUPManager : MonoBehaviour
     
     [SerializeField] private List<GameObject> possiblilities;
     [SerializeField] private PlayerEquiment playerEquiment;
+    [SerializeField] private MonoBehaviour Arme;
+   
 
     public static LevelUPManager instance;
     
@@ -35,6 +37,8 @@ public class LevelUPManager : MonoBehaviour
         equipementsPossible = Resources.LoadAll<Equipement>("Prefabs/Equipement");
         armesPossible = Resources.LoadAll<Arme>("Prefabs/Competences");
         playerEquiment = GameObject.FindWithTag("Player").GetComponent<PlayerEquiment>();
+        
+     
     }
     public void AddXp(float xp)
     {
@@ -105,14 +109,40 @@ public class LevelUPManager : MonoBehaviour
         }
         else if (armesPossible.Contains(possiblilities[number].GetComponent<Arme>()))
         {
-            GameObject armeInstant = Instantiate(possiblilities[number], playerEquiment.transform.position, playerEquiment.transform.rotation);
-            switch (possiblilities[number].GetComponent<Arme>().type)
+            bool alreadyHave = false;
+            for (int i = 0; i < armesPossible.Length; i++)
             {
-                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(1).transform);
+                if (AmeliorationArme.instance.armeList.Count > 0 && AmeliorationArme.instance.armeList[i].armeID == possiblilities[number].GetComponent<Arme>().armeID)
+                {
+                    alreadyHave = true;
                     break;
-                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(2).transform);
-                    break;
+                }
             }
+            if (alreadyHave)
+            {
+                switch (possiblilities[number].GetComponent<Arme>().type)
+                { 
+                                
+                    case TypeArme.Aura : playerEquiment.gameObject.transform.GetChild(1).transform.GetComponentInChildren<Arme>().Amelioration();
+                        break;
+                    case TypeArme.Range : playerEquiment.gameObject.transform.GetChild(2).transform.GetComponentInChildren<Arme>().Amelioration();
+                        break;
+                }
+            }
+            else
+            {
+                  GameObject armeInstant = Instantiate(possiblilities[number], playerEquiment.transform.position, playerEquiment.transform.rotation);
+                            AmeliorationArme.instance.armeList.Add(armeInstant.GetComponent<Arme>());
+                            switch (possiblilities[number].GetComponent<Arme>().type)
+                            { 
+                                
+                                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(1).transform);
+                                    break;
+                                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(playerEquiment.transform.GetChild(2).transform);
+                                    break;
+                            }
+            }
+          
         }
         UiLevelUpClose();
     }

@@ -51,6 +51,10 @@ MonoBehaviour:
   description: fait zone youpi
   image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
   damage: 10
+  rarity: 0
+  type: 0
+  armeID: 2
+  pourcentageAmelioration: 200
 --- !u!58 &6444601418911907440
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -53,9 +53,11 @@ MonoBehaviour:
   damage: 10
   rarity: 0
   type: 2
+  armeID: 1
   bulletPrefab: {fileID: 8515340455976918080, guid: 4403705b537f61e4bbb242a7408cdf8a, type: 3}
   speed: 10
   target: {fileID: 0}
+  pourcentageAmelioration: 200
 --- !u!114 &4036983710478797114
 MonoBehaviour:
   m_ObjectHideFlags: 0

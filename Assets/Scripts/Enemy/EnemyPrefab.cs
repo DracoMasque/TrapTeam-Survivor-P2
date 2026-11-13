@@ -81,7 +81,7 @@ public class EnemyPrefab : MonoBehaviour
     
     //====================DEATH====================//
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         Debug.Log(currentHealth);
