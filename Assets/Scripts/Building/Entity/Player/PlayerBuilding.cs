@@ -73,7 +73,6 @@ public class PlayerBuilding : MonoBehaviour
 
     public void StopBuilding()
     {
-        print("Stop Building");
         pointeurRecup.gameObject.SetActive(false);
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);

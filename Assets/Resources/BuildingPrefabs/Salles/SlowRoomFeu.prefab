@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 2691448942448871362}
   - component: {fileID: 8474934077957001051}
   - component: {fileID: 7850334476377370346}
+  - component: {fileID: 4702854715283289006}
   m_Layer: 0
   m_Name: SlowRoomFeu
   m_TagString: Room
@@ -620,8 +621,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.99, y: 0.99}
   m_EdgeRadius: 0
+--- !u!114 &4702854715283289006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785954248818313519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdcde18a04569b49b293abba9f78b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoostElementPlayer
+  boostRatio: 50
 --- !u!1001 &7846795458430862731
 PrefabInstance:
   m_ObjectHideFlags: 0
