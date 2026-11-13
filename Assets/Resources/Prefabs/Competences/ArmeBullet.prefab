@@ -50,7 +50,7 @@ MonoBehaviour:
   name: Lance-Pierre
   description: lance des kayou
   image: {fileID: 49417335881396728, guid: 3f016f48cdf06c04890a90e42e232c71, type: 3}
-  damage: 10
+  damage: 3
   rarity: 0
   type: 2
   armeID: 1
@@ -67,12 +67,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9097422571285625630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1
   loop: 1
-  maxCooldownTime: 1
+  maxCooldownTime: 2
   finished: 0
   currentTime: 0
 --- !u!114 &1256515293023088115

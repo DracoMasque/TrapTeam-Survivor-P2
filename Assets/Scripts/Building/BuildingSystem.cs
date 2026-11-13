@@ -51,9 +51,23 @@ public class BuildingSystem : MonoBehaviour
                 if (groupement.transform.parent != null)
                 {
                     print("place");
+                    
                     groupement.transform.SetParent(null);
                     groupement.placed = true;
                     groupement.previousPosition = groupement.transform.position;
+                    if (!groupement.firstTimeBuild)
+                    {
+                        foreach (GameObject room in groupement.groupedRooms)
+                        {
+                            Room elementRoom = room.transform.GetChild(0).GetComponent<Room>();
+                            if (elementRoom.elements.elements != Elements.None)
+                            {
+                                ElementManager.instance.AjouterRoom(elementRoom);
+                            }
+                        }
+                        groupement.firstTimeBuild = true;
+                    }
+                    ElementManager.instance.ElementBonusTotalCalcul();
                     groupement = null;
                     pointeurRecup.gameObject.SetActive(true);
                 }

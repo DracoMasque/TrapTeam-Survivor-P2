@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce98b6f5cda20a448e8dd257f610a58, type: 3}
+  m_Name: EquipementRare
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjectRarity
+  rarity: 0
+  dropRate: 100
+  drops:
+  - {fileID: 5105054623556248372, guid: fa971b9c7c547ac4191a3f51e60238ac, type: 3}
+  - {fileID: 2250364011616326336, guid: bf5e04df2b51b4641a120ef068e0bdf4, type: 3}
