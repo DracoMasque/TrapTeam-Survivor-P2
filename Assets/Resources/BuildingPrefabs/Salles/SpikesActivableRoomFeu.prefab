@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 0
-  loop: 1
+  loop: 0
   maxCooldownTime: 1
   finished: 0
   currentTime: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 0
-  loop: 1
+  loop: 0
   maxCooldownTime: 1
   finished: 0
   currentTime: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 0
-  loop: 1
+  loop: 0
   maxCooldownTime: 1
   finished: 0
   currentTime: 0

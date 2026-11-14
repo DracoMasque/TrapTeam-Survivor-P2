@@ -3,13 +3,15 @@ using UnityEngine;
 public class Gel : Etat
 {
     private EnemyPrefab enemy;
-    private float speedPourcentage;
+    public float speedPourcentage;
     private float speedEnemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void StartEtat()
     {
+        enemy = GetComponentInParent<EnemyPrefab>();
         speedEnemy = enemy.speed;
         enemy.RedoSpeedModTrap(-enemy.speed * (speedPourcentage / 100));
+        print("etat");
     }
 
     public override void EndEtat()

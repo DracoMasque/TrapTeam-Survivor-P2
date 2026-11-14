@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,15 @@ public class GameManager : MonoBehaviour
     private WaveScriptable nextWave;
     private Cooldown timer;
     public bool paused = false;
+    
+    [Range(1f, 100f)] public float etatsChance;
+    [SerializeField] private Dictionary<Elements, GameObject> etats = new Dictionary<Elements, GameObject>()
+    {
+        { Elements.Feu, null },
+        { Elements.Glace, null },
+        { Elements.Nature, null },
+        { Elements.Maudit, null },
+    };
     
     private void Start()
     {
@@ -36,7 +47,6 @@ public class GameManager : MonoBehaviour
                 // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
                 BroadcastMessage("ChangeEnemy", currentWave.enemies);
             }
-           
         }
     }
     private void NextWave()
@@ -54,5 +64,15 @@ public class GameManager : MonoBehaviour
         }
         
         nextWave = newWave;
+    }
+    
+    public void GetEtats(EnemyPrefab enemy, Elements element)
+    {
+        if (etatsChance <= Random.Range(0f, 101f))
+        {
+            GameObject etatInstace = Instantiate(etats[element], enemy.transform, true);
+            enemy.etat = etatInstace.GetComponent<Etat>();
+            etatInstace.GetComponent<Etat>().StartEtat();
+        }
     }
 }

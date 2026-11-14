@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 3009958604536725529}
   - component: {fileID: 3451553357177144444}
   - component: {fileID: 2836613563058696999}
+  - component: {fileID: 6264568335224491436}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 0
-  loop: 1
+  loop: 0
   maxCooldownTime: 2
   finished: 0
   currentTime: 0
@@ -292,6 +293,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6264568335224491436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893780152178808880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87cf8df2d0ed3c4db4869238925bcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeplacementLanceFlame
+  newScale: {x: 0.8, y: 0.3}
+  scale: {x: 0.001, y: 0.3}
+  speed: 0
 --- !u!1 &1564668206675021685
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +321,7 @@ GameObject:
   - component: {fileID: 7397979895981234057}
   - component: {fileID: 1849145354552556902}
   - component: {fileID: 201817679929748649}
+  - component: {fileID: 422665782374473104}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -415,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 0
-  loop: 1
+  loop: 0
   maxCooldownTime: 2
   finished: 0
   currentTime: 0
@@ -465,6 +482,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &422665782374473104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564668206675021685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87cf8df2d0ed3c4db4869238925bcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeplacementLanceFlame
+  newScale: {x: 0.8, y: 0.3}
+  scale: {x: 0.001, y: 0.3}
+  speed: 0
 --- !u!1 &2449781767296852758
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +512,7 @@ GameObject:
   - component: {fileID: 1136310319303520162}
   - component: {fileID: 6828787372457101634}
   - component: {fileID: 4065433784420032177}
+  - component: {fileID: 2105363483648982822}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -669,6 +702,21 @@ MonoBehaviour:
   newScale: {x: 0.8, y: 0.3}
   scale: {x: 0.001, y: 0.3}
   speed: 2
+--- !u!114 &2105363483648982822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449781767296852758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87cf8df2d0ed3c4db4869238925bcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeplacementLanceFlame
+  newScale: {x: 0.8, y: 0.3}
+  scale: {x: 0.001, y: 0.3}
+  speed: 0
 --- !u!1 &3879205437339899545
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +731,7 @@ GameObject:
   - component: {fileID: 6159909891979248441}
   - component: {fileID: 1324344689831896163}
   - component: {fileID: 6078712621722427324}
+  - component: {fileID: 1801744229711868605}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -857,6 +906,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1801744229711868605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879205437339899545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87cf8df2d0ed3c4db4869238925bcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeplacementLanceFlame
+  newScale: {x: 0.8, y: 0.3}
+  scale: {x: 0.001, y: 0.3}
+  speed: 0
 --- !u!1 &8736723102690927581
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,12 @@ public abstract class Etat : MonoBehaviour
 {
     public Cooldown duration;
 
-    void start()
+    void Start()
     {
         duration.OnTimeout = EndEtat;
     }
+    
+    public abstract void StartEtat();
 
     public abstract void EndEtat();
 }

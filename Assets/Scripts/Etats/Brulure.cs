@@ -6,10 +6,11 @@ public class Brulure : Etat
     public float degats = 5;
     private EnemyPrefab enemy;
 
-    void Start()
+    public override void StartEtat()
     {
         cooldown.OnTimeout = Burn;
-        enemy = GetComponent<EnemyPrefab>();
+        enemy = GetComponentInParent<EnemyPrefab>();
+        print("etat");
     }
 
     void Burn()
