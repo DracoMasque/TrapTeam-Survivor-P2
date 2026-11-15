@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 547722826696065903, guid: 2620adf1a9415ea46a0a5a54dae9d3cd, type: 3}
       propertyPath: elements
       value: 
-      objectReference: {fileID: 11400000, guid: 1245e8dd7f6d7164d9994fba3f152685, type: 2}
+      objectReference: {fileID: 11400000, guid: bf3b2ef9c4e642e4bb24ad28f0392410, type: 2}
     - target: {fileID: 8539156930781365350, guid: 2620adf1a9415ea46a0a5a54dae9d3cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.80787
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736723102690927581, guid: 2620adf1a9415ea46a0a5a54dae9d3cd, type: 3}
       propertyPath: m_Name
-      value: WeakTrapMaudit
+      value: WeakTrapNature
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

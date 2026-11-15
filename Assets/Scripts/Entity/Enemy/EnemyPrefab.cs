@@ -152,7 +152,7 @@ public class EnemyPrefab : MonoBehaviour
     
     //====================DEATH====================//
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (ElementManager.instance.elementDominant == elements.weakness)
         {
@@ -209,7 +209,7 @@ public class EnemyPrefab : MonoBehaviour
         }
     }
     
-    public void TakeDamageTrap(int damage, Elements element, float trapBonus)
+    public void TakeDamageTrap(float damage, Elements element, float trapBonus)
         {
             if (element == elements.weakness)
             {

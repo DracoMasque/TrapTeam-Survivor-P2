@@ -17,3 +17,4 @@ MonoBehaviour:
   drops:
   - {fileID: 8736723102690927581, guid: 651fc479c06be254fb677d5ddf08f8b9, type: 3}
   - {fileID: 8736723102690927581, guid: bdd0c15680ea12a40b116b2e8ea0dc07, type: 3}
+  - {fileID: 8736723102690927581, guid: 8a6cdf1cf804eb74a93b7255821ef3d6, type: 3}

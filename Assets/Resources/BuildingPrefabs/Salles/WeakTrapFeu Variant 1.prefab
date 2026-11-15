@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1069975975951764822, guid: 921c97527725aa34c9ec0eee5723c603, type: 3}
+      propertyPath: elements
+      value: 
+      objectReference: {fileID: 11400000, guid: 500b00ca80ef623428e9ed223178211d, type: 2}
     - target: {fileID: 8106379437061074404, guid: 921c97527725aa34c9ec0eee5723c603, type: 3}
       propertyPath: m_Name
       value: WeakTrapFeu Variant 1
