@@ -36,7 +36,6 @@ public class PlayerBuilding : MonoBehaviour
         uiWorldSpace = GameObject.Find("UIWorldSpace");
         cancelButton = GameObject.Find("Exit");
         buildingChoice = uiWorldSpace.GetComponent<BuildingChoice>();
-        buildingChoice = GameObject.Find("UIBuildingSelect").GetComponent<BuildingChoise>();
 
         instance = this;
     }
