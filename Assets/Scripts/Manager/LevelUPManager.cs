@@ -23,7 +23,7 @@ public class LevelUPManager : MonoBehaviour
     
     private Slider xpSlider;
     private Equipement[] equipementsPossible;
-    private Arme[] armesPossible;
+    [SerializeField] private Arme[] armesPossible;
     private Upgrade[] upgradesPossible;
     private PlayerEquiment _playerEquipment;
     
@@ -123,12 +123,12 @@ public class LevelUPManager : MonoBehaviour
     {
         if (equipementsPossible.Contains(possiblilities[number].GetComponent<Equipement>()))
         {
-            Equipement equipement = possiblilities[number].GetComponent<Equipement>();
-            Instantiate(possiblilities[number]);
             if (_playerEquipment.equipements.Count < _playerEquipment.maxEquipements)
             {
-                _playerEquipment.equipements.Add(equipement);
-                equipement.OnPickUp(_playerEquipment.gameObject.GetComponent<Controlleur>());
+                GameObject equipement = Instantiate(possiblilities[number], _playerEquipment.transform);
+                equipement.transform.SetParent(_playerEquipment.transform);
+                _playerEquipment.equipements.Add(equipement.GetComponent<Equipement>());
+                equipement.GetComponent<Equipement>().OnPickUp(_playerEquipment.gameObject.GetComponent<Controlleur>());
             }
         }
         else if (armesPossible.Contains(possiblilities[number].GetComponent<Arme>()))

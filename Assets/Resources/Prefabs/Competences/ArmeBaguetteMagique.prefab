@@ -47,12 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b67c79930be6294b9468d3dd912ae2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaguetteMagique
-  name: 
-  description: 
+  name: Baguette Magique
+  description: Tire un laser
   image: {fileID: 0}
   damage: 10
   rarity: 0
-  type: 0
+  type: 2
   armeID: 0
   speed: 10
   target: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3402184103824935584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698a34fbefe04660a78a7d43dd86f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cooldown
   autoStart: 1

@@ -68,12 +68,12 @@ public class EnemyPrefab : MonoBehaviour
     //====================WALKING====================//
     void Update()
     {
+        if (rb.linearVelocity != Vector2.zero)
+        {
+            rb.linearVelocity =  Vector2.zero;
+        }
         if (gameManager.paused)
         {
-            if (rb.linearVelocity != Vector2.zero)
-            {
-                rb.linearVelocity =  Vector2.zero;
-            }
             return;
         }
 
