@@ -133,13 +133,38 @@ public class LevelUPManager : MonoBehaviour
         }
         else if (armesPossible.Contains(possiblilities[number].GetComponent<Arme>()))
         {
-            GameObject armeInstant = Instantiate(possiblilities[number], _playerEquipment.transform.position, _playerEquipment.transform.rotation);
-            switch (possiblilities[number].GetComponent<Arme>().type)
+            bool alreadyHave = false;
+            for (int i = 0; i < armesPossible.Length; i++)
             {
-                case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(1).transform);
+                if (AmeliorationArme.instance.armeList.Count > 1 && AmeliorationArme.instance.armeList[i].armeID == possiblilities[number].GetComponent<Arme>().armeID)
+                {
+                    alreadyHave = true;
                     break;
-                case TypeArme.Range : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(2).transform);
-                    break;
+                }
+            }
+            if (alreadyHave)
+            {
+                switch (possiblilities[number].GetComponent<Arme>().type)
+                { 
+                                
+                    case TypeArme.Aura : _playerEquipment.gameObject.transform.GetChild(1).transform.GetComponentInChildren<Arme>().Amelioration();
+                        break;
+                    case TypeArme.Range : _playerEquipment.gameObject.transform.GetChild(2).transform.GetComponentInChildren<Arme>().Amelioration();
+                        break;
+                }
+            }
+            else
+            {
+                GameObject armeInstant = Instantiate(possiblilities[number], _playerEquipment.transform.position, _playerEquipment.transform.rotation);
+                AmeliorationArme.instance.armeList.Add(armeInstant.GetComponent<Arme>());
+                switch (possiblilities[number].GetComponent<Arme>().type)
+                { 
+                                
+                    case TypeArme.Aura : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(1).transform);
+                        break;
+                    case TypeArme.Range : armeInstant.gameObject.transform.SetParent(_playerEquipment.transform.GetChild(2).transform);
+                        break;
+                }
             }
         }
         else if (upgradesPossible.Contains(possiblilities[number].GetComponent<Upgrade>()))

@@ -15,7 +15,7 @@ public class BoostElementPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (ElementManager.instance.elementDominant != Elements.None && other.tag == "Player")
         {
             if (Controlleur.instance.alreadyBoosted)
             {
@@ -32,7 +32,7 @@ public class BoostElementPlayer : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (ElementManager.instance.elementDominant != Elements.None && other.tag == "Player")
         {
             if (!Controlleur.instance.alreadyBoosted &&
                 roomElements == ElementManager.instance.elementDominant)
@@ -53,8 +53,8 @@ public class BoostElementPlayer : MonoBehaviour
             {
                 print("stop boost");
                 Controlleur.instance.alreadyBoosted = false;
-                Controlleur.instance.DamageReturn(-Controlleur.instance.damage * (boostRatio / 100));
-                Controlleur.instance.SpeedReturn(-Controlleur.instance.speed * (boostRatio / 100));
+                Controlleur.instance.DamageReturn(-damagePlayer * (boostRatio / 100));
+                Controlleur.instance.SpeedReturn(-speedPlayer * (boostRatio / 100));
             }
         }
     }

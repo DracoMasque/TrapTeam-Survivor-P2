@@ -53,6 +53,7 @@ public class EnemyPrefab : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.linearDamping = 10;
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         playerControlleur = player.GetComponent<Controlleur>();
@@ -68,10 +69,6 @@ public class EnemyPrefab : MonoBehaviour
     //====================WALKING====================//
     void Update()
     {
-        if (rb.linearVelocity != Vector2.zero)
-        {
-            rb.linearVelocity =  Vector2.zero;
-        }
         if (gameManager.paused)
         {
             return;
@@ -110,7 +107,8 @@ public class EnemyPrefab : MonoBehaviour
             animator.SetBool("Attacking", true);
             if (etat != null && etat.GetComponent<Confusion>())
             {
-                closestEnemy.GetComponent<EnemyPrefab>().currentHealth -= Mathf.Ceil((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
+                closestEnemy.GetComponent<EnemyPrefab>().TakeDamage(damage);
+                    //currentHealth -= Mathf.Ceil((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
             }
             else
             {

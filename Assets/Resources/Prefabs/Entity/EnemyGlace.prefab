@@ -71,6 +71,7 @@ MonoBehaviour:
   rangeUpgrade: 0
   modRange: 0
   xpToDrop: 1
+  xpPrefab: {fileID: 919210782642933907, guid: d097435a5252f1d4295e1c321bf03d63, type: 3}
   elements: {fileID: 11400000, guid: 500b00ca80ef623428e9ed223178211d, type: 2}
   etat: {fileID: 0}
   closestEnemy: {fileID: 0}

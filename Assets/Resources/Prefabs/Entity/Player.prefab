@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2709262731672822385}
   - component: {fileID: 7043177997608987741}
   - component: {fileID: 387572966497050416}
+  - component: {fileID: 7550259736582271434}
   - component: {fileID: 174905792778183666}
   m_Layer: 0
   m_Name: Player
@@ -55,6 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controlleur
   endGameScreen: {fileID: 0}
+  alreadyBoosted: 0
   speed: 5
   speedUpgrade: 0
   modSpeedTrap: 0
@@ -73,7 +75,7 @@ MonoBehaviour:
   modCritDamage: 1
   critChance: 10
   critChanceUpgrade: 0
-  modCritChance: 1
+  modCritChance: 0
   oldModCritChance: 0
   damage: 5
   damageUpgrade: 0
@@ -81,7 +83,7 @@ MonoBehaviour:
   oldModDamage: 0
   damageFreq: 0
   damageFreqUpgrade: 0
-  modDamageFreq: 1
+  modDamageFreq: 0
   OldModDamageFreq: 0
   defense: 0
   defenseUpgrade: 0
@@ -188,7 +190,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -417,6 +419,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::XpRecup
   speedXp: 10
+--- !u!114 &7550259736582271434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095789563922903222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327892684b8cd5d48b3118158bf3b749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmeliorationArme
+  armeList:
+  - {fileID: 864549129405402230}
 --- !u!114 &174905792778183666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +695,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30db8308e16b439428165f8911d12d1d, type: 3}
+--- !u!114 &864549129405402230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7448512160758680029, guid: 30db8308e16b439428165f8911d12d1d, type: 3}
+  m_PrefabInstance: {fileID: 1395816255182092885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3451265055e1744b8345246f8e7ec87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!4 &2784966955832775731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3889104354028105318, guid: 30db8308e16b439428165f8911d12d1d, type: 3}

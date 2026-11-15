@@ -35,10 +35,6 @@ public class AilesGorgone : Equipement
         foreach (Rigidbody2D en in enemies)
         {
             Vector2 force = (en.transform.position - transform.position).normalized * knockbackValue;
-            if (en.linearDamping == 0)
-            {
-                en.linearDamping = 10;
-            }
             en.AddForce(force, ForceMode2D.Impulse);
         }
     }

@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     
     public void GetEtats(EnemyPrefab enemy, Elements element)
     {
-        if (etatsChance <= Random.Range(0f, 101f))
+        if (etatsChance <= Random.Range(0f, 101f) && ElementManager.instance.elementLevels[element] > 0)
         {
             GameObject etatInstace = Instantiate(etats[element], enemy.transform, true);
             enemy.etat = etatInstace.GetComponent<Etat>();
