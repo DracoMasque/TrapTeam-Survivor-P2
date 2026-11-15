@@ -53,6 +53,8 @@ MonoBehaviour:
   damage: 10
   rarity: 0
   type: 0
+  armeID: 2
+  pourcentageAmelioration: 200
 --- !u!58 &6444601418911907440
 CircleCollider2D:
   m_ObjectHideFlags: 0

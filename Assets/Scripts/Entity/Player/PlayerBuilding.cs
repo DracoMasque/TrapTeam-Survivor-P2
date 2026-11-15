@@ -79,7 +79,7 @@ public class PlayerBuilding : MonoBehaviour
 
     public void StopBuilding()
     {
-        print("Stop Building");
+        uiWorldSpace.GetComponent<Canvas>().enabled = false;
         pointeurRecup.gameObject.SetActive(false);
         buildingSystem.SetActive(false);
         camera.gameObject.SetActive(true);

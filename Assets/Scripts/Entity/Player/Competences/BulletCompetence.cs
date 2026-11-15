@@ -13,6 +13,8 @@ public class ArmeBullet : Arme
     List<GameObject> enemies;
     [HideInInspector]
     public GameObject target;
+    public int pourcentageDamage = 10;
+    public int pourcentageSpeed = 10;
     
     void Start()
     { 
@@ -53,5 +55,12 @@ public class ArmeBullet : Arme
         }
         GameObject result = distanceList.ElementAt(0).Value;
         return result;
+    }
+
+    public override void Amelioration()
+    {
+        Debug.Log("ArmeBullet Amelioration");
+        damage += damage * (pourcentageDamage / 100);
+        speed += speed * (pourcentageSpeed / 100);
     }
 }
