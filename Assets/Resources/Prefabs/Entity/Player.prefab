@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33d1a143dab0714eb803a2b367d5eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controlleur
+  endGameScreen: {fileID: 0}
   speed: 5
   speedUpgrade: 0
   modSpeedTrap: 0
@@ -73,6 +74,7 @@ MonoBehaviour:
   critChance: 10
   critChanceUpgrade: 0
   modCritChance: 1
+  oldModCritChance: 0
   damage: 5
   damageUpgrade: 0
   modDamage: 1
@@ -80,6 +82,7 @@ MonoBehaviour:
   damageFreq: 0
   damageFreqUpgrade: 0
   modDamageFreq: 1
+  OldModDamageFreq: 0
   defense: 0
   defenseUpgrade: 0
   modDefense: 1

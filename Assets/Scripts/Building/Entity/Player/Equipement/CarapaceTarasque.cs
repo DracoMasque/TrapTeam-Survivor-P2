@@ -7,7 +7,7 @@ public class CarapaceTarasque : Equipement
     
     public override void OnPickUp(Controlleur player)
     {
-        player.RedoSpeedMod();
+        player.RedoDefenseMod();
     }
 
     public void OnMaxDefenseChange(Controlleur player)
@@ -20,7 +20,7 @@ public class CarapaceTarasque : Equipement
     public override void LetGoEquipement(Controlleur player)
     {
         Destroy(gameObject);
-        player.RedoSpeedMod();
+        player.RedoDefenseMod();
     }
 
     public override void EquipementAction()

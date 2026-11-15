@@ -21,6 +21,8 @@ public class Controlleur : MonoBehaviour
     //modificateurs sont des multiplications donc sont de base a 1, contrairement aux Upgrades qui sont +
     [Header("Stats")]
     
+    public bool alreadyBoosted = false;
+    
     public float speed;
     [HideInInspector]public float speedUpgrade = 0;
     [HideInInspector]public float modSpeedTrap = 0;
@@ -43,7 +45,8 @@ public class Controlleur : MonoBehaviour
     
     [Tooltip("in %")] public float critChance;
     [HideInInspector] public float critChanceUpgrade = 0;
-    [HideInInspector] public float modCritChance = 1;
+     public float modCritChance = 0;
+     [HideInInspector] public float oldModCritChance = 0;
 
     //Chaque armes prennent comme base un certains pourcentage des degats du joueur : Fortes -> 100%, Faibles -> 40%
     public float damage;
@@ -54,7 +57,8 @@ public class Controlleur : MonoBehaviour
     [Tooltip("in seconds")]
     public float damageFreq;
     [HideInInspector] public float damageFreqUpgrade = 0;
-    [HideInInspector] public float modDamageFreq = 1;
+     public float modDamageFreq = 0;
+    [HideInInspector] public float OldModDamageFreq = 0;
 
     public float defense;
     [HideInInspector] public float defenseUpgrade = 0;
@@ -126,6 +130,7 @@ public class Controlleur : MonoBehaviour
     public void RedoSpeedMod()
     {
         oldModSpeedTrap = modSpeedTrap;
+        speed -= modSpeedTrap;
         modSpeedTrap = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -141,6 +146,7 @@ public class Controlleur : MonoBehaviour
     public void RedoSpeedModTrap(float modTrap)
     {
         oldModSpeedTrap = modSpeedTrap;
+        speed -= modSpeedTrap;
         modSpeedTrap = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -150,18 +156,18 @@ public class Controlleur : MonoBehaviour
                 e.GetComponent<SabotsCentaures>().OnMaxSpeedChange(this);
             }
         }
-        print(modTrap);
         speed += Mathf.Ceil(modSpeedTrap) + modTrap;
     }
 
     public void SpeedReturn(float modTrap)
     {
-        speed += Mathf.Abs(modTrap);
+        speed += modTrap;
     }
     
     public void RedoDamageMod()
     {
         oldModDamage = modDamage;
+        damage -= modDamage;
         modDamage = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -174,9 +180,31 @@ public class Controlleur : MonoBehaviour
         damage += Mathf.Ceil(modDamage);
     }
     
+    public void RedoDamageModTrap(float modTrap)
+    {
+        oldModDamage = modDamage;
+        damage -= modDamage;
+        modDamage = 0;
+        List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
+        foreach (Equipement e in equipements)
+        {
+            if (e.GetComponent<GriffesGarous>())
+            {
+                e.GetComponent<GriffesGarous>().OnMaxDamageChange(this);
+            }
+        }
+        damage += Mathf.Ceil(modDamage) + modTrap;
+    }
+
+    public void DamageReturn(float modTrap)
+    {
+        damage += modTrap;
+    }
+    
     public void RedoDefenseMod()
     {
         oldmodDefense = modDefense;
+        defense -= modDefense;
         modDefense = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -187,6 +215,38 @@ public class Controlleur : MonoBehaviour
             }
         }
         defense += Mathf.Ceil(modDefense);
+    }
+    
+    public void RedoCritChanceMod()
+    {
+        oldModCritChance = modCritChance;
+        critChance -= modCritChance;
+        modCritChance = 0;
+        List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
+        foreach (Equipement e in equipements)
+        {
+            if (e.GetComponent<PotionBaba>())
+            {
+                e.GetComponent<PotionBaba>().OnMaxCritChanceChange(this);
+            }
+        }
+        critChance += Mathf.Ceil(modCritChance);
+    }
+    
+    public void RedoDamageFreqMod()
+    {
+        OldModDamageFreq = modDamageFreq;
+        damageFreq -= modDamageFreq;
+        modDamageFreq = 0;
+        List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
+        foreach (Equipement e in equipements)
+        {
+            if (e.GetComponent<EssenceVelociraptor>())
+            {
+                e.GetComponent<EssenceVelociraptor>().OnMaxDamageFreqChange(this);
+            }
+        }
+        damageFreq += Mathf.Ceil(modDamageFreq);
     }
     
 }

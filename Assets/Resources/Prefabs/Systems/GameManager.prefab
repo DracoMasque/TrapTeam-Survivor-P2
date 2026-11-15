@@ -86,6 +86,16 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: c93874c4da229594b80bb0fe8644d21c, type: 2}
   paused: 0
+  etatsChance: 20
+  etats:
+  - key: 1
+    value: {fileID: 6016087059592960450, guid: 94ba5d38d73abaa4b8a4b5b2eab81611, type: 3}
+  - key: 2
+    value: {fileID: 8425513625199501425, guid: 976e24097fb4c4d4daf091289d10cf25, type: 3}
+  - key: 3
+    value: {fileID: 7459965636219317423, guid: 113cf58b402e60f4c8540768b47a99a5, type: 3}
+  - key: 4
+    value: {fileID: 8162048869171076525, guid: 03820b4a6c63d704db8ca730b1f837f5, type: 3}
 --- !u!114 &9031326179128620955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomDrop
   objects:
   - {fileID: 11400000, guid: 4614ebbcdef6f8b46a8a2c1aed56997e, type: 2}
+  - {fileID: 11400000, guid: 35d9eec324333534d9cc56a103d44fb3, type: 2}
+  - {fileID: 11400000, guid: 1d269854a8955e74bad84509dacb4318, type: 2}
 --- !u!114 &5008284455122970707
 MonoBehaviour:
   m_ObjectHideFlags: 0

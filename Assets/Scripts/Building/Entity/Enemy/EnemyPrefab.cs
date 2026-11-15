@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyPrefab : MonoBehaviour
@@ -8,11 +9,11 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] int attack = 10;
     
     public float speed;
-    [HideInInspector] public float modSpeedTrap = 1;
+    [HideInInspector] public float modSpeedTrap = 0;
     
     public float damage;
     [HideInInspector] public float damageUpgrade = 0;
-    [HideInInspector] public float modDamage = 1;
+    [HideInInspector] public float modDamage = 0;
     
     [Tooltip("in seconds")] public float damageFreq;
     [HideInInspector] public float damageFreqUpgrade = 0;
@@ -20,11 +21,11 @@ public class EnemyPrefab : MonoBehaviour
 
     public float defense;
     [HideInInspector] public float defenseUpgrade = 0;
-    [HideInInspector] public float modDefense = 1;
+    [HideInInspector] public float modDefense = 0;
 
     [SerializeField] float range;
     [HideInInspector] public float rangeUpgrade;
-    [HideInInspector] public float modRange = 1;
+    [HideInInspector] public float modRange = 0;
     
     public int xpToDrop = 1;
     
@@ -32,6 +33,8 @@ public class EnemyPrefab : MonoBehaviour
     private RandomDrop _randomDrop;
 
     [SerializeField] private ElementWeakScriptable elements;
+    public Etat etat;
+    [HideInInspector] public GameObject closestEnemy;
 
     
     private GameObject player;
@@ -41,11 +44,14 @@ public class EnemyPrefab : MonoBehaviour
     
     private Animator animator;
     private Animation animationComponent;
+
+    private Rigidbody2D rb;
     
     private GameManager gameManager;
    
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player");
         playerControlleur = player.GetComponent<Controlleur>();
@@ -62,9 +68,21 @@ public class EnemyPrefab : MonoBehaviour
     {
         if (gameManager.paused)
         {
+            if (rb.linearVelocity != Vector2.zero)
+            {
+                rb.linearVelocity =  Vector2.zero;
+            }
             return;
         }
-        Walk(player.transform.position);
+
+        if (etat != null && etat.GetComponent<Confusion>())
+        {
+            Walk(closestEnemy.transform.position);
+        }
+        else
+        {
+            Walk(player.transform.position);
+        }
         Attack();
     }
     private void Walk(Vector2 player_pos)
@@ -72,7 +90,7 @@ public class EnemyPrefab : MonoBehaviour
         transform.position = Vector2.MoveTowards(
             transform.position, 
             player_pos, 
-            (speed * modSpeedTrap) * Time.deltaTime
+            (speed) * Time.deltaTime
             );
     }
 
@@ -82,10 +100,32 @@ public class EnemyPrefab : MonoBehaviour
     //Comment l'enemy attaque le joueur
     private void Attack()
     {
+        bool negate = false;
         if (timer.finished && IsClose())
         {
             animator.SetBool("Attacking", true);
-            playerControlleur.currentHealth -= attack;
+            if (etat != null && etat.GetComponent<Confusion>())
+            {
+                closestEnemy.GetComponent<EnemyPrefab>().currentHealth -= Mathf.Ceil((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
+            }
+            else
+            {
+               foreach (Equipement e in PlayerEquiment.instance.equipements)
+               {
+                   if (e.GetComponent<AilesGorgone>() && e.GetComponent<AilesGorgone>().negateChance <= Random.Range(0, 101))
+                   {
+                       e.EquipementAction();
+                       negate = true;
+                       break;
+                   }
+               }
+               if (!negate)
+               {
+                   playerControlleur.currentHealth -=
+                       Mathf.Round((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
+               } 
+            }
+            
             timer.Play();
         }
     }
@@ -112,22 +152,53 @@ public class EnemyPrefab : MonoBehaviour
     {
         if (ElementManager.instance.elementDominant == elements.weakness)
         {
-            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
-                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
-                               1.50f)) * (1 - (defense / 100));
+            currentHealth -= Mathf.Ceil(((damage * (1 + (playerControlleur.damage / 100))) +
+                                         (ElementManager.instance.elementBonusTotal[
+                                              ElementManager.instance.elementDominant] *
+                                          1.50f)) * (1 - (defense / 100)));
         }
         else if (ElementManager.instance.elementDominant == elements.strength)
         {
-            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
-                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant] *
-                               0.50f)) * (1 - (defense / 100));
+            currentHealth -= Mathf.Ceil(((damage * (1 + (playerControlleur.damage / 100))) +
+                                         (ElementManager.instance.elementBonusTotal[
+                                              ElementManager.instance.elementDominant] *
+                                          0.50f)) * (1 - (defense / 100)));
         }
         else
         {
-            currentHealth -= ((damage * (1 + (playerControlleur.damage / 100))) +
-                              (ElementManager.instance.elementBonusTotal[ElementManager.instance.elementDominant])) 
-                              * (1 - (defense / 100));
+            currentHealth -= Mathf.Ceil(((damage * (1 + (playerControlleur.damage / 100))) +
+                                         (ElementManager.instance.elementBonusTotal[
+                                             ElementManager.instance.elementDominant]))
+                                        * (1 - (defense / 100)));
         }
+
+        if (etat == null && ElementManager.instance.elementDominant != Elements.None)
+        {
+            GameManager.instance.GetEtats(this, ElementManager.instance.elementDominant);
+        }
+
+        if (etat != null && etat.GetComponent<Maudit>())
+        {
+            if (etat.GetComponent<Maudit>().propagationChance <= Random.Range(0, 101))
+            {
+                List<GameObject> closestEnemies = GetComponent<DetectEnemy>().enemies;
+                GameObject closest = closestEnemies[0];
+                for (int i = 1; i < closestEnemies.Count; i++)
+                {
+                    if (Vector2.Distance(closestEnemies[i].transform.position, transform.position) <
+                        Vector2.Distance(closest.transform.position, transform.position))
+                    {
+                        closest = closestEnemies[i];
+                    }
+                }
+
+                List<GameObject> alreadyTouched = new List<GameObject>();
+                alreadyTouched.Add(gameObject);
+                closest.GetComponent<EnemyPrefab>().TakeDamagePropagation(etat.GetComponent<Maudit>().propagationRange, 
+                    Mathf.Ceil((damage * (1 + (playerControlleur.damage / 100))) / 2), etat.GetComponent<Maudit>().propagationChance, alreadyTouched);
+            }
+        }
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -138,21 +209,57 @@ public class EnemyPrefab : MonoBehaviour
         {
             if (element == elements.weakness)
             {
-                currentHealth -= (damage * trapBonus * 1.50f) * (1 - (defense / 100));
+                currentHealth -= Mathf.Ceil((damage * trapBonus * 1.50f) * (1 - (defense / 100)));
             }
             else if (element == elements.strength)
             {
-                currentHealth -= (damage * trapBonus * 0.50f) * (1 - (defense / 100));
+                currentHealth -= Mathf.Ceil((damage * trapBonus * 0.50f) * (1 - (defense / 100)));
             }
             else
             {
-                currentHealth -= (damage * trapBonus) * (1-(defense / 100));
+                currentHealth -= Mathf.Ceil((damage * trapBonus) * (1 - (defense / 100)));
             }
+            
+            if (etat == null)
+            {
+                GameManager.instance.GetEtats(this, element);
+            }
+            
             if (currentHealth <= 0)
             {
                 Die();
             }
         }
+
+    public void TakeDamagePropagation(float propagationRange ,float damage, float propagationChance, List<GameObject> alreadyTouched)
+    {
+        
+        currentHealth -= Mathf.Ceil(damage * (1 - (defense / 100)));
+        
+        if (propagationChance <= Random.Range(0, 101))
+        {
+            List<GameObject> closestEnemies = GetComponent<DetectEnemy>().enemies;
+            GameObject closest = closestEnemies[0];
+            for (int i = 1; i < closestEnemies.Count; i++)
+            {
+                if (Vector2.Distance(closestEnemies[i].transform.position, transform.position) < propagationRange &&
+                    closestEnemies[i] != alreadyTouched[^1] &&
+                    Vector2.Distance(closestEnemies[i].transform.position, transform.position) <
+                    Vector2.Distance(closest.transform.position, transform.position))
+                {
+                    closest = closestEnemies[i];
+                }
+            }
+
+            alreadyTouched.Add(gameObject);
+            closest.GetComponent<EnemyPrefab>().TakeDamagePropagation(propagationRange, Mathf.Ceil(damage / 2), propagationChance, alreadyTouched);
+        }
+        
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
     
     private void Die()
     {
@@ -179,5 +286,16 @@ public class EnemyPrefab : MonoBehaviour
     public void SpeedReturn(float modTrap)
     {
         speed += Mathf.Abs(modTrap);
+    }
+    
+    public void RedoDamageModTrap(float modTrap)
+    {
+        modDamage += modTrap; 
+        damage += Mathf.Ceil(modDamage);
+    }
+
+    public void DamageReturn(float modTrap)
+    {
+        damage += Mathf.Abs(modTrap);
     }
 }
