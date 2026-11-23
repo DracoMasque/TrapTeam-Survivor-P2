@@ -135,7 +135,6 @@ public class Controlleur : MonoBehaviour
     public void RedoSpeedMod()
     {
         oldModSpeedTrap = modSpeedTrap;
-        speed -= modSpeedTrap;
         modSpeedTrap = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -151,7 +150,6 @@ public class Controlleur : MonoBehaviour
     public void RedoSpeedModTrap(float modTrap)
     {
         oldModSpeedTrap = modSpeedTrap;
-        speed -= modSpeedTrap;
         modSpeedTrap = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -172,7 +170,6 @@ public class Controlleur : MonoBehaviour
     public void RedoDamageMod()
     {
         oldModDamage = modDamage;
-        damage -= modDamage;
         modDamage = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -188,7 +185,6 @@ public class Controlleur : MonoBehaviour
     public void RedoDamageModTrap(float modTrap)
     {
         oldModDamage = modDamage;
-        damage -= modDamage;
         modDamage = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -209,7 +205,6 @@ public class Controlleur : MonoBehaviour
     public void RedoDefenseMod()
     {
         oldmodDefense = modDefense;
-        defense -= modDefense;
         modDefense = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -225,7 +220,6 @@ public class Controlleur : MonoBehaviour
     public void RedoCritChanceMod()
     {
         oldModCritChance = modCritChance;
-        critChance -= modCritChance;
         modCritChance = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
@@ -241,7 +235,6 @@ public class Controlleur : MonoBehaviour
     public void RedoDamageFreqMod()
     {
         OldModDamageFreq = modDamageFreq;
-        damageFreq -= modDamageFreq;
         modDamageFreq = 0;
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
