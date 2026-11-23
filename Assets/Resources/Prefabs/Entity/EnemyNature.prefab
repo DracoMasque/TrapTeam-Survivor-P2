@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
   - component: {fileID: -1791076887911703350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyNature
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -136,8 +136,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 416500903
-  m_SortingLayer: 1
+  m_SortingLayerID: -750432289
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 654debcabcc514942ae32c5c96fea4af, type: 3}
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
   m_BlendShapeWeights: []
 --- !u!95 &5671927596536538782
 Animator:
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 660196614673399753}
   - component: {fileID: 7610567655685767427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickupDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

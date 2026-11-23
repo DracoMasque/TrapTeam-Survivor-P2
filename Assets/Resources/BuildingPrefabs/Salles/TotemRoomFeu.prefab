@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1138526369389726915, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138526369389726915, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138526369389726915, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138526369389726915, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138526369389726915, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0217
+      objectReference: {fileID: 0}
     - target: {fileID: 3617169424515619489, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -51,6 +71,42 @@ PrefabInstance:
     - target: {fileID: 4435195496947449114, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
       propertyPath: m_Name
       value: TotemRoomFeu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575250207582327110, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575250207582327110, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Size.x
+      value: 2.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4adb3663095fe814da7214c6135ead28, type: 3}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146219537009733509, guid: 434adc57f31e1d04694a6744c6294c9e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

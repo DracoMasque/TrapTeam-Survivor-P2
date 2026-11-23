@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
   - component: {fileID: 7485307862374829202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyGlace
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -136,8 +136,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 416500903
-  m_SortingLayer: 1
+  m_SortingLayerID: -750432289
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 473001441ba2b244f8239157a89e53d3, type: 3}
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
   m_BlendShapeWeights: []
 --- !u!95 &5671927596536538782
 Animator:
@@ -243,8 +243,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.050890684, y: 0}
-  m_Size: {x: 1.0986629, y: 1.3403935}
+  m_Offset: {x: 0.123205245, y: -0.0957526}
+  m_Size: {x: 1.7776366, y: 2.5610683}
   m_Direction: 0
 --- !u!50 &3062345154623349187
 Rigidbody2D:
