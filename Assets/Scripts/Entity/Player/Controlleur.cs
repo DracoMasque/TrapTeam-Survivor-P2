@@ -107,7 +107,6 @@ public class Controlleur : MonoBehaviour
     public void Move(InputAction.CallbackContext cxt)
     {
         moveInput = cxt.ReadValue<Vector2>();
-        print(moveInput.x);
         playerSprite.flipX = moveInput.x >= 0;
     }
 
