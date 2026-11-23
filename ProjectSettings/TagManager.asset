@@ -24,8 +24,8 @@ TagManager:
   - BuildingArea
   - GroupementArea
   - RecupArea
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
