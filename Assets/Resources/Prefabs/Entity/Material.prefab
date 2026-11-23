@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 630079844081343871}
   m_Layer: 0
   m_Name: Material
-  m_TagString: Material
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

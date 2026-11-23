@@ -57,7 +57,6 @@ public class PointeurRecup : MonoBehaviour
     {
         if (canPickUp)
         {
-            print("Picking up group");
             groupement.transform.SetParent(building.cellIndicator.transform);
             building.groupement = groupement;
             groupement.placed = false;
