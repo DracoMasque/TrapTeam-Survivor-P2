@@ -140,9 +140,19 @@ public class EnemyPrefab : MonoBehaviour
     private bool IsClose()
     {
         bool result = false;
-        if (Vector2.Distance(transform.position, player.transform.position) <= range)
+        if (etat != null && etat.GetComponent<Confusion>())
         {
-            result = true;
+            if (Vector2.Distance(transform.position, closestEnemy.transform.position) <= range)
+            {
+                result = true;
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(transform.position, player.transform.position) <= range)
+            {
+                result = true;
+            }
         }
         return result;
     } 

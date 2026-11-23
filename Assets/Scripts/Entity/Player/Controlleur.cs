@@ -129,8 +129,8 @@ public class Controlleur : MonoBehaviour
                 e.GetComponent<SangHydre>().OnMaxHealthChange(this);
             }
         }
-        currentHealth += Mathf.Ceil(modHealth) - (health - currentHealth);
         health += Mathf.Ceil(modHealth);
+        currentHealth += Mathf.Ceil(modHealth) - (health - currentHealth);
     }
     public void RedoSpeedMod()
     {
