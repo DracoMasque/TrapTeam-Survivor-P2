@@ -137,7 +137,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -750432289
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 654debcabcc514942ae32c5c96fea4af, type: 3}
@@ -243,8 +243,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.050890684, y: 0}
-  m_Size: {x: 1.0986629, y: 1.3403935}
+  m_Offset: {x: -0.11, y: 1.42}
+  m_Size: {x: 1.7959673, y: 2.6665983}
   m_Direction: 0
 --- !u!50 &3062345154623349187
 Rigidbody2D:
@@ -312,7 +312,7 @@ Transform:
   m_GameObject: {fileID: 5427738360091820982}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

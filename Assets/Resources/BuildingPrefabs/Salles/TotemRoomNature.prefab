@@ -93,12 +93,12 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e68e42ab509ae894a8565c9654fbd9a4, type: 3}
+  m_Color: {r: 1, g: 0.99117523, b: 0.7971698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.68235296, y: 0.68235296}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -162,7 +162,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.68235296, y: 0.68235296}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -208,7 +208,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.68235296, y: 0.68235296}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -254,7 +254,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.68235296, y: 0.68235296}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -300,7 +300,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.68235296, y: 0.68235296}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -346,7 +346,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.68235296, y: 0.68235296}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -497,6 +497,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Totem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3138998200566755659, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15500006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173919244054169958, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8953541437879109374, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: namep
       value: Totem (1)
@@ -511,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9138253272106997145, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.23
+      value: 0.242
       objectReference: {fileID: 0}
     - target: {fileID: 9138253272106997145, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_LocalPosition.y
@@ -574,6 +582,18 @@ PrefabInstance:
     - target: {fileID: 2859149029705538713, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_Name
       value: Totem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138998200566755659, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173919244054169958, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173919244054169958, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9138253272106997145, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_LocalScale.x
@@ -710,6 +730,18 @@ PrefabInstance:
     - target: {fileID: 2859149029705538713, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_Name
       value: Totem (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3138998200566755659, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15500006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173919244054169958, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344367138194071191, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9138253272106997145, guid: 07e819755f0104a409ef6ebddca7a372, type: 3}
       propertyPath: m_LocalScale.x
