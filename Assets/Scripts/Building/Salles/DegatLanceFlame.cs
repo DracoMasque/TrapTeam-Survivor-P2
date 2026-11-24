@@ -18,10 +18,10 @@ public class DegatLanceFlame : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        /*if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Controlleur>().currentHealth -= degatLanceFlame;
-        }
+        }*/
 
         if (collision.gameObject.tag == "Enemy")
         {

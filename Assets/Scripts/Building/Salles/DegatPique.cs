@@ -8,11 +8,11 @@ public class DegatPique : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        /*if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<Controlleur>().currentHealth -= degatPique;
             
-        }
+        }*/
 
         if (collision.gameObject.tag == "Enemy")
         {

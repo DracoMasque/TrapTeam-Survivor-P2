@@ -36,11 +36,11 @@ public class TotemActivable : MonoBehaviour
     {
         foreach (GameObject p in entite)
         {
-             if (p.tag == "Player")
+             /*if (p.tag == "Player")
              {
                  p.GetComponent<Controlleur>().currentHealth -= degatTotem;
                         
-             }
+             }*/
             
              if (p.tag == "Enemy")
              {

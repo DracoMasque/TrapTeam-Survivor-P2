@@ -96,22 +96,18 @@ public class ElementManager : MonoBehaviour
     {
         if (elementNumberRooms[element] >= numberRoomsToLevel4)
         {
-            print("level up element");
             elementLevels[element] = 4;
         }
         else if (elementNumberRooms[element] >= numberRoomsToLevel3)
         {
-            print("level up element");
             elementLevels[element] = 3;
         }
         else if (elementNumberRooms[element] >= numberRoomsToLevel2)
         {
-            print("level up element");
             elementLevels[element] = 2;
         }
         else if (elementNumberRooms[element] >= numberRoomsToLevel1)
         {
-            print("level up element");
             elementLevels[element] = 1;
         }
     }
@@ -137,47 +133,71 @@ public class ElementManager : MonoBehaviour
     public void DominatingElement()
     {
         sameLevelElements.Clear();
-        Elements previousElement = Elements.None;
-        Elements highestLevelElement = Elements.None;
-        for (int i = 0; i < elementLevels.Count; i++)
+        bool levelOnePlus = false;
+        foreach (Elements element in keys)
         {
-            if (previousElement != Elements.None && elementLevels[keys[i]] > elementLevels[previousElement])
+            if (elementLevels[element] > 0)
             {
-                highestLevelElement = keys[i];
-                print(elementLevels[keys[i]]);
+                levelOnePlus = true;
             }
-            else if (previousElement != Elements.None && elementLevels[keys[i]] == elementLevels[previousElement])
-            {
-                if (highestLevelElement != Elements.None && elementLevels[keys[i]] == elementLevels[highestLevelElement])
-                {
-                    sameLevelElements.Add(keys[i]);
-                }
-            }
-            else if (previousElement == Elements.None)
-            {
-                highestLevelElement = keys[i];
-            }
-            previousElement = keys[i];
         }
+        if (levelOnePlus)
+        {
+            Elements highestLevelElement = keys[0];
 
-        if (highestLevelElement == Elements.None && elementLevels[highestLevelElement] > 0)
-        {
-            elementDominant = Elements.None;
-        }
-        else if (highestLevelElement != Elements.None && sameLevelElements.Count < 1)
-        {
-            elementDominant = highestLevelElement;
-        }
-        else if (sameLevelElements.Count > 1)
-        {
-            previousElement = Elements.None;
-            foreach (Elements element in sameLevelElements)
+            for (int i = 1; i < keys.Length; i++)
             {
-                if (previousElement != Elements.None && elementRatios[element] > elementRatios[previousElement])
+                if (elementLevels[keys[i]] > elementLevels[highestLevelElement])
                 {
-                    elementDominant = element;
+                    highestLevelElement = keys[i];
                 }
-                previousElement = element;
+            }
+            
+            sameLevelElements.Add(highestLevelElement);
+
+            foreach (Elements element in keys)
+            {
+                if (element != highestLevelElement && elementLevels[element] == elementLevels[highestLevelElement])
+                {
+                    sameLevelElements.Add(element);
+                }
+            }
+
+            if (sameLevelElements.Count > 1)
+            {
+                List<Elements> sameRatio =  new List<Elements>();
+                Elements highestRatioElement = sameLevelElements[0];
+
+                for (int i = 1; i < sameLevelElements.Count; i++)
+                {
+                    if (sameLevelElements[i] > highestRatioElement)
+                    {
+                        highestRatioElement = sameLevelElements[i];
+                    }
+                }
+                
+                sameRatio.Add(highestRatioElement);
+
+                foreach (Elements element in sameLevelElements)
+                {
+                    if (element != highestRatioElement && elementRatios[element] == elementRatios[highestRatioElement])
+                    {
+                        sameRatio.Add(element);
+                    }
+                }
+
+                if (sameRatio.Count > 1)
+                {
+                    elementDominant = Elements.None;
+                }
+                else
+                {
+                    elementDominant = highestRatioElement;
+                }
+            }
+            else
+            {
+                elementDominant = highestLevelElement;
             }
         }
     }

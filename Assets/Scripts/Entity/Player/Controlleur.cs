@@ -24,6 +24,7 @@ public class Controlleur : MonoBehaviour
     public bool alreadyBoosted = false;
     
     public float speed;
+    public float speedBaseWhenBoosted;
     [HideInInspector]public float speedUpgrade = 0;
     [HideInInspector]public float modSpeedTrap = 0;
     [HideInInspector]public float oldModSpeedTrap = 0;
@@ -50,8 +51,9 @@ public class Controlleur : MonoBehaviour
 
     //Chaque armes prennent comme base un certains pourcentage des degats du joueur : Fortes -> 100%, Faibles -> 40%
     public float damage;
+    public float damageBaseWhenBoosted;
     [HideInInspector] public float damageUpgrade = 0;
-    [HideInInspector] public float modDamage = 1;
+    [HideInInspector] public float modDamage = 0;
     [HideInInspector] public float oldModDamage = 0;
     //Chaque armes prennent comme base un certains pourcentage de la freq du joueur : Fortes -> 100%, Faibles -> 40%
     [Tooltip("in seconds")]
@@ -107,7 +109,6 @@ public class Controlleur : MonoBehaviour
     public void Move(InputAction.CallbackContext cxt)
     {
         moveInput = cxt.ReadValue<Vector2>();
-        print(moveInput.x);
         playerSprite.flipX = moveInput.x >= 0;
     }
 
@@ -136,6 +137,7 @@ public class Controlleur : MonoBehaviour
     {
         oldModSpeedTrap = modSpeedTrap;
         modSpeedTrap = 0;
+        
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
         {
@@ -171,6 +173,7 @@ public class Controlleur : MonoBehaviour
     {
         oldModDamage = modDamage;
         modDamage = 0;
+        
         List<Equipement> equipements = GetComponent<PlayerEquiment>().equipements;
         foreach (Equipement e in equipements)
         {

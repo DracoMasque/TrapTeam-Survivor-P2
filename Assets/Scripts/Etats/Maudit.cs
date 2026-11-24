@@ -9,7 +9,6 @@ public class Maudit : Etat
     public override void StartEtat()
     {
         enemy = GetComponentInParent<EnemyPrefab>();
-        print("etat");
     }
     
     public override void EndEtat()

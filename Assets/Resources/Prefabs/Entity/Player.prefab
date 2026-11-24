@@ -58,6 +58,7 @@ MonoBehaviour:
   endGameScreen: {fileID: 0}
   alreadyBoosted: 0
   speed: 5
+  speedBaseWhenBoosted: 0
   speedUpgrade: 0
   modSpeedTrap: 0
   oldModSpeedTrap: 0
@@ -78,14 +79,15 @@ MonoBehaviour:
   modCritChance: 0
   oldModCritChance: 0
   damage: 5
+  damageBaseWhenBoosted: 0
   damageUpgrade: 0
-  modDamage: 1
+  modDamage: 0
   oldModDamage: 0
-  damageFreq: 0
+  damageFreq: 1
   damageFreqUpgrade: 0
   modDamageFreq: 0
   OldModDamageFreq: 0
-  defense: 0
+  defense: 1
   defenseUpgrade: 0
   modDefense: 1
   oldmodDefense: 0
