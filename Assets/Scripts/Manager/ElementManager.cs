@@ -31,6 +31,14 @@ public class ElementManager : MonoBehaviour
         {Elements.Maudit, 0f}
     };
     
+    Dictionary<Elements, float> previousElementRatios = new Dictionary<Elements, float>
+    {
+        {Elements.Feu, 0f},
+        {Elements.Glace, 0f},
+        {Elements.Nature, 0f},
+        {Elements.Maudit, 0f}
+    };
+    
     [SerializeField] public Dictionary<Elements, float> elementNumberRooms = new Dictionary<Elements, float>
     {
         {Elements.Feu, 0},
@@ -47,6 +55,31 @@ public class ElementManager : MonoBehaviour
         {Elements.Maudit, 0},
         { Elements.None, 0}
     };
+    
+    [SerializeField] Dictionary<Elements,int> spawnRatioBase = new Dictionary<Elements, int>()
+    {
+        {Elements.Feu, 0},
+        {Elements.Glace, 0},
+        {Elements.Nature, 0},
+        {Elements.Maudit, 0},
+    };
+    
+    Dictionary<Elements,int> spawnRatioMod = new Dictionary<Elements, int>()
+    {
+        {Elements.Feu, 0},
+        {Elements.Glace, 0},
+        {Elements.Nature, 0},
+        {Elements.Maudit, 0},
+    };
+    
+    [SerializeField] public Dictionary<Elements,int> spawnRatio = new Dictionary<Elements, int>()
+    {
+        {Elements.Feu, 0},
+        {Elements.Glace, 0},
+        {Elements.Nature, 0},
+        {Elements.Maudit, 0},
+    };
+    
 
     private Elements[] keys;
     
@@ -60,16 +93,20 @@ public class ElementManager : MonoBehaviour
     void Start()
     {
         keys = elementNumberRooms.Keys.ToArray();
+        ChangeSpawnRatio();
     }
 
     private void BuildRatio()
     {
-        elementRatios[Elements.Feu] = elementNumberRooms[Elements.Feu]/rooms.Count;
-        elementRatios[Elements.Glace] = elementNumberRooms[Elements.Glace] / rooms.Count;
-        elementRatios[Elements.Nature] = elementNumberRooms[Elements.Nature]/rooms.Count;
-        elementRatios[Elements.Maudit] = elementNumberRooms[Elements.Maudit] / rooms.Count;
+        previousElementRatios = elementRatios;
+
+        foreach (Elements element in keys)
+        {
+            elementRatios[element] = elementNumberRooms[element]/rooms.Count;
+        }
 
         JaugeElement.instance.RefreshJauge(keys);
+        ChangeSpawnRatio();
         DominatingElement();
     }
     
@@ -219,4 +256,31 @@ public class ElementManager : MonoBehaviour
             }
         }
     }
+    
+    void ChangeSpawnRatio()
+    {
+        foreach (Elements element in keys)
+        {
+            spawnRatio[element] = 0;
+            if (previousElementRatios[element] > elementRatios[element])
+            {
+                spawnRatioMod[element] +=
+                    Mathf.RoundToInt(
+                        spawnRatioBase[element] * (previousElementRatios[element] - elementRatios[element]));
+            }
+            else if (previousElementRatios[element] < elementRatios[element])
+            {
+                spawnRatioMod[element] -=
+                    Mathf.RoundToInt(
+                        spawnRatioBase[element] * (elementRatios[element] - previousElementRatios[element]));
+            }
+            spawnRatio[element] += spawnRatioBase[element] + spawnRatioMod[element];
+        }
+        
+        spawnRatio[Elements.Nature] += spawnRatio[Elements.Feu];
+        spawnRatio[Elements.Maudit] += spawnRatio[Elements.Nature];
+        spawnRatio[Elements.Glace] += spawnRatio[Elements.Maudit];
+        
+    }
+    
 }
