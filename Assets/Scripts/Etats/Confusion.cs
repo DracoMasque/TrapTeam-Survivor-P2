@@ -9,7 +9,6 @@ public class Confusion : Etat
     {
         enemy = GetComponentInParent<EnemyPrefab>();
         GetClosest();
-        print("etat");
     }
 
     void GetClosest()

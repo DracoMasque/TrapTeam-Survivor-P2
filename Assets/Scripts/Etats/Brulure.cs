@@ -10,7 +10,6 @@ public class Brulure : Etat
     {
         cooldown.OnTimeout = Burn;
         enemy = GetComponentInParent<EnemyPrefab>();
-        print("etat");
     }
 
     void Burn()

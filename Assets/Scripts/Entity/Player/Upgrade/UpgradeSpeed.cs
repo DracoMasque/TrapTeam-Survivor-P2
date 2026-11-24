@@ -4,7 +4,18 @@ public class UpgradeSpeed : Upgrade
 {
     public override void Selected(Controlleur player)
     {
-        player.speed += Mathf.Ceil((player.speed - player.oldModSpeedTrap) * (modifier / 100f));
+        if (!player.alreadyBoosted)
+        {
+            float toAdd = Mathf.Ceil((player.speed - player.oldModSpeedTrap) * (modifier / 100f));
+            player.speed += toAdd;
+        }
+        else
+        {
+            float toAdd = Mathf.Ceil((player.speedBaseWhenBoosted - player.oldModSpeedTrap) * (modifier / 100f));
+            player.speed += toAdd;
+            player.speedBaseWhenBoosted += toAdd;
+        }
+        
         player.RedoSpeedMod();
     }
 }

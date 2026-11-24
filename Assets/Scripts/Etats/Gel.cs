@@ -11,7 +11,6 @@ public class Gel : Etat
         enemy = GetComponentInParent<EnemyPrefab>();
         speedEnemy = enemy.speed;
         enemy.RedoSpeedModTrap(-enemy.speed * (speedPourcentage / 100));
-        print("etat");
     }
 
     public override void EndEtat()

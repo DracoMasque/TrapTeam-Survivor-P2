@@ -12,7 +12,6 @@ public class Fontaine : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        print(other.name);
         if (other.GetComponent<Heal>() != null)
         {
             cooldown.Play();

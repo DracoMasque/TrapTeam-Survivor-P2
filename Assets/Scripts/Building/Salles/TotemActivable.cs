@@ -74,7 +74,7 @@ public class TotemActivable : MonoBehaviour
         if (entite.Count < 1) dottedCircle.SetActive(false);
         foreach (GameObject p in entite)
         {
-             if (p.tag == "Player")
+             /*if (p.tag == "Player")
              {
                  //p.GetComponent<Controlleur>().currentHealth -= degatTotem;
              }
