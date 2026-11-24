@@ -25,11 +25,7 @@ public class TotemActivable : MonoBehaviour
         totemScript.OnAnimationEvent += DegatTotem;
         totemScript.OnAnimationEnded += EndAnimationTotem;
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
+    
     
     void OnTriggerStay2D (Collider2D collision)
     {

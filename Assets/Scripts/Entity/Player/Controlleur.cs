@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
@@ -73,7 +74,8 @@ public class Controlleur : MonoBehaviour
     
     
     private SpriteRenderer playerSprite;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Animator playerAnimator;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,6 +83,7 @@ public class Controlleur : MonoBehaviour
         currentHealth = health;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerSprite = GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
         instance = this;
     }
 
@@ -89,15 +92,26 @@ public class Controlleur : MonoBehaviour
     {
         if (gameManager.paused)
         {
+            playerAnimator.SetBool(0, false);
             rb.linearVelocity = new Vector2(0, 0);
             return;
         }
         rb.linearVelocity = moveInput.normalized * speed;
         healthSlider.value = currentHealth/health;
         healthText.text = currentHealth + "/" + health;
-
+        
+        if (Math.Abs(moveInput.x) > 0 || Math.Abs(moveInput.y) > 0)
+        {
+            playerAnimator.SetBool("Walking", true);
+        }
+        else if (moveInput == Vector2.zero)
+        {
+            playerAnimator.SetBool("Walking", false);
+        }
+        
         if (currentHealth <= 0)
         {
+            playerAnimator.SetBool("Walking", false);
             endGameScreen.SetActive(true);
             gameManager.paused = true;
         }
@@ -108,6 +122,8 @@ public class Controlleur : MonoBehaviour
     {
         moveInput = cxt.ReadValue<Vector2>();
         playerSprite.flipX = moveInput.x >= 0;
+        print(playerAnimator.GetBool("Walking"));
+        
     }
 
     public void Heal(float healAmount)

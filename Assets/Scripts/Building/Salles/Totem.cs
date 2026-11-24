@@ -22,12 +22,4 @@ public class Totem : MonoBehaviour
             OnAnimationEnded();
         }
     }
-
-    void Update()
-    {
-        if (namep != "" )
-        {
-            print( namep +" : "+ transform.position + " player : " + Controlleur.instance.gameObject.transform.position);
-        }
-    }
 }
