@@ -130,17 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &67258945 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6124336525720217981, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
-  m_PrefabInstance: {fileID: 8929339535174330519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &136908411
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09000048, y: -0.14999977, z: -10}
+  m_LocalPosition: {x: -0.09000072, y: -0.14999977, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1084,6 +1073,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addbfbf596c6afa45bf9c950225809c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointeurRecup
+--- !u!114 &783864749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 890440402423530826, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
+  m_PrefabInstance: {fileID: 8929339535174330519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!4 &979290810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 325469037418543030, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
@@ -1536,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 67258945}
+      objectReference: {fileID: 783864749}
     - target: {fileID: 7043177997608987741, guid: e57255b1e4f32ac499d425a49a5c9d68, type: 3}
       propertyPath: building
       value: 
@@ -2010,15 +2010,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2674091751965233258, guid: 10962fe418865644da36283a1f5debe0, type: 3}
       propertyPath: m_Color.b
-      value: 0.41509432
+      value: 0.26666668
       objectReference: {fileID: 0}
     - target: {fileID: 2674091751965233258, guid: 10962fe418865644da36283a1f5debe0, type: 3}
       propertyPath: m_Color.g
-      value: 0.41509432
+      value: 0.21960784
       objectReference: {fileID: 0}
     - target: {fileID: 2674091751965233258, guid: 10962fe418865644da36283a1f5debe0, type: 3}
       propertyPath: m_Color.r
-      value: 0.41509432
+      value: 0.19607843
       objectReference: {fileID: 0}
     - target: {fileID: 2674091751965233258, guid: 10962fe418865644da36283a1f5debe0, type: 3}
       propertyPath: m_SortingLayer
@@ -2138,6 +2138,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 890440402423530826, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 979290810}
     - target: {fileID: 2382157011459001863, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.09000048
@@ -2190,6 +2194,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 979290810}
+    - target: {fileID: 7805598204469317626, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09000072
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805598204469317626, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.14999977
+      objectReference: {fileID: 0}
     - target: {fileID: 7851088420110081672, guid: a424a8695b922e043bcf3777274ebba3, type: 3}
       propertyPath: m_Name
       value: Cameras
@@ -2223,3 +2235,4 @@ SceneRoots:
   - {fileID: 463656810}
   - {fileID: 1837132700}
   - {fileID: 6204502937491839771}
+  - {fileID: 430019223}
