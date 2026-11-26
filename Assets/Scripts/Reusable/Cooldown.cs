@@ -10,7 +10,7 @@ public class Cooldown : MonoBehaviour
     [SerializeField] public bool loop = true;
     [SerializeField] public float maxCooldownTime = 2f;
     public bool finished = false;
-    [HideInInspector]
+    //[HideInInspector]
     public float currentTime = 0f;
     [HideInInspector]
     public delegate void FiringDelegate();

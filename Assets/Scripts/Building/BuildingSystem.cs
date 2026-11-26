@@ -70,7 +70,7 @@ public class BuildingSystem : MonoBehaviour
                     pointeurRecup.gameObject.SetActive(true);
                 }
             }
-            else if (!buildable && groupement != null && groupement.previousPosition != null)
+            else if (!buildable && groupement != null && groupement.previousPosition != Vector3.zero)
             {
                 groupement.transform.SetParent(null);
                 groupement.transform.position = groupement.previousPosition;

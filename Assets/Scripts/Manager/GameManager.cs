@@ -30,8 +30,9 @@ public class GameManager : MonoBehaviour
         currentWave = waves[0];
         nextWave = waves[0];
         BroadcastMessage("ChangeEnemy", currentWave.enemies);
-
+        
         instance = this;
+        
     }
     
     void UpdateWave()

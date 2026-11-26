@@ -90,7 +90,6 @@ public class LevelUPManager : MonoBehaviour
             {
                 type = Random.Range(1, 3);
             }
-            print(type);
             switch (type)
             {
                 case 1: possiblilities.Add(equipementDrop.GetRandomDrop());

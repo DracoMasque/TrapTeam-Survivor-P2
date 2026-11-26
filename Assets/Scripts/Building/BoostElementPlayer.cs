@@ -5,8 +5,6 @@ public class BoostElementPlayer : MonoBehaviour
 {
     [Tooltip("in %")] [SerializeField] private float boostRatio = 50;
     private Elements roomElements;
-    private float damagePlayer;
-    private float speedPlayer;
 
     void Start()
     {
@@ -17,15 +15,10 @@ public class BoostElementPlayer : MonoBehaviour
     {
         if (ElementManager.instance.elementDominant != Elements.None && other.tag == "Player")
         {
-            if (Controlleur.instance.alreadyBoosted)
+            if (!Controlleur.instance.alreadyBoosted)
             {
-                damagePlayer = Controlleur.instance.damage - Controlleur.instance.damage * (boostRatio / 100);
-                speedPlayer = Controlleur.instance.speed - Controlleur.instance.speed * (boostRatio / 100);
-            }
-            else
-            {
-                damagePlayer = Controlleur.instance.damage;
-                speedPlayer = Controlleur.instance.speed;
+                Controlleur.instance.damageBaseWhenBoosted = Controlleur.instance.damage;
+                Controlleur.instance.speedBaseWhenBoosted = Controlleur.instance.speed;
             }
         }
     }
@@ -37,10 +30,11 @@ public class BoostElementPlayer : MonoBehaviour
             if (!Controlleur.instance.alreadyBoosted &&
                 roomElements == ElementManager.instance.elementDominant)
             {
-                print("boost");
                 Controlleur.instance.alreadyBoosted = true;
-                Controlleur.instance.RedoDamageModTrap(Controlleur.instance.damage * (boostRatio / 100));
-                Controlleur.instance.RedoSpeedModTrap(Controlleur.instance.speed * (boostRatio / 100));
+                Controlleur.instance.RedoDamageModTrap(
+                    (Controlleur.instance.damageBaseWhenBoosted - Controlleur.instance.modDamage) * (boostRatio / 100));
+                Controlleur.instance.RedoSpeedModTrap(
+                    (Controlleur.instance.speedBaseWhenBoosted - Controlleur.instance.modSpeedTrap) * (boostRatio / 100));
             }
         }
     }
@@ -51,10 +45,13 @@ public class BoostElementPlayer : MonoBehaviour
         {
             if (Controlleur.instance.alreadyBoosted)
             {
-                print("stop boost");
                 Controlleur.instance.alreadyBoosted = false;
-                Controlleur.instance.DamageReturn(-damagePlayer * (boostRatio / 100));
-                Controlleur.instance.SpeedReturn(-speedPlayer * (boostRatio / 100));
+                Controlleur.instance.DamageReturn(
+                    -((Controlleur.instance.damageBaseWhenBoosted - Controlleur.instance.modDamage) *
+                      (boostRatio / 100)));
+                Controlleur.instance.SpeedReturn(
+                    -((Controlleur.instance.speedBaseWhenBoosted - Controlleur.instance.modSpeedTrap) *
+                      (boostRatio / 100)));
             }
         }
     }
