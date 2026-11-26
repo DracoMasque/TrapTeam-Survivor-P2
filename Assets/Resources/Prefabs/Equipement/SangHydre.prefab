@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SangHydre
   name: Sang D'Hydre
   description: 'Augmente les point de vie de 5% '
-  image: {fileID: 0}
+  imageLevelUp: {fileID: 21300000, guid: ba0fcf2f84e4dd1408db44d89cf6bfb2, type: 3}
+  imageUI: {fileID: 21300000, guid: a736db6b2e755c348a982861efc9026e, type: 3}
   rarity: 0
   modifier: 5

@@ -65,7 +65,7 @@ public class RandomDrop : MonoBehaviour
 
                     if (index == 0)
                     {
-                        _object.dropRate = 100f;
+                        //_object.dropRate = 100f;
                     }
                     
                     if (possibilities.Count <= index)
