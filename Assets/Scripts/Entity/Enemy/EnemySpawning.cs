@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -6,7 +7,13 @@ using UnityEngine;
 
 public class EnemySpawning : MonoBehaviour
 {
-    [SerializeField] List<GameObject> enemies = new List<GameObject>();
+    [SerializeField] Dictionary<Elements, List<GameObject>> enemies = new Dictionary<Elements, List<GameObject>>()
+    {
+        { Elements.Feu, null },
+        { Elements.Glace, null },
+        { Elements.Nature, null },
+        { Elements.Maudit, null },
+    };
     [SerializeField] private GameObject enemiesContainer;
     private Cooldown timer;
     private CinemachineCamera currentCamera;
@@ -41,33 +48,51 @@ public class EnemySpawning : MonoBehaviour
     {
         //as the game progresses have enemies spawn more often
     }
-    void ChangeEnemy(Dictionary<GameObject, int> newEnemies)
+    void ChangeEnemy(Dictionary<Elements, List<GameObject>> newEnemies)
     {
-        List<GameObject> newEnemiesList = new List<GameObject>();
-        foreach (var item in newEnemies)
+        Elements[] keys = enemies.Keys.ToArray();
+
+        foreach (Elements key in keys)
         {
-            if (item.Value > 0)
-            {
-                for (int i = 0; i <= item.Value; i++)
-                {
-                    newEnemiesList.Add(item.Key);
-                }
-            }
-            else
-            {
-                newEnemiesList.Add(item.Key);
-            }
+            enemies[key] = newEnemies[key];
         }
-        enemies = newEnemiesList;
     }
     private GameObject ChooseEnemy()
     {
+        Elements element = Elements.None;
+        int elementIndex = Random.Range(1, ElementManager.instance.spawnRatio[Elements.Glace]+1);
         if (enemies.Count == 0)
         {
             return null;
         }
-        int i = Random.Range(0, enemies.Count-1);
-        return enemies[i];
+
+        if (elementIndex > 0 && elementIndex < ElementManager.instance.spawnRatio[Elements.Feu])
+        {
+            element = Elements.Feu;
+        }
+        else if (elementIndex > ElementManager.instance.spawnRatio[Elements.Feu] && elementIndex < ElementManager.instance.spawnRatio[Elements.Nature])
+        {
+            element = Elements.Nature;
+        }
+        else if (elementIndex > ElementManager.instance.spawnRatio[Elements.Nature] && elementIndex < ElementManager.instance.spawnRatio[Elements.Maudit])
+        {
+            element = Elements.Maudit;
+        }
+        else if (elementIndex > ElementManager.instance.spawnRatio[Elements.Maudit] && elementIndex < ElementManager.instance.spawnRatio[Elements.Glace])
+        {
+            element = Elements.Glace;
+        }
+
+        if (enemies[element].Count == 0)
+        {
+            return null;
+        }
+        else
+        {
+            print(elementIndex);
+            int i = Random.Range(0, enemies[element].Count-1);
+            return enemies[element][i];
+        }
     }
     //=================SPAWN POINT===================//
     
