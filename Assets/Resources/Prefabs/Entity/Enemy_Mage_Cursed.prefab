@@ -77,15 +77,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783721247255743970}
-  - component: {fileID: 8356898122462958994}
+  - component: {fileID: 7172618333142670340}
   - component: {fileID: 2892070363298123474}
+  - component: {fileID: 6429697507425186170}
+  - component: {fileID: 5155965965349120596}
   - component: {fileID: 1926789264679910545}
   - component: {fileID: 5671927596536538782}
   - component: {fileID: 506894051158575000}
-  - component: {fileID: 6429697507425186170}
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
-  - component: {fileID: 5155965965349120596}
   m_Layer: 10
   m_Name: Enemy_Mage_Cursed
   m_TagString: Enemy
@@ -109,7 +109,7 @@ Transform:
   - {fileID: 5459446583825516067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8356898122462958994
+--- !u!114 &7172618333142670340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4113786732323820682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3abf5e25b701945a63eb5c8ee7093c, type: 3}
+  m_Script: {fileID: 11500000, guid: b5dc822fd4b9f8549aa326d7173317e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 9
@@ -131,11 +131,11 @@ MonoBehaviour:
   modDamage: 0
   damageFreq: 0
   damageFreqUpgrade: 0
-  modDamageFreq: 0
+  modDamageFreq: 1
   defense: 0
   defenseUpgrade: 0
-  modDefense: 1
-  range: 2
+  modDefense: 0
+  range: 10
   rangeUpgrade: 0
   modRange: 0
   xpToDrop: 1
@@ -143,6 +143,9 @@ MonoBehaviour:
   elements: {fileID: 11400000, guid: bf3b2ef9c4e642e4bb24ad28f0392410, type: 2}
   etat: {fileID: 0}
   closestEnemy: {fileID: 0}
+  magic: {fileID: 7810514271790092227, guid: 7a0f0be485a928149a9013e1f6bbf663, type: 3}
+  magicCooldown: 1
+  spawnRange: 2
 --- !u!114 &2892070363298123474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +162,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9613ee29d30c8644e9c1cc0293031b10, type: 2}
   - {fileID: 11400000, guid: 085a9788de6e282409fee2cbed591248, type: 2}
   - {fileID: 11400000, guid: 1735ed1d90fd27f4babb90e518f367f3, type: 2}
+--- !u!114 &6429697507425186170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
+  autoStart: 1
+  _canStart: 0
+  loop: 0
+  maxCooldownTime: 5
+  finished: 0
+  currentTime: 0
+--- !u!114 &5155965965349120596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
+  enemies: []
 --- !u!212 &1926789264679910545
 SpriteRenderer:
   serializedVersion: 3
@@ -208,7 +242,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 654debcabcc514942ae32c5c96fea4af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc08372c2217e6246b6456cfe13dea32, type: 3}
   m_Color: {r: 1, g: 0.4009434, b: 0.9020985, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -260,23 +294,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!114 &6429697507425186170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113786732323820682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
-  autoStart: 1
-  loop: 0
-  maxCooldownTime: 1
-  finished: 0
-  currentTime: 0
 --- !u!70 &337994873977494765
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,16 +358,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5155965965349120596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113786732323820682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
-  enemies: []

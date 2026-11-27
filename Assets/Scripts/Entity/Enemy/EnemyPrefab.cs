@@ -105,7 +105,6 @@ public class EnemyPrefab : MonoBehaviour
         bool negate = false;
         if (timer.finished && IsClose())
         {
-            print(name);
             animator.SetBool("Attacking", true);
             if (etat != null && etat.GetComponent<Confusion>())
             {

@@ -6,7 +6,7 @@ public class Cooldown : MonoBehaviour
     private GameManager gameManager;
     
     [SerializeField] private bool autoStart = true;
-    private bool _canStart;
+    public bool _canStart = false;
     [SerializeField] public bool loop = true;
     [SerializeField] public float maxCooldownTime = 2f;
     public bool finished = false;
@@ -35,7 +35,7 @@ public class Cooldown : MonoBehaviour
         //Fait baisser le timer
         //Si il est a 0 on peut a nouveau attaquer
         //Si le timer loop il recommencer tout seule 
-        if (gameManager.paused || !_canStart) return;
+        if (gameManager.paused || _canStart == false) return;
         
         currentTime -= Time.deltaTime;
         if (currentTime <= 0f && finished == false)

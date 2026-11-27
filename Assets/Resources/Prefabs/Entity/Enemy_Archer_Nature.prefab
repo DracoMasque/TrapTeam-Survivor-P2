@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 2783721247255743970}
   - component: {fileID: 4954374410135541769}
   - component: {fileID: 2892070363298123474}
+  - component: {fileID: 6429697507425186170}
+  - component: {fileID: -1791076887911703350}
   - component: {fileID: 1926789264679910545}
   - component: {fileID: 5671927596536538782}
   - component: {fileID: 506894051158575000}
-  - component: {fileID: 6429697507425186170}
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
-  - component: {fileID: -1791076887911703350}
   m_Layer: 10
   m_Name: Enemy_Archer_Nature
   m_TagString: Enemy
@@ -67,7 +67,7 @@ MonoBehaviour:
   defense: 0
   defenseUpgrade: 0
   modDefense: 0
-  range: 10
+  range: 13
   rangeUpgrade: 0
   modRange: 0
   xpToDrop: 1
@@ -93,6 +93,37 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9613ee29d30c8644e9c1cc0293031b10, type: 2}
   - {fileID: 11400000, guid: 085a9788de6e282409fee2cbed591248, type: 2}
   - {fileID: 11400000, guid: 1735ed1d90fd27f4babb90e518f367f3, type: 2}
+--- !u!114 &6429697507425186170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
+  autoStart: 1
+  _canStart: 0
+  loop: 0
+  maxCooldownTime: 5
+  finished: 1
+  currentTime: 0
+--- !u!114 &-1791076887911703350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4113786732323820682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
+  enemies: []
 --- !u!212 &1926789264679910545
 SpriteRenderer:
   serializedVersion: 3
@@ -194,23 +225,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!114 &6429697507425186170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113786732323820682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388ca2f40e912864d97aa8678f5e36ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
-  autoStart: 1
-  loop: 0
-  maxCooldownTime: 5
-  finished: 1
-  currentTime: 0
 --- !u!70 &337994873977494765
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -275,19 +289,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1791076887911703350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4113786732323820682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7be1fecc320f7742b85511748d62f6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
-  enemies: []
 --- !u!1 &5427738360091820982
 GameObject:
   m_ObjectHideFlags: 0
