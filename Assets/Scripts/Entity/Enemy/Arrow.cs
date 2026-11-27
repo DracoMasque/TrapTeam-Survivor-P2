@@ -17,10 +17,10 @@ public class Arrow : BasicBullet
         
         direction = target.transform.position - transform.position;
         direction.Normalize();
-        print(target.transform.position + " " + transform.position + " " + direction);
+
         var targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
         transform.rotation = targetRotation;
-        print("spawned");
+
         Destroy(gameObject,10f);
     }
     public override void OnTriggerEnter2D(Collider2D collision)
