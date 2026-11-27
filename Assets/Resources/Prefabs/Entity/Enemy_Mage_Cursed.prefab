@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3062345154623349187}
   - component: {fileID: 5155965965349120596}
   m_Layer: 10
-  m_Name: EnemyMaudit
+  m_Name: Enemy_Mage_Cursed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

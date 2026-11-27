@@ -4,21 +4,15 @@ using UnityEngine.Serialization;
 
 public class BasicBullet : MonoBehaviour
 {
-    GameObject target;
-    float damage = 10;
-    float speed;
+    protected GameObject target;
+    protected float damage = 10;
+    protected float speed;
     private int pourcentageAmelioration = 10;
     
     
-    Vector3 direction = Vector3.right;
-    /*void Start()
-    {
-        target = GetComponentInParent<BulletCompetence>().target;
-        damage = GetComponentInParent<BulletCompetence>().damage;
-        speed = GetComponentInParent<BulletCompetence>().speed;
-    }*/
+    protected Vector3 direction = Vector3.right;
 
-    public void Init(GameObject _target, float _damage, float _speed)
+    public virtual void Init(GameObject _target, float _damage, float _speed)
     {
         target = _target;
         damage = _damage;
@@ -26,14 +20,14 @@ public class BasicBullet : MonoBehaviour
         
         direction = target.transform.position - transform.position;
         direction.Normalize();
-        Destroy(gameObject,10);
+        Destroy(gameObject,10f);
     }
     void Update()
     {
         transform.position += direction * (speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {

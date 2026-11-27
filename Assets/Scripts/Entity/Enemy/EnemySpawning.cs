@@ -89,7 +89,6 @@ public class EnemySpawning : MonoBehaviour
         }
         else
         {
-            print(elementIndex);
             int i = Random.Range(0, enemies[element].Count-1);
             return enemies[element][i];
         }

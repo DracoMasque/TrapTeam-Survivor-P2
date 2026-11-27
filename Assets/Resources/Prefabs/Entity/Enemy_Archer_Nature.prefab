@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783721247255743970}
-  - component: {fileID: 8356898122462958994}
+  - component: {fileID: 4954374410135541769}
   - component: {fileID: 2892070363298123474}
   - component: {fileID: 1926789264679910545}
   - component: {fileID: 5671927596536538782}
@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 6429697507425186170}
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
-  - component: {fileID: 7459935724900703444}
+  - component: {fileID: -1791076887911703350}
   m_Layer: 10
-  m_Name: EnemyFeu
+  m_Name: Enemy_Archer_Nature
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,10 +38,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5060347272781435837}
+  - {fileID: 660196614673399753}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8356898122462958994
+--- !u!114 &4954374410135541769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,9 +50,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4113786732323820682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3abf5e25b701945a63eb5c8ee7093c, type: 3}
+  m_Script: {fileID: 11500000, guid: 54dc48ba59509794e93d6c317d293b82, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyArcher
   maxHealth: 9
   currentHealth: 0
   attack: 1
@@ -63,18 +63,20 @@ MonoBehaviour:
   modDamage: 0
   damageFreq: 0
   damageFreqUpgrade: 0
-  modDamageFreq: 0
+  modDamageFreq: 1
   defense: 0
   defenseUpgrade: 0
   modDefense: 0
-  range: 2
+  range: 10
   rangeUpgrade: 0
   modRange: 0
   xpToDrop: 1
   xpPrefab: {fileID: 919210782642933907, guid: d097435a5252f1d4295e1c321bf03d63, type: 3}
-  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
+  elements: {fileID: 11400000, guid: 1245e8dd7f6d7164d9994fba3f152685, type: 2}
   etat: {fileID: 0}
   closestEnemy: {fileID: 0}
+  arrow: {fileID: 2509342331586352136, guid: 6d9e46309c4c53041ab69c812e847649, type: 3}
+  arrowSpeed: 5
 --- !u!114 &2892070363298123474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,8 +142,8 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 654debcabcc514942ae32c5c96fea4af, type: 3}
-  m_Color: {r: 1, g: 0.1462264, b: 0.20623171, a: 1}
+  m_Sprite: {fileID: 21300000, guid: dec02ef4d94e17946aa45626f4c14098, type: 3}
+  m_Color: {r: 0.57069445, g: 1, b: 0.39999998, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +151,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
   m_BlendShapeWeights: []
 --- !u!95 &5671927596536538782
 Animator:
@@ -206,8 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttaqueCooldown
   autoStart: 1
   loop: 0
-  maxCooldownTime: 1
-  finished: 0
+  maxCooldownTime: 5
+  finished: 1
   currentTime: 0
 --- !u!70 &337994873977494765
 CapsuleCollider2D:
@@ -243,7 +245,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.11, y: 1.42}
+  m_Offset: {x: -0.11, y: 0.71}
   m_Size: {x: 1.7959673, y: 2.6665983}
   m_Direction: 0
 --- !u!50 &3062345154623349187
@@ -273,7 +275,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7459935724900703444
+--- !u!114 &-1791076887911703350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
   enemies: []
---- !u!1 &4636146463550682302
+--- !u!1 &5427738360091820982
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,22 +296,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5060347272781435837}
-  - component: {fileID: 6149008461871468110}
-  m_Layer: 0
-  m_Name: EnemyDetection
+  - component: {fileID: 660196614673399753}
+  - component: {fileID: 7610567655685767427}
+  m_Layer: 10
+  m_Name: PickupDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5060347272781435837
+--- !u!4 &660196614673399753
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4636146463550682302}
+  m_GameObject: {fileID: 5427738360091820982}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 0}
@@ -318,13 +320,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2783721247255743970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6149008461871468110
+--- !u!58 &7610567655685767427
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4636146463550682302}
+  m_GameObject: {fileID: 5427738360091820982}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1

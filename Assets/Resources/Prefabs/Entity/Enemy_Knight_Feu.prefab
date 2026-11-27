@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 6429697507425186170}
   - component: {fileID: 337994873977494765}
   - component: {fileID: 3062345154623349187}
-  - component: {fileID: -1791076887911703350}
+  - component: {fileID: 7459935724900703444}
   m_Layer: 10
-  m_Name: EnemyNature
+  m_Name: Enemy_Knight_Feu
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 660196614673399753}
+  - {fileID: 5060347272781435837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8356898122462958994
@@ -66,13 +66,13 @@ MonoBehaviour:
   modDamageFreq: 0
   defense: 0
   defenseUpgrade: 0
-  modDefense: 1
+  modDefense: 0
   range: 2
   rangeUpgrade: 0
   modRange: 0
   xpToDrop: 1
   xpPrefab: {fileID: 919210782642933907, guid: d097435a5252f1d4295e1c321bf03d63, type: 3}
-  elements: {fileID: 11400000, guid: 1245e8dd7f6d7164d9994fba3f152685, type: 2}
+  elements: {fileID: 11400000, guid: f445b5ec8bdbb23448b0acb6a3a8c644, type: 2}
   etat: {fileID: 0}
   closestEnemy: {fileID: 0}
 --- !u!114 &2892070363298123474
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 654debcabcc514942ae32c5c96fea4af, type: 3}
-  m_Color: {r: 0.57069445, g: 1, b: 0.39999998, a: 1}
+  m_Color: {r: 1, g: 0.1462264, b: 0.20623171, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 1
+  m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!95 &5671927596536538782
 Animator:
@@ -273,7 +273,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1791076887911703350
+--- !u!114 &7459935724900703444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
   enemies: []
---- !u!1 &5427738360091820982
+--- !u!1 &4636146463550682302
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,22 +294,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 660196614673399753}
-  - component: {fileID: 7610567655685767427}
-  m_Layer: 10
-  m_Name: PickupDetection
+  - component: {fileID: 5060347272781435837}
+  - component: {fileID: 6149008461871468110}
+  m_Layer: 0
+  m_Name: EnemyDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &660196614673399753
+--- !u!4 &5060347272781435837
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427738360091820982}
+  m_GameObject: {fileID: 4636146463550682302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 0}
@@ -318,13 +318,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2783721247255743970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7610567655685767427
+--- !u!58 &6149008461871468110
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5427738360091820982}
+  m_GameObject: {fileID: 4636146463550682302}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1

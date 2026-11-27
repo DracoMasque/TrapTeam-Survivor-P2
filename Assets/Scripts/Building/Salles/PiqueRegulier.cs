@@ -18,7 +18,6 @@ public class PiqueRegulier : MonoBehaviour
         cooldown.OnTimeout += ActivatePique;
         foreach (GameObject pique in piques)
         {
-            print(pique);
             foreach (Animation p in pique.GetComponentsInChildren<Animation>())
             {
                 piqueAnimations.Add(p);

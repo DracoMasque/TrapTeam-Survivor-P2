@@ -6,7 +6,7 @@ public class EnemyPrefab : MonoBehaviour
     [Header("Stats")]
     [SerializeField] int maxHealth = 10;
     public float currentHealth;
-    [SerializeField] int attack = 10;
+    [SerializeField] protected int attack = 10;
     
     public float speed;
     [HideInInspector] public float modSpeedTrap = 0;
@@ -23,7 +23,7 @@ public class EnemyPrefab : MonoBehaviour
     [HideInInspector] public float defenseUpgrade = 0;
     [HideInInspector] public float modDefense = 0;
 
-    [SerializeField] float range;
+    [SerializeField] protected float range;
     [HideInInspector] public float rangeUpgrade;
     [HideInInspector] public float modRange = 0;
     
@@ -35,34 +35,35 @@ public class EnemyPrefab : MonoBehaviour
     [SerializeField] private ElementWeakScriptable elements;
     public Etat etat;
     [HideInInspector] public GameObject closestEnemy;
+    protected DetectEnemy detectEnemy;
+    
+    protected GameObject player;
+    protected Controlleur playerControlleur;
+    
+    protected Cooldown timer;
+    
+    protected Animator animator;
+    protected Animation animationComponent;
 
+    protected Rigidbody2D rb;
     
-    private GameObject player;
-    private Controlleur playerControlleur;
-    
-    private Cooldown timer;
-    
-    private Animator animator;
-    private Animation animationComponent;
-
-    private Rigidbody2D rb;
-    
-    private GameManager gameManager;
-   private SpriteRenderer spriteRenderer;
+    protected GameManager gameManager;
+    protected SpriteRenderer spriteRenderer;
    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.linearDamping = 10;
         currentHealth = maxHealth;
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerControlleur = player.GetComponent<Controlleur>();
+        player = Controlleur.instance.gameObject;
+        playerControlleur = Controlleur.instance;
         timer = GetComponent<Cooldown>();
         animator = GetComponent<Animator>();
         animationComponent = GetComponent<Animation>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameManager.instance;
         _randomDrop = GetComponent<RandomDrop>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        detectEnemy = GetComponent<DetectEnemy>();
     }
     
     
@@ -84,7 +85,7 @@ public class EnemyPrefab : MonoBehaviour
         }
         Attack();
     }
-    private void Walk(Vector2 player_pos)
+    public virtual void Walk(Vector2 player_pos)
     {
         transform.position = Vector2.MoveTowards(
             transform.position, 
@@ -99,16 +100,17 @@ public class EnemyPrefab : MonoBehaviour
     //====================ATTACK====================//
     
     //Comment l'enemy attaque le joueur
-    private void Attack()
+    public virtual void Attack()
     {
         bool negate = false;
         if (timer.finished && IsClose())
         {
+            print(name);
             animator.SetBool("Attacking", true);
             if (etat != null && etat.GetComponent<Confusion>())
             {
                 closestEnemy.GetComponent<EnemyPrefab>().TakeDamage(damage);
-                    //currentHealth -= Mathf.Ceil((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
+                //currentHealth -= Mathf.Ceil((attack * (1 + (damage / 100))) * (1 - (Controlleur.instance.defense / 100)));
             }
             else
             {
@@ -137,7 +139,7 @@ public class EnemyPrefab : MonoBehaviour
         animator.SetBool("Attacking", false);
     }
     //Est ce que le joueur est dans le range de l'enemy
-    private bool IsClose()
+    protected bool IsClose()
     {
         bool result = false;
         if (etat != null && etat.GetComponent<Confusion>())
@@ -155,8 +157,12 @@ public class EnemyPrefab : MonoBehaviour
             }
         }
         return result;
-    } 
-    
+    }
+
+    void GetClosestEnemy()
+    {
+        
+    }
     
     //====================DEATH====================//
     
@@ -193,7 +199,7 @@ public class EnemyPrefab : MonoBehaviour
         {
             if (etat.GetComponent<Maudit>().propagationChance <= Random.Range(0, 101))
             {
-                List<GameObject> closestEnemies = GetComponent<DetectEnemy>().enemies;
+                List<GameObject> closestEnemies = detectEnemy.enemies;
                 GameObject closest = closestEnemies[0];
                 for (int i = 1; i < closestEnemies.Count; i++)
                 {
@@ -250,7 +256,7 @@ public class EnemyPrefab : MonoBehaviour
         
         if (propagationChance <= Random.Range(0, 101))
         {
-            List<GameObject> closestEnemies = GetComponent<DetectEnemy>().enemies;
+            List<GameObject> closestEnemies = detectEnemy.enemies;
             GameObject closest = closestEnemies[0];
             for (int i = 1; i < closestEnemies.Count; i++)
             {

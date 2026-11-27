@@ -124,8 +124,6 @@ public class Controlleur : MonoBehaviour
     {
         moveInput = cxt.ReadValue<Vector2>();
         playerSprite.flipX = moveInput.x >= 0;
-        print(playerAnimator.GetBool("Walking"));
-        
     }
 
     public void Heal(float healAmount)

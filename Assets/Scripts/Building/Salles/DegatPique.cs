@@ -37,7 +37,6 @@ public class DegatPique : MonoBehaviour
     
     public void Hurt()
     {
-        print("hurt");
         if (enemies.Count <= 0) return;
         foreach (GameObject enemy in enemies)
         {

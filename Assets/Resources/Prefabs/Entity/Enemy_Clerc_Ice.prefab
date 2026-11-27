@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3062345154623349187}
   - component: {fileID: 7485307862374829202}
   m_Layer: 10
-  m_Name: EnemyGlace
+  m_Name: Enemy_Clerc_Ice
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
