@@ -50,7 +50,7 @@ public class EnemyPrefab : MonoBehaviour
     protected GameManager gameManager;
     protected SpriteRenderer spriteRenderer;
    
-    void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.linearDamping = 10;
@@ -157,7 +157,6 @@ public class EnemyPrefab : MonoBehaviour
         }
         return result;
     }
-
     void GetClosestEnemy()
     {
         
@@ -298,7 +297,13 @@ public class EnemyPrefab : MonoBehaviour
         Instantiate(drop, transform.position, transform.rotation);
         Destroy(gameObject);
     }
-    
+
+    public void Heal(float heal)
+    {
+        currentHealth += heal;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+    //====================STATS====================//
     public void RedoSpeedModTrap(float modTrap)
     {
         modSpeedTrap += modTrap; 
